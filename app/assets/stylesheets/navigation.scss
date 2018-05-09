@@ -1,0 +1,27 @@
+.nav-Global_Appname {
+  position: relative;
+  background-color: $gray-700;
+  color: $gray-100 !important;
+  padding: .5rem 1rem;
+  border-radius: 1rem;
+
+  &:after {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 0;
+    height: 0;
+    right: -0.5rem;
+    top: .875rem;
+    border-top: .5rem solid transparent;
+    border-bottom: .5rem solid transparent;
+    border-left: .75rem solid $gray-700;
+  }
+}
+
+.nav-Global_Avatar {
+  $size: 2.5rem;
+  width: $size;
+  height: $size;
+  border-radius: 50%;
+}
