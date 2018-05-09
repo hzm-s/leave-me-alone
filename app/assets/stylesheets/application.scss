@@ -2,10 +2,13 @@
 @import 'bootstrap_vars';
 @import 'bootstrap';
 
-@import 'navigation';
+$paper-bg: #F7EDD1;
+$paper-line-color-h: #D0D4D8;
+$paper-line-color-v: #E0B99F;
 
-.st-Sheet {
-  border-radius: .1rem;
-  box-shadow: 0 0 10px $gray-200;
-  background-color: #F3E4B7;
+@import 'navigation';
+@import 'todo_list';
+
+body {
+  padding-bottom: 3rem;
 }

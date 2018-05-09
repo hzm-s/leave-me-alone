@@ -1,0 +1,65 @@
+$tdl-left-space: 2.5rem;
+$tdl-content-space: 3.5rem;
+
+.tdl-Paper {
+  position: relative;
+  padding: 0;
+  margin: 0;
+  background-color: $paper-bg;
+  border: 1px solid $white;
+  box-shadow: 0 0 6px rgba(70,70,70,0.3);
+
+  &:after {
+    content: '';
+    position: absolute;
+    width: 0px;
+    top: 0;
+    left: $tdl-left-space;
+    bottom: 0;
+    border-left:1px solid $paper-line-color-v;
+  }
+}
+
+.tdl-Header {
+  padding: 1.25rem $tdl-content-space;
+  border-bottom: 1px solid $paper-line-color-h;
+}
+
+.tdl-Title {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.tdl-Item {
+  @extend .d-flex;
+  padding: .5rem 1rem .5rem $tdl-content-space;
+  border-bottom: 1px solid $paper-line-color-h;
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.tdl-Item_Content {
+  font-size: 1rem;
+}
+
+.tdl-Item_Actions {
+  display: none;
+  font-size: $font-size-sm;
+  margin-left: .25rem;
+}
+
+.tdl-Item:hover .tdl-Item_Actions {
+  @extend .d-flex, .align-items-center;
+  display: block;
+}
+
+.tdl-Item_Action {
+  border-right: 1px solid $gray-300;
+  padding: 0 .5rem;
+
+  &:last-child {
+    border-right: 0;
+  }
+}
