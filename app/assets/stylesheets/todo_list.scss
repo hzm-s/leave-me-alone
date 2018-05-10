@@ -21,6 +21,7 @@ $tdl-content-space: 3.5rem;
 }
 
 .tdl-Header {
+  @extend .d-flex, .align-items-center;
   padding: 1.25rem $tdl-content-space;
   border-bottom: 1px solid $paper-line-color-h;
 }
@@ -28,6 +29,17 @@ $tdl-content-space: 3.5rem;
 .tdl-Title {
   font-size: 1.25rem;
   font-weight: bold;
+}
+
+.tdl-Header_Actions {
+  display: none;
+  font-size: $font-size-sm;
+  margin-left: .25rem;
+}
+
+.tdl-Header:hover .tdl-Header_Actions {
+  @extend .d-flex, .align-items-center;
+  display: block;
 }
 
 .tdl-Item {
