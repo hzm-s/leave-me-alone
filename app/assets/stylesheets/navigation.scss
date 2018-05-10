@@ -1,11 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Patrick+Hand');
 .nav-Global_Appname {
-  $bg-color: darken($gray-600, 10%);
+  $bg-color: $gray-300;
 
   font-family: 'Patrick Hand', cursive !important;
   position: relative;
   background-color: $bg-color;
-  color: $gray-100 !important;
+  color: $gray-900 !important;
   padding: .25rem 1rem;
   border-radius: 1rem;
 

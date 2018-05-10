@@ -57,7 +57,8 @@ $tdl-content-space: 3.5rem;
 
 .tdl-Item_Action {
   border-right: 1px solid $gray-300;
-  padding: 0 .5rem;
+  padding: 0 .25rem;
+  font-size: .75rem;
 
   &:last-child {
     border-right: 0;
