@@ -63,3 +63,28 @@ $tdl-content-space: 3.5rem;
     border-right: 0;
   }
 }
+
+.tdl-Item_Form {
+  @extend .form-inline;
+}
+
+.tdl-Item-min-space {
+  padding: .125rem 1rem .125rem $tdl-content-space;
+}
+
+.tdl-Item_Input {
+  @extend .form-control;
+
+  margin-left: .75rem;
+  width: 30rem !important;
+  font-size: 1rem;
+  background: transparent;
+  border: none;
+  color: $body-color !important;
+
+  &:focus {
+    background: transparent;
+    outline: 0 none;
+    box-shadow: none;
+  }
+}

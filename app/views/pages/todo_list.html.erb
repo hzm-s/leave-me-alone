@@ -8,8 +8,9 @@
       </div>
       <div class="tdl-Body">
         <% items = %w(Alpha Bravo Charlie Delta Eco) %>
+        <% items += [:new] %>
         <% items.fill(nil, items.size, (15 - items.size)).each_with_index do |c, i| %>
-          <% if c %>
+          <% if c.is_a?(String) %>
             <div class="tdl-Item">
               <div class="custom-control custom-checkbox">
                 <input type="checkbox" class="custom-control-input" id="customCheck<%= i %>">
@@ -21,6 +22,15 @@
                 <%= link_to '編集する', '', class: 'tdl-Item_Action' %>
                 <%= link_to '削除する', '', class: 'tdl-Item_Action' %>
               </div>
+            </div>
+          <% elsif c == :new %>
+            <div class="tdl-Item tdl-Item-min-space">
+              <form class="tdl-Item_Form">
+                <input type="text" class="tdl-Item_Input" placeholder="Todoを入力...">
+                <button class="btn btn-sm btn-success ml-1">
+                  追加する
+                </button>
+              </form>
             </div>
           <% else -%>
             <div class="tdl-Item tdl-Item-empty">
