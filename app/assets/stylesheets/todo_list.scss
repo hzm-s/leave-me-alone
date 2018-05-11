@@ -28,6 +28,7 @@ $tdl-content-space: 3.5rem;
 }
 
 .tdl-Title {
+  @include nf;
   font-size: 1.25rem;
   font-weight: bold;
 }
@@ -54,6 +55,7 @@ $tdl-content-space: 3.5rem;
 }
 
 .tdl-Item_Content {
+  @include nf;
   font-size: 1rem;
 }
 
