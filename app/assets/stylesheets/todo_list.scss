@@ -6,7 +6,7 @@ $tdl-content-space: 3.5rem;
   padding: 0;
   margin: 0;
   background-color: $paper-bg;
-  border: 1px solid $white;
+  border: 3px solid $white;
   box-shadow: 0 0 6px rgba(70,70,70,0.3);
 
   &:after {
@@ -22,7 +22,8 @@ $tdl-content-space: 3.5rem;
 
 .tdl-Header {
   @extend .d-flex, .align-items-center;
-  padding: 1.25rem $tdl-content-space;
+  padding: 1.25rem $tdl-content-space 1rem;
+  padding-right: 2rem;
   border-bottom: 1px solid $paper-line-color-h;
 }
 
@@ -104,4 +105,15 @@ $tdl-content-space: 3.5rem;
 
 .tdl-Item_Add {
   @extend .btn, .btn-sm, .btn-secondary;
+}
+
+.tdl-List_Actions {
+  @extend .d-flex, .align-items-center;
+  margin-top: .5rem;
+}
+
+.tdl-Timestamp {
+  @extend .ml-auto;
+  font-size: .675rem;
+  color: $gray-600;
 }

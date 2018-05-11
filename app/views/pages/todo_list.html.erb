@@ -12,7 +12,7 @@
       <div class="tdl-Body">
         <% items = %w(Alpha Bravo Charlie Delta Eco) %>
         <% items += [:new] %>
-        <% items.fill(nil, items.size, (15 - items.size)).each_with_index do |c, i| %>
+        <% items.fill(nil, items.size, (10 - items.size)).each_with_index do |c, i| %>
           <% if c.is_a?(String) %>
             <div class="tdl-Item">
               <div class="custom-control custom-checkbox">
@@ -42,6 +42,11 @@
           <% end -%>
         <% end -%>
       </div>
+    </div>
+    <div class="tdl-List_Actions">
+      <span class="tdl-Timestamp">
+        05-11 18:30 に更新
+      </span>
     </div>
   </div>
 </div>
