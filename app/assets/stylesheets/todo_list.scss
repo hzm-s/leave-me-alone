@@ -68,7 +68,7 @@ $tdl-content-space: 3.5rem;
 }
 
 .tdl-Item_Action {
-  border-right: 1px solid $gray-300;
+  border-right: 1px solid $paper-line-color-h;
   padding: 0 .25rem;
   font-size: .75rem;
 
@@ -100,4 +100,8 @@ $tdl-content-space: 3.5rem;
     outline: 0 none;
     box-shadow: none;
   }
+}
+
+.tdl-Item_Add {
+  @extend .btn, .btn-sm, .btn-secondary;
 }

@@ -17,7 +17,7 @@ $yellow:  #ffc107 !default;
 $green:   #26A038 !default;
 
 $primary:       $blue !default;
-$secondary:     $gray-600 !default;
+$secondary:     $gray-700 !default;
 $success:       $green !default;
 $warning:       $yellow !default;
 $danger:        $red !default;
@@ -27,3 +27,4 @@ $dark:          $gray-800 !default;
 $body-bg:                   #FBFAF9;
 $body-color:                $indigo;
 $font-size-base:            .875rem !default; // Assumes the browser default, typically `16px`
+$link-color:                $gray-600 !default;
