@@ -4,6 +4,7 @@
 
 .icon-Cancel {
   @extend .fa, .fa-close;
+  color: $gray-500;
 }
 
 .icon-Setting {
