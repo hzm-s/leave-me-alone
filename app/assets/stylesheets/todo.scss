@@ -1,5 +1,7 @@
 .todo-Item {
   @extend .custom-control, .custom-checkbox;
+  padding-top: .375rem;
+  padding-bottom: .375rem;
 }
 
 .todo-Item_Check {
@@ -12,12 +14,16 @@
   font-size: 1rem;
 }
 
-.todo-Form {
-  @extend .form-inline;
+@mixin todo-input {
+  @include input-no-border;
+  flex-grow: 1;
 }
 
-.todo-Form_Input {
-  @include input-no-border;
+.todo-Form {
+  @extend .form-inline;
   margin-left: .75rem;
-  flex-grow: 1 !important;
+}
+
+.todo-Input {
+  @include todo-input;
 }
