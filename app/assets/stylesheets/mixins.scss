@@ -2,6 +2,21 @@
   font-family: $font-family-sans-serif;
 }
 
+@mixin input-no-border {
+  @extend .form-control;
+
+  font-size: 1rem;
+  background: transparent;
+  border: none;
+  color: $body-color !important;
+
+  &:focus {
+    background: transparent;
+    outline: 0 none;
+    box-shadow: none;
+  }
+}
+
 @mixin btn-pill {
   padding: .25rem .5rem;
   font-size: .75rem;
