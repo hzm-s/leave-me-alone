@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-lg-9 col-xs-12 mx-auto">
     <div class="tdl-Background">
-      <div class="tdl-Header" data-controller="inline-edit" data-inline-edit-primary-display="flex" data-inline-edit-value="Todo">
+      <div class="tdl-Header" data-controller="inline-edit" data-inline-edit-primary-display="flex">
         <div data-target="inline-edit.primary" class="sw-flex sw-align-items-center">
           <span class="tdl-Title">
             Todo
@@ -12,7 +12,7 @@
         </div>
         <div data-target="inline-edit.form">
           <form class="tdl-TitleForm">
-            <input data-target="inline-edit.input" type="text" class="tdl-TitleForm_Input" value="Todo">
+            <input type="text" class="tdl-TitleForm_Input" value="Todo">
             <button class="sw-Button sw-Button-primary">
               <i class="icon-Save"></i>
             </button>
@@ -27,7 +27,7 @@
         <% items += [:new] %>
         <% items.fill(nil, items.size, (15 - items.size)).each_with_index do |c, i| %>
           <% if c.is_a?(String) %>
-            <div class="tdl-Item" data-controller="inline-edit" data-inline-edit-primary-display="flex" data-inline-edit-value="アイテム <%= c %>">
+            <div class="tdl-Item" data-controller="inline-edit" data-inline-edit-primary-display="flex">
               <div data-target="inline-edit.primary" class="sw-flex sw-align-items-center">
                 <div class="todo-Item">
                   <input type="checkbox" class="todo-Item_Check" id="customCheck<%= i %>">
@@ -42,7 +42,7 @@
               </div>
               <div data-target="inline-edit.form">
                 <form class="todo-Form">
-                  <input data-target="inline-edit.input" type="text" class="todo-Input">
+                  <input type="text" class="todo-Input" value="アイテム <%= c %>">
                   <button class="sw-Button sw-Button-primary">
                     <i class="icon-Save"></i>
                   </button>
