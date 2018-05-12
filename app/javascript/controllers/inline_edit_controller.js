@@ -8,15 +8,15 @@ export default class extends Controller {
   }
 
   open(event) {
-    event.preventDefault();
+    event.preventDefault()
 
     this.primaryTarget.style.display = 'none'
     this.formTarget.style.display = 'block'
-    this.inputTarget.focus();
+    this.inputTarget.focus()
   }
 
   close(event) {
-    event.preventDefault();
+    event.preventDefault()
 
     this.formTarget.style.display = 'none'
     this.primaryTarget.style.display = this.data.get('primary-display')

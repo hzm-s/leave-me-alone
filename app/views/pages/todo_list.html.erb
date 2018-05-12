@@ -27,22 +27,35 @@
         <% items += [:new] %>
         <% items.fill(nil, items.size, (15 - items.size)).each_with_index do |c, i| %>
           <% if c.is_a?(String) %>
-            <div class="tdl-Item">
-              <div class="todo-Item">
-                <input type="checkbox" class="todo-Item_Check" id="customCheck<%= i %>">
-                <label class="todo-Item_Content" for="customCheck<%= i %>">
-                  アイテム <%= c %>
-                </label>
+            <div class="tdl-Item" data-controller="inline-edit" data-inline-edit-primary-display="flex">
+              <div data-target="inline-edit.primary" class="sw-flex sw-align-items-center">
+                <div class="todo-Item">
+                  <input type="checkbox" class="todo-Item_Check" id="customCheck<%= i %>">
+                  <label class="todo-Item_Content" for="customCheck<%= i %>">
+                    アイテム <%= c %>
+                  </label>
+                </div>
+                <div class="tdl-Item_Actions">
+                  <%= link_to '編集する', '#', data: { action: 'inline-edit#open' }, class: 'tdl-Item_Action' %>
+                  <%= link_to '削除する', '', class: 'tdl-Item_Action' %>
+                </div>
               </div>
-              <div class="tdl-Item_Actions">
-                <%= link_to '編集する', '', class: 'tdl-Item_Action' %>
-                <%= link_to '削除する', '', class: 'tdl-Item_Action' %>
+              <div data-target="inline-edit.form">
+                <form class="todo-Form">
+                  <input data-target="inline-edit.input" type="text" class="todo-Input" value="Todo">
+                  <button class="sw-Button sw-Button-primary">
+                    保存する
+                  </button>
+                  <a data-action="inline-edit#close" href="#" class="sw-Cancel">
+                    キャンセル
+                  </a>
+                </form>
               </div>
             </div>
           <% elsif c == :new %>
-            <div class="tdl-Item tdl-Item-min-space">
+            <div class="tdl-Item">
               <form class="todo-Form">
-                <input type="text" class="todo-Form_Input" placeholder="Todoを入力...">
+                <input type="text" class="todo-Input" placeholder="Todoを入力...">
                 <button class="sw-Button sw-Button-primary">
                   追加する
                 </button>

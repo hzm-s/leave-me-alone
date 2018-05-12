@@ -31,12 +31,16 @@ $tdl-content-space: 3.5rem;
 }
 
 .tdl-Item {
-  padding: .5rem 2rem .5rem $tdl-content-space;
+  padding: .125rem 2rem .125rem $tdl-content-space;
   border-bottom: 1px solid $paper-line-color-h;
 
   &:last-child {
     border-bottom: 0;
   }
+}
+
+.tdl-Item-empty {
+  padding: .5rem;
 }
 
 .tdl-Item_Actions {
@@ -57,11 +61,6 @@ $tdl-content-space: 3.5rem;
   &:last-child {
     border-right: 0;
   }
-}
-
-.tdl-Item-min-space {
-  padding-top: .125rem;
-  padding-bottom: .125rem;
 }
 
 .tdl-Tail {
