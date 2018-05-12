@@ -10,9 +10,10 @@ export default class extends Controller {
   open(event) {
     event.preventDefault()
 
+    this.inputTarget.value = this.data.get('value')
     this.primaryTarget.style.display = 'none'
     this.formTarget.style.display = 'block'
-    this.inputTarget.focus()
+    this.inputTarget.select()
   }
 
   close(event) {

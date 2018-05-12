@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-lg-9 col-xs-12 mx-auto">
     <div class="tdl-Background">
-      <div class="tdl-Header" data-controller="inline-edit" data-inline-edit-primary-display="flex">
+      <div class="tdl-Header" data-controller="inline-edit" data-inline-edit-primary-display="flex" data-inline-edit-value="Todo">
         <div data-target="inline-edit.primary" class="sw-flex sw-align-items-center">
           <span class="tdl-Title">
             Todo
@@ -27,7 +27,7 @@
         <% items += [:new] %>
         <% items.fill(nil, items.size, (15 - items.size)).each_with_index do |c, i| %>
           <% if c.is_a?(String) %>
-            <div class="tdl-Item" data-controller="inline-edit" data-inline-edit-primary-display="flex">
+            <div class="tdl-Item" data-controller="inline-edit" data-inline-edit-primary-display="flex" data-inline-edit-value="アイテム <%= c %>">
               <div data-target="inline-edit.primary" class="sw-flex sw-align-items-center">
                 <div class="todo-Item">
                   <input type="checkbox" class="todo-Item_Check" id="customCheck<%= i %>">
@@ -42,7 +42,7 @@
               </div>
               <div data-target="inline-edit.form">
                 <form class="todo-Form">
-                  <input data-target="inline-edit.input" type="text" class="todo-Input" value="Todo">
+                  <input data-target="inline-edit.input" type="text" class="todo-Input">
                   <button class="sw-Button sw-Button-primary">
                     <i class="icon-Save"></i>
                   </button>
