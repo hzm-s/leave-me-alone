@@ -1,0 +1,62 @@
+<div class="row">
+  <div class="col-lg-9 mx-auto">
+    <div class="tdl-Background">
+      <div class="tdl-Header">
+        <span class="tdl-Title">
+          Todo
+        </span>
+        <div class="tdl-Header_Actions">
+          <%= link_to '編集する', '', class: 'tdl-Item_Action' %>
+        </div>
+      </div>
+      <div class="tdl-Body">
+        <% items = %w(Alpha Bravo Charlie Delta Eco) %>
+        <% items += [:new] %>
+        <% items.fill(nil, items.size, (15 - items.size)).each_with_index do |c, i| %>
+          <% if c.is_a?(String) %>
+            <div class="tdl-Item">
+              <div class="todo-Item">
+                <input type="checkbox" class="todo-Item_Check" id="customCheck<%= i %>">
+                <label class="todo-Item_Content" for="customCheck<%= i %>">
+                  アイテム <%= c %>
+                </label>
+              </div>
+              <div class="tdl-Item_Actions">
+                <%= link_to '編集する', '', class: 'tdl-Item_Action' %>
+                <%= link_to '削除する', '', class: 'tdl-Item_Action' %>
+              </div>
+            </div>
+          <% elsif c == :new %>
+            <div class="tdl-Item tdl-Item-min-space">
+              <form class="todo-Form">
+                <input type="text" class="todo-Form_Input" placeholder="Todoを入力...">
+                <button class="todo-Form_Add">
+                  追加する
+                </button>
+              </form>
+            </div>
+          <% else -%>
+            <div class="tdl-Item tdl-Item-empty">
+              &nbsp;
+            </div>
+          <% end -%>
+        <% end -%>
+      </div>
+    </div>
+    <div class="tdl-Tail">
+      <span class="tdl-Timestamp">
+        05-11 18:30 に更新
+      </span>
+        <div class="dropup">
+          <a class="tdl-Reset_Actions" href="" id="js-Refresh_Actions" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            リストをリセット
+          </a>
+          <div class="dropdown-menu" aria-labelledby="js-Refresh_Actions">
+            <a class="dropdown-item" href="#">まっさらにリセット</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">未完了を残してリセット</a>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>

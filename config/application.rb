@@ -29,5 +29,14 @@ module Lma
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    config.time_zone = 'Tokyo'
+
+    config.generators do |g|
+      g.helper false
+      g.assets false
+      g.view_specs false
+      g.controller_specs false
+    end
   end
 end

@@ -1,0 +1,80 @@
+$tdl-left-space: 2.5rem;
+$tdl-content-space: 3.5rem;
+
+.tdl-Background {
+  @include notepad($tdl-left-space);
+}
+
+.tdl-Header {
+  @extend .d-flex, .align-items-center;
+  padding: 1.25rem $tdl-content-space 1rem;
+  padding-right: 2rem;
+  border-bottom: 1px solid $paper-line-color-h;
+}
+
+.tdl-Title {
+  @include nf;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.tdl-Header_Actions {
+  display: none;
+  margin-left: .25rem;
+}
+
+.tdl-Header:hover .tdl-Header_Actions {
+  @extend .d-flex, .align-items-center;
+  display: block;
+}
+
+.tdl-Item {
+  @extend .d-flex;
+  padding: .5rem 1rem .5rem $tdl-content-space;
+  border-bottom: 1px solid $paper-line-color-h;
+
+  &:last-child {
+    border-bottom: 0;
+  }
+}
+
+.tdl-Item_Actions {
+  display: none;
+  margin-left: .25rem;
+}
+
+.tdl-Item:hover .tdl-Item_Actions {
+  @extend .d-flex, .align-items-center;
+  display: block;
+}
+
+.tdl-Item_Action {
+  border-right: 1px solid $paper-line-color-h;
+  padding: 0 .25rem;
+  font-size: $font-size-sm;
+
+  &:last-child {
+    border-right: 0;
+  }
+}
+
+.tdl-Item-min-space {
+  padding-top: .125rem;
+  padding-bottom: .125rem;
+}
+
+.tdl-Tail {
+  @extend .d-flex, .align-items-center;
+  margin-top: 1rem;
+}
+
+.tdl-Timestamp {
+  @extend .ml-auto;
+  font-size: .675rem;
+  color: $gray-600;
+}
+
+.tdl-Reset_Actions {
+  @include btn-pill;
+  margin-left: 1rem;
+}

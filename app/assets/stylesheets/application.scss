@@ -1,1 +1,18 @@
+@import 'bootstrap/functions';
+@import 'app_vars';
+@import 'bootstrap_vars';
 @import 'bootstrap';
+
+@import url('https://fonts.googleapis.com/css?family=Patrick+Hand');
+@import url('https://fonts.googleapis.com/earlyaccess/roundedmplus1c.css');
+
+@import 'mixins';
+@import 'form';
+
+@import 'navigation';
+@import 'todo_list';
+@import 'todo';
+
+body {
+  padding-bottom: 3rem;
+}
