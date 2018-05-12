@@ -16,7 +16,7 @@ $tdl-content-space: 3.5rem;
     top: 0;
     left: $tdl-left-space;
     bottom: 0;
-    border-left:1px solid $paper-line-color-v;
+    border-left: 1px solid $paper-line-color-v;
   }
 }
 
@@ -35,7 +35,6 @@ $tdl-content-space: 3.5rem;
 
 .tdl-Header_Actions {
   display: none;
-  font-size: $font-size-sm;
   margin-left: .25rem;
 }
 
@@ -54,14 +53,8 @@ $tdl-content-space: 3.5rem;
   }
 }
 
-.tdl-Item_Content {
-  @include nf;
-  font-size: 1rem;
-}
-
 .tdl-Item_Actions {
   display: none;
-  font-size: $font-size-sm;
   margin-left: .25rem;
 }
 
@@ -73,40 +66,16 @@ $tdl-content-space: 3.5rem;
 .tdl-Item_Action {
   border-right: 1px solid $paper-line-color-h;
   padding: 0 .25rem;
-  font-size: .75rem;
+  font-size: $font-size-sm;
 
   &:last-child {
     border-right: 0;
   }
 }
 
-.tdl-Item_Form {
-  @extend .form-inline;
-}
-
 .tdl-Item-min-space {
-  padding: .125rem 1rem .125rem $tdl-content-space;
-}
-
-.tdl-Item_Input {
-  @extend .form-control;
-
-  margin-left: .75rem;
-  width: 30rem !important;
-  font-size: 1rem;
-  background: transparent;
-  border: none;
-  color: $body-color !important;
-
-  &:focus {
-    background: transparent;
-    outline: 0 none;
-    box-shadow: none;
-  }
-}
-
-.tdl-Item_Add {
-  @extend .btn, .btn-sm, .btn-secondary;
+  padding-top: .125rem;
+  padding-bottom: .125rem;
 }
 
 .tdl-Tail {

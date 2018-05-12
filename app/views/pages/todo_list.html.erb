@@ -15,9 +15,9 @@
         <% items.fill(nil, items.size, (15 - items.size)).each_with_index do |c, i| %>
           <% if c.is_a?(String) %>
             <div class="tdl-Item">
-              <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="customCheck<%= i %>">
-                <label class="custom-control-label tdl-Item_Content" for="customCheck<%= i %>">
+              <div class="todo-Item">
+                <input type="checkbox" class="todo-Item_Check" id="customCheck<%= i %>">
+                <label class="todo-Item_Content" for="customCheck<%= i %>">
                   アイテム <%= c %>
                 </label>
               </div>
@@ -28,9 +28,9 @@
             </div>
           <% elsif c == :new %>
             <div class="tdl-Item tdl-Item-min-space">
-              <form class="tdl-Item_Form">
-                <input type="text" class="tdl-Item_Input" placeholder="Todoを入力...">
-                <button class="tdl-Item_Add">
+              <form class="todo-Form">
+                <input type="text" class="todo-Form_Input" placeholder="Todoを入力...">
+                <button class="todo-Form_Add">
                   追加する
                 </button>
               </form>

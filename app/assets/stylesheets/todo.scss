@@ -1,0 +1,38 @@
+.todo-Item {
+  @extend .custom-control, .custom-checkbox;
+}
+
+.todo-Item_Check {
+  @extend .custom-control-input;
+}
+
+.todo-Item_Content {
+  @extend .custom-control-label;
+  @include nf;
+  font-size: 1rem;
+}
+
+.todo-Form {
+  @extend .form-inline;
+}
+
+.todo-Form_Input {
+  @extend .form-control;
+
+  margin-left: .75rem;
+  width: 30rem !important;
+  font-size: 1rem;
+  background: transparent;
+  border: none;
+  color: $body-color !important;
+
+  &:focus {
+    background: transparent;
+    outline: 0 none;
+    box-shadow: none;
+  }
+}
+
+.todo-Form_Add {
+  @extend .btn, .btn-sm, .btn-secondary;
+}
