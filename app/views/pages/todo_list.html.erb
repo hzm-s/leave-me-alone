@@ -11,9 +11,9 @@
           </div>
         </div>
         <div data-target="inline-edit.form">
-          <form class="tdl-TitleForm">
-            <input type="text" class="tdl-TitleForm_Input" value="Todo">
-            <button class="sw-Button sw-Button-primary">
+          <form class="tdl-TitleForm" data-controller="safe-form">
+            <input type="text" data-target="safe-form.field" class="tdl-TitleForm_Input" value="Todo">
+            <button type="submit" class="sw-Button sw-Button-primary">
               <i class="icon-Save"></i>
             </button>
             <a data-action="inline-edit#close" href="#" class="sw-Cancel sw-Cancel-btn">
@@ -41,9 +41,9 @@
                 </div>
               </div>
               <div data-target="inline-edit.form">
-                <form class="todo-Form">
-                  <input type="text" class="todo-Input" value="アイテム <%= c %>">
-                  <button class="sw-Button sw-Button-primary">
+                <form class="todo-Form" data-controller="safe-form">
+                  <input type="text" data-target="safe-form.field" class="todo-Input" value="アイテム <%= c %>">
+                  <button type="submit" class="sw-Button sw-Button-primary">
                     <i class="icon-Save"></i>
                   </button>
                   <a data-action="inline-edit#close" href="#" class="sw-Cancel sw-Cancel-btn">
