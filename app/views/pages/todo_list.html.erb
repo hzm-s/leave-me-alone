@@ -11,9 +11,9 @@
           </div>
         </div>
         <div data-target="inline-edit.form">
-          <form class="tdl-TitleForm">
-            <input data-target="inline-edit.input" type="text" class="tdl-TitleForm_Input" value="Todo">
-            <button class="sw-Button sw-Button-primary">
+          <form class="tdl-TitleForm" data-controller="safe-form">
+            <input type="text" data-target="safe-form.field" class="tdl-TitleForm_Input" value="Todo">
+            <button type="submit" class="sw-Button sw-Button-primary">
               <i class="icon-Save"></i>
             </button>
             <a data-action="inline-edit#close" href="#" class="sw-Cancel sw-Cancel-btn">
@@ -41,9 +41,9 @@
                 </div>
               </div>
               <div data-target="inline-edit.form">
-                <form class="todo-Form">
-                  <input data-target="inline-edit.input" type="text" class="todo-Input" value="Todo">
-                  <button class="sw-Button sw-Button-primary">
+                <form class="todo-Form" data-controller="safe-form">
+                  <input type="text" data-target="safe-form.field" class="todo-Input" value="アイテム <%= c %>">
+                  <button type="submit" class="sw-Button sw-Button-primary">
                     <i class="icon-Save"></i>
                   </button>
                   <a data-action="inline-edit#close" href="#" class="sw-Cancel sw-Cancel-btn">
@@ -54,9 +54,9 @@
             </div>
           <% elsif c == :new %>
             <div class="tdl-Item">
-              <form class="todo-Form" data-controller="form">
-                <input data-target="form.field" type="text" class="todo-Input" placeholder="Todoを入力...">
-                <button data-target="form.submit" class="sw-Button sw-Button-primary">
+              <form class="todo-Form" data-controller="safe-form">
+                <input data-target="safe-form.field" type="text" class="todo-Input" placeholder="Todoを入力...">
+                <button type="submit" class="sw-Button sw-Button-primary">
                   追加する
                 </button>
               </form>
@@ -73,21 +73,21 @@
       <span class="tdl-Timestamp">
         05-11 18:30 に更新
       </span>
-        <div class="dropup">
-          <a class="tdl-Reset_Actions" href="" id="js-Refresh_Actions" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="icon-Reset"></i>
-            リストをリセット
+      <div class="dropup">
+        <a class="tdl-Reset_Actions" href="" id="js-Refresh_Actions" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="icon-Reset"></i>
+          リストをリセット
+        </a>
+        <div class="dropdown-menu" aria-labelledby="js-Refresh_Actions">
+          <a class="dropdown-item" href="#">
+            まっさらにリセット
           </a>
-          <div class="dropdown-menu" aria-labelledby="js-Refresh_Actions">
-            <a class="dropdown-item" href="#">
-              まっさらにリセット
-            </a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">
-              未完了を残してリセット
-            </a>
-          </div>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">
+            未完了を残してリセット
+          </a>
         </div>
+      </div>
     </div>
   </div>
 </div>
