@@ -6,16 +6,19 @@ $tdl-content-space: 3.5rem;
 }
 
 .tdl-Header {
-  @extend .d-flex, .align-items-center;
-  padding: 1.25rem $tdl-content-space 1rem;
+  padding: 1.25rem 2rem 1.25rem $tdl-content-space;
   padding-right: 2rem;
   border-bottom: 1px solid $paper-line-color-h;
 }
 
-.tdl-Title {
+@mixin tdl-title {
   @include nf;
   font-size: 1.25rem;
   font-weight: bold;
+}
+
+.tdl-Title {
+  @include tdl-title;
 }
 
 .tdl-Header_Actions {
@@ -24,13 +27,11 @@ $tdl-content-space: 3.5rem;
 }
 
 .tdl-Header:hover .tdl-Header_Actions {
-  @extend .d-flex, .align-items-center;
   display: block;
 }
 
 .tdl-Item {
-  @extend .d-flex;
-  padding: .5rem 1rem .5rem $tdl-content-space;
+  padding: .5rem 2rem .5rem $tdl-content-space;
   border-bottom: 1px solid $paper-line-color-h;
 
   &:last-child {
@@ -77,4 +78,15 @@ $tdl-content-space: 3.5rem;
 .tdl-Reset_Actions {
   @include btn-pill;
   margin-left: 1rem;
+}
+
+.tdl-TitleForm {
+  @extend .form-inline;
+}
+
+.tdl-TitleForm_Input {
+  @include input-no-border;
+  @include tdl-title;
+  flex-grow: 1;
+  padding: 0;
 }

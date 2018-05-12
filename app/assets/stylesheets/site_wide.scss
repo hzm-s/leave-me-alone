@@ -1,0 +1,20 @@
+.sw-flex {
+  display: flex;
+}
+
+.sw-align-items-center {
+  align-items: center;
+}
+
+.sw-Button {
+  @extend .btn, .btn-sm;
+}
+
+.sw-Button-primary {
+  @extend .btn-secondary;
+}
+
+.sw-Cancel {
+  @extend .ml-2;
+  font-size: .675rem;
+}
