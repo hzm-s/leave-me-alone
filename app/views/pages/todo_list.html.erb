@@ -54,9 +54,9 @@
             </div>
           <% elsif c == :new %>
             <div class="tdl-Item">
-              <form class="todo-Form">
-                <input type="text" class="todo-Input" placeholder="Todoを入力...">
-                <button class="sw-Button sw-Button-primary">
+              <form class="todo-Form" data-controller="form">
+                <input data-target="form.field" type="text" class="todo-Input" placeholder="Todoを入力...">
+                <button data-target="form.submit" class="sw-Button sw-Button-primary">
                   追加する
                 </button>
               </form>
