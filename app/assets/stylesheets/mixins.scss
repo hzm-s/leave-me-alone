@@ -1,0 +1,37 @@
+@mixin nf {
+  font-family: $font-family-sans-serif;
+}
+
+@mixin btn-pill {
+  padding: .25rem .5rem;
+  font-size: .75rem;
+  background-color: $secondary;
+  color: $white;
+  border-radius: 1rem;
+  box-shadow: 0 0 3px rgba(0,0,0,0.3);
+
+  &:hover {
+    color: $white;
+    text-decoration: none;
+    background-color: darken($secondary, 10%);
+  }
+}
+
+@mixin notepad($left-margin) {
+  position: relative;
+  padding: 0;
+  margin: 0;
+  background-color: $paper-bg;
+  border: 3px solid $white;
+  box-shadow: 0 0 6px rgba(70,70,70,0.3);
+
+  &:after {
+    content: '';
+    position: absolute;
+    width: 0px;
+    top: 0;
+    left: $left-margin;
+    bottom: 0;
+    border-left: 1px solid $paper-line-color-v;
+  }
+}

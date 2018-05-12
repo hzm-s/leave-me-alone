@@ -1,22 +1,13 @@
 @import 'bootstrap/functions';
+@import 'app_vars';
 @import 'bootstrap_vars';
 @import 'bootstrap';
-
-$paper-bg: #F7EDD1;
-$paper-line-color-h: #D0D4D8;
-$paper-line-color-v: #E0B99F;
 
 @import url('https://fonts.googleapis.com/css?family=Patrick+Hand');
 @import url('https://fonts.googleapis.com/earlyaccess/roundedmplus1c.css');
 
-@mixin nf {
-  font-family: $font-family-sans-serif;
-}
-
-input,
-textarea {
-  @include nf;
-}
+@import 'mixins';
+@import 'form';
 
 @import 'navigation';
 @import 'todo_list';
