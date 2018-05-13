@@ -1,0 +1,36 @@
+<div class="tdl-Body">
+  <% list.items.each do |item| %>
+    <div class="tdl-Item" data-controller="inline-edit" data-inline-edit-primary-display="flex">
+      <% checkbox_id = "checkbox_#{item.id}" %>
+      <div data-target="inline-edit.primary" class="sw-flex sw-align-items-center">
+        <div class="todo-Item">
+          <input type="checkbox" class="todo-Item_Check" id="<%= checkbox_id %>">
+          <label class="todo-Item_Content" for="<%= checkbox_id %>">
+            <%= item.todo %>
+          </label>
+        </div>
+        <div class="tdl-Item_Actions">
+          <%= link_to '編集する', '#', data: { action: 'inline-edit#open' }, class: 'tdl-Item_Action' %>
+          <%= link_to '削除する', '', class: 'tdl-Item_Action' %>
+        </div>
+      </div>
+      <div data-target="inline-edit.form">
+        <form class="todo-Form" data-controller="safe-form">
+          <input type="text" data-target="safe-form.field" class="todo-Input" value="<%= item.todo %>">
+          <button type="submit" class="sw-Button sw-Button-primary">
+            <i class="icon-Save"></i>
+          </button>
+          <a data-action="inline-edit#close" href="#" class="sw-Cancel sw-Cancel-btn">
+            <i class="icon-Cancel"></i>
+          </a>
+        </form>
+      </div>
+    </div>
+  <% end -%>
+  <div class="tdl-Item">
+    <%= form_with model: add_command, url: todos_url, class: 'todo-Form', data: { controller: 'safe-form' } do |f| %>
+      <%= f.text_field :param_todo, placeholder: 'Todoを入力...', class: 'todo-Input', data: { target: 'safe-form.field' } %>
+      <%= f.button '追加する', type: :submit, class: 'sw-Button sw-Button-primary' %>
+    <% end -%>
+  </div>
+</div>
