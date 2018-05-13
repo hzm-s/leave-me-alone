@@ -29,7 +29,7 @@ class TodoList < ApplicationRecord
 
   def remove_done_items
     items.each_with_index do |item, i|
-      remove(i) if item.status == TodoStatus::DONE
+      remove(i) if item.done?
     end
   end
 end

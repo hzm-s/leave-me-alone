@@ -12,4 +12,8 @@ class TodoListItem < ApplicationRecord
   def mark_as_todo
     self.status = TodoStatus::TODO
   end
+
+  def done?
+    status == TodoStatus::DONE
+  end
 end
