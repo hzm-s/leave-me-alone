@@ -35,6 +35,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'activerecord_easy_type', github: 'haazime/activerecord_easy_type'
+gem 'oblate', github: 'haazime/oblate'
+gem 'validates_domain_object_of', github: 'haazime/validates_domain_object_of'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
