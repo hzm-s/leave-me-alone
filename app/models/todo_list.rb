@@ -1,5 +1,5 @@
 class TodoList < ApplicationRecord
-  has_many :items, class_name: 'TodoListItem'
+  has_many :items, -> { order(:id) }, class_name: 'TodoListItem'
 
   def add(todo)
     self.items.build(todo: todo)
@@ -18,7 +18,18 @@ class TodoList < ApplicationRecord
   end
 
   def remove(index)
-    target = self.items.detect.with_index { |_, i| i == index }
-    self.items.destroy(target)
+    items.each_with_index do |item, i|
+      item.destroy if i == index
+    end
+  end
+
+  def remove_all
+    items.each_with_index { |_, i| remove(i) }
+  end
+
+  def remove_done_items
+    items.each_with_index do |item, i|
+      remove(i) if item.done?
+    end
   end
 end
