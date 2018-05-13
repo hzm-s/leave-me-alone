@@ -46,4 +46,9 @@ describe TodoList do
     list.remove(index)
     expect(list.items.map(&:todo)).to eq([todo1, todo3])
   end
+
+  it do
+    list.remove_all
+    expect(list.items).to be_empty
+  end
 end

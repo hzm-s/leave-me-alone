@@ -21,4 +21,9 @@ class TodoList < ApplicationRecord
     target = self.items.detect.with_index { |_, i| i == index }
     self.items.destroy(target)
   end
+
+  def remove_all
+    items.each_with_index { |_, i| remove(i) }
+    items.reload
+  end
 end
