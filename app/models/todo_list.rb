@@ -18,12 +18,18 @@ class TodoList < ApplicationRecord
   end
 
   def remove(index)
-    target = self.items.detect.with_index { |_, i| i == index }
-    self.items.destroy(target)
+    items.each_with_index do |item, i|
+      item.destroy if i == index
+    end
   end
 
   def remove_all
     items.each_with_index { |_, i| remove(i) }
-    items.reload
+  end
+
+  def remove_done_items
+    items.each_with_index do |item, i|
+      remove(i) if item.status == TodoStatus::DONE
+    end
   end
 end

@@ -42,13 +42,22 @@ describe TodoList do
   end
 
   it do
+    list.save
     index = TodoListIndex.new(1)
     list.remove(index)
-    expect(list.items.map(&:todo)).to eq([todo1, todo3])
+    expect(list.items.reload.map(&:todo)).to eq([todo1, todo3])
   end
 
   it do
+    list.save
     list.remove_all
-    expect(list.items).to be_empty
+    expect(list.items.reload).to be_empty
+  end
+
+  it do
+    list.save
+    list.mark_as_done(TodoListIndex.new(1))
+    list.remove_done_items
+    expect(list.items.reload.map(&:todo)).to eq([todo1, todo3])
   end
 end
