@@ -1,5 +1,5 @@
 class TodoList < ApplicationRecord
-  has_many :items, class_name: 'TodoListItem'
+  has_many :items, -> { order(:id) }, class_name: 'TodoListItem'
 
   def add(todo)
     self.items.build(todo: todo)
