@@ -28,9 +28,6 @@
     </div>
   <% end -%>
   <div class="tdl-Item">
-    <%= form_with model: add_command, url: todos_url, class: 'todo-Form', data: { controller: 'safe-form' } do |f| %>
-      <%= f.text_field :param_todo, placeholder: 'Todoを入力...', autocomplete: :off, class: 'todo-Input', data: { target: 'safe-form.field' } %>
-      <%= f.button '追加する', type: :submit, class: 'sw-Button sw-Button-primary' %>
-    <% end -%>
+    <%= render partial: 'todos/form', locals: { add_command: add_command } %>
   </div>
 </div>

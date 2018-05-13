@@ -1,0 +1,7 @@
+<div id="js-create-todo-errors">
+  <% if errors.any? %>
+    <div class="todo-Form_Errors">
+      <%= errors.full_messages.join('<br>').html_safe %>
+    </div>
+  <% end -%>
+</div>

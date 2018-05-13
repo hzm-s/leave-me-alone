@@ -1,8 +1,15 @@
 class TodosController < ApplicationController
 
   def create
-    result = AddTodoCommand.run(param_todo_list_id: TodoList.last.id, param_todo: add_todo_params[:param_todo])
-    redirect_to todo_list_url
+    @list = TodoList.last
+    @add_command = AddTodoCommand.new(param_todo_list_id: @list.id, param_todo: add_todo_params[:param_todo])
+    result = @add_command.run
+
+    if result.succeeded?
+      redirect_to todo_list_url
+    else
+      render :new
+    end
   end
 
   private

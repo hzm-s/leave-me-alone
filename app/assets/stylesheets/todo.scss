@@ -24,6 +24,14 @@
   margin-left: .75rem;
 }
 
+.todo-Form_Errors {
+  @include nf;
+  margin-left: 1.5rem;
+  padding-bottom: .25rem;
+  font-size: .675rem;
+  color: theme-color('danger');
+}
+
 .todo-Input {
   @include todo-input;
 }
