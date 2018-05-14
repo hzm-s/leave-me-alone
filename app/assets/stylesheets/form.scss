@@ -1,3 +1,17 @@
+.field_with_errors {
+  display: flex;
+
+  .form-control {
+    border-color: theme-color('danger');
+  }
+
+  .invalid-feedback {
+    @include nf;
+    display: block;
+    color: theme-color('danger') !important;
+  }
+}
+
 input,
 textarea {
   @include nf;

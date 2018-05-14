@@ -1,0 +1,5 @@
+ja:
+  activemodel:
+    attributes:
+      add_todo_command:
+        param_todo: Todo

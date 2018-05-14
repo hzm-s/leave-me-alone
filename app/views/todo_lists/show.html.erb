@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="col-lg-9 col-xs-12 mx-auto">
+    <div class="tdl-Background">
+      <%= render 'todo_lists/header' %>
+      <%= render partial: 'todo_lists/body', locals: { list: @list, add_command: @add_command } %>
+    </div>
+    <div class="tdl-Tail">
+      <span class="tdl-Timestamp">
+        05-11 18:30 に更新
+      </span>
+      <div class="dropup">
+        <a class="tdl-Reset_Actions" href="" id="js-Refresh_Actions" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="icon-Reset"></i>
+          リストをリセット
+        </a>
+        <div class="dropdown-menu" aria-labelledby="js-Refresh_Actions">
+          <a class="dropdown-item" href="#">
+            まっさらにリセット
+          </a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">
+            未完了を残してリセット
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
