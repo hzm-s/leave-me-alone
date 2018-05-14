@@ -22,3 +22,11 @@
 .sw-Cancel-btn {
   font-size: 1.25rem;
 }
+
+.sw-InlineErrors {
+  @include nf;
+  margin-left: 1.5rem;
+  padding-bottom: .25rem;
+  font-size: .675rem;
+  color: theme-color('danger');
+}
