@@ -57,8 +57,8 @@ end
 
 group :test do
   gem 'capybara'
-  gem 'chromedriver-helper'
   gem 'selenium-webdriver'
+  gem "chromedriver-helper"
 end
 
 gem 'webpacker', '~> 3.5'
