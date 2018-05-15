@@ -1,6 +1,8 @@
 class TodoList < ApplicationRecord
   has_many :items, -> { order(:id) }, class_name: 'TodoListItem'
 
+  after_update { self.items.each(&:save!) }
+
   def add(todo)
     self.items.build(todo: todo)
   end

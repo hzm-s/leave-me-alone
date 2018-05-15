@@ -12,7 +12,8 @@ class AddTodoCommand < ApplicationCommand
     todo = Todo.new(param_todo)
     list = TodoList.find(param_todo_list_id)
     list.add(todo)
-    list.save
+    list.save!
+
     success(todo_list_id: list.id)
   end
 end
