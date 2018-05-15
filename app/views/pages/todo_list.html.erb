@@ -2,7 +2,7 @@
   <div class="col-lg-9 col-xs-12 mx-auto">
     <div class="tdl-Background">
       <div class="tdl-Header" data-controller="inline-edit" data-inline-edit-primary-display="flex">
-        <div data-target="inline-edit.primary" class="sw-flex sw-align-items-center">
+        <div data-target="inline-edit.primary" class="sw-Flex sw-AlignItemsCenter">
           <span class="tdl-Title">
             Todo
           </span>
@@ -28,7 +28,7 @@
         <% items.fill(nil, items.size, (15 - items.size)).each_with_index do |c, i| %>
           <% if c.is_a?(String) %>
             <div class="tdl-Item" data-controller="inline-edit" data-inline-edit-primary-display="flex">
-              <div data-target="inline-edit.primary" class="sw-flex sw-align-items-center">
+              <div data-target="inline-edit.primary" class="sw-Flex sw-AlignItemsCenter">
                 <div class="todo-Item">
                   <input type="checkbox" class="todo-Item_Check" id="customCheck<%= i %>">
                   <label class="todo-Item_Content" for="customCheck<%= i %>">
