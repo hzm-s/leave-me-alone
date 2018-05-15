@@ -1,19 +1,17 @@
 <div class="row">
   <div class="col-lg-9 col-xs-12 mx-auto">
     <div class="tdl-Background">
-      <div class="tdl-Header" data-controller="inline-edit" data-inline-edit-primary-display="flex">
-        <div data-target="inline-edit.primary" class="sw-Flex sw-AlignItemsCenter">
-          <span class="tdl-Title">
-            Todo
-          </span>
+      <div class="tdl-Header" data-controller="inline-edit">
+        <div data-target="inline-edit.contentSection" class="sw-Flex sw-AlignItemsCenter">
+          <span class="tdl-Title" data-target="inline-edit.content">Todo</span>
           <div class="tdl-Header_Actions">
             <%= link_to '編集する', '#', data: { action: 'inline-edit#open' }, class: 'tdl-Item_Action' %>
           </div>
         </div>
-        <div data-target="inline-edit.form">
+        <div data-target="inline-edit.editSection">
           <form class="tdl-TitleForm" data-controller="safe-form">
-            <input type="text" data-target="safe-form.field" class="tdl-TitleForm_Input" value="Todo">
-            <button type="submit" class="sw-Button sw-Button-primary">
+            <input type="text" data-target="safe-form.field" class="tdl-TitleForm_Input">
+            <button data-action="inline-edit#update" type="submit" class="sw-Button sw-Button-primary">
               <i class="icon-Save"></i>
             </button>
             <a data-action="inline-edit#close" href="#" class="sw-Cancel sw-Cancel-btn">
@@ -28,7 +26,7 @@
         <% items.fill(nil, items.size, (15 - items.size)).each_with_index do |c, i| %>
           <% if c.is_a?(String) %>
             <div class="tdl-Item" data-controller="inline-edit" data-inline-edit-primary-display="flex">
-              <div data-target="inline-edit.primary" class="sw-Flex sw-AlignItemsCenter">
+              <div data-target="inline-edit.contentSection" class="sw-Flex sw-AlignItemsCenter">
                 <div class="todo-Item">
                   <input type="checkbox" class="todo-Item_Check" id="customCheck<%= i %>">
                   <label class="todo-Item_Content" for="customCheck<%= i %>">
@@ -40,7 +38,7 @@
                   <%= link_to '削除する', '', class: 'tdl-Item_Action' %>
                 </div>
               </div>
-              <div data-target="inline-edit.form">
+              <div data-target="inline-edit.editSection">
                 <form class="todo-Form" data-controller="safe-form">
                   <input type="text" data-target="safe-form.field" class="todo-Input" value="アイテム <%= c %>">
                   <button type="submit" class="sw-Button sw-Button-primary">

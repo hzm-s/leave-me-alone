@@ -1,48 +1,53 @@
 import { Controller } from "stimulus"
 
 export default class extends Controller {
-  static targets = [ 'primary', 'form' ]
+  static targets = [ 'content', 'contentSection', 'editSection' ]
 
   connect() {
-    this.hideForm()
+    this.contentSectionOrigin = {
+      style: this.contentSectionTarget.style
+    }
+    this.hideEditSection()
+  }
+
+  update() {
   }
 
   open(event) {
     event.preventDefault()
-    this.backup()
-    this.openForm()
+    this.hideContentSection()
+    this.showEditSection()
   }
 
   close(event) {
     event.preventDefault()
-    this.closeForm()
-    this.restore()
+    this.hideEditSection()
+    this.showContentSection()
   }
 
-  hideForm() {
-    this.formTarget.style.display = 'none'
-  }
-
-  backup() {
-    this.value = this.inputElement.value
-  }
-
-  restore() {
-    this.inputElement.value = this.value
-  }
-
-  openForm() {
-    this.primaryTarget.style.display = 'none'
-    this.formTarget.style.display = 'block'
+  showEditSection() {
+    this.editSectionTarget.style.display = 'block'
+    this.inputElement.value = this.contentValue
     this.inputElement.select()
   }
 
-  closeForm() {
-    this.formTarget.style.display = 'none'
-    this.primaryTarget.style.display = this.data.get('primary-display')
+  showContentSection() {
+    this.contentSectionTarget.style = this.contentSectionOrigin.style
+  }
+
+  hideContentSection() {
+    this.contentSectionTarget.style.display = 'none'
+  }
+
+  hideEditSection() {
+    this.editSectionTarget.style.display = 'none'
+  }
+
+  get contentValue() {
+    return this.contentTarget.innerText
   }
 
   get inputElement() {
-    return this.formTarget.querySelector('input')
+    return this.editSectionTarget.querySelector('input')
   }
 }
