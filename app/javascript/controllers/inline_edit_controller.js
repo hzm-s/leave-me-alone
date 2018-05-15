@@ -3,14 +3,28 @@ import { Controller } from "stimulus"
 export default class extends Controller {
   static targets = [ 'content', 'contentSection', 'editSection' ]
 
+  initialize() {
+    const value = this.data.get('value')
+    this.renderContent()
+  }
+
   connect() {
-    this.contentSectionOrigin = {
-      style: this.contentSectionTarget.style
-    }
+    this.contentSectionOriginalStyle = this.contentSectionTarget.style
     this.hideEditSection()
   }
 
-  update() {
+  renderContent() {
+    const value = this.data.get('value')
+    this.contentTarget.innerText = value
+  }
+
+  update(event) {
+    event.preventDefault()
+    const newValue = this.inputElement.value
+    this.data.set('value', newValue)
+    this.renderContent()
+    this.hideEditSection()
+    this.showContentSection()
   }
 
   open(event) {
@@ -32,7 +46,7 @@ export default class extends Controller {
   }
 
   showContentSection() {
-    this.contentSectionTarget.style = this.contentSectionOrigin.style
+    this.contentSectionTarget.style = this.contentSectionOriginalStyle
   }
 
   hideContentSection() {
