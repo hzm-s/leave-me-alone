@@ -1,8 +1,8 @@
 <% items = %w(Alpha Bravo Charlie Delta Eco).each_with_index do |c, i| %>
   <div data-controller="inline-edit content" data-content-value="アイテム <%= c %>" class="tdl-Item">
     <div data-target="inline-edit.showSection" class="sw-Flex sw-AlignItemsCenter">
-      <div class="todo-Item">
-        <input type="checkbox" class="todo-Item_Check" id="customCheck<%= i %>">
+      <div data-controller="check" class="todo-Item">
+        <input data="check" type="checkbox" class="todo-Item_Check" id="customCheck<%= i %>">
         <label data-target="content.show" class="todo-Item_Content" for="customCheck<%= i %>"></label>
       </div>
       <div class="tdl-Item_Actions">
