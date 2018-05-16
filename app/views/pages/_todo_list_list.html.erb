@@ -13,7 +13,7 @@
     <div data-target="inline-edit.editSection">
       <form data-controller="safe-form" class="todo-Form">
         <input data-target="content.input safe-form.field" type="text" class="todo-Input">
-        <button data-action="content#update inline-edit#close" class="sw-Button sw-Button-primary">
+        <button data-action="content#update inline-edit#close" data-target="safe-form.submit" class="sw-Button sw-Button-primary">
           <i class="icon-Save"></i>
         </button>
         <a data-action="inline-edit#close" href="#" class="sw-Cancel sw-Cancel-btn">
