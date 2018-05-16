@@ -7,6 +7,20 @@ export default class extends Controller {
     this.render(this.value)
   }
 
+  connect() {
+    this.inputTarget.addEventListener('submit', (e) => {
+      this.update()
+    })
+
+    this.inputTarget.addEventListener('keypress', (e) => {
+      const key = e.which || e.keyCode
+      if (key == 13) {
+        const submitEvent = new Event('submit')
+        this.inputTarget.dispatchEvent(submitEvent)
+      }
+    })
+  }
+
   edit(event) {
     event.preventDefault()
     this.inputTarget.value = this.value
