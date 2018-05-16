@@ -1,67 +1,44 @@
 import { Controller } from "stimulus"
 
 export default class extends Controller {
-  static targets = [ 'content', 'contentSection', 'editSection' ]
-
-  initialize() {
-    const value = this.data.get('value')
-    this.renderContent()
-  }
+  static targets = [ 'showSection', 'editSection' ]
 
   connect() {
-    this.contentSectionOriginalStyle = this.contentSectionTarget.style
+    this.showSectionOriginalStyle = this.showSectionTarget.style
     this.hideEditSection()
-  }
-
-  renderContent() {
-    const value = this.data.get('value')
-    this.contentTarget.innerText = value
   }
 
   update(event) {
     event.preventDefault()
-    const newValue = this.inputElement.value
-    this.data.set('value', newValue)
-    this.renderContent()
     this.hideEditSection()
-    this.showContentSection()
+    this.exposeShowSection()
   }
 
   open(event) {
     event.preventDefault()
     this.hideContentSection()
-    this.showEditSection()
+    this.exposeEditSection()
   }
 
   close(event) {
     event.preventDefault()
     this.hideEditSection()
-    this.showContentSection()
+    this.exposeShowSection()
   }
 
-  showEditSection() {
+  exposeEditSection() {
     this.editSectionTarget.style.display = 'block'
-    this.inputElement.value = this.contentValue
-    this.inputElement.select()
   }
 
-  showContentSection() {
-    this.contentSectionTarget.style = this.contentSectionOriginalStyle
+  exposeShowSection() {
+    this.showSectionTarget.style = this.showSectionOriginalStyle
   }
 
   hideContentSection() {
-    this.contentSectionTarget.style.display = 'none'
+    this.showSectionTarget.style.display = 'none'
   }
 
   hideEditSection() {
     this.editSectionTarget.style.display = 'none'
-  }
-
-  get contentValue() {
-    return this.contentTarget.innerText
-  }
-
-  get inputElement() {
-    return this.editSectionTarget.querySelector('input')
   }
 }
