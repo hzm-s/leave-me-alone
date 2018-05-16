@@ -6,7 +6,12 @@ export default class extends Controller {
   connect() {
     this.showSectionOriginalStyle = this.showSectionTarget.style
     this.hideEditSection()
-    this.inputTarget.addEventListener('submit', (e) => {
+
+    this.inputTarget.addEventListener('commit', (e) => {
+      this.closeEdit()
+    })
+
+    this.inputTarget.addEventListener('rollback', (e) => {
       this.closeEdit()
     })
   }

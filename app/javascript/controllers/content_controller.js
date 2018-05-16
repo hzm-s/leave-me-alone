@@ -8,15 +8,21 @@ export default class extends Controller {
   }
 
   connect() {
-    this.inputTarget.addEventListener('submit', (e) => {
+    this.inputTarget.addEventListener('commit', (e) => {
       this.update()
     })
 
     this.inputTarget.addEventListener('keypress', (e) => {
       const key = e.which || e.keyCode
+
       if (key == 13) {
-        const submitEvent = new Event('submit')
-        this.inputTarget.dispatchEvent(submitEvent)
+        const event = new Event('commit')
+        this.inputTarget.dispatchEvent(event)
+      }
+
+      if (key == 27) {
+        const event = new Event('rollback')
+        this.inputTarget.dispatchEvent(event)
       }
     })
   }
