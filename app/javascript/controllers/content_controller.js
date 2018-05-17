@@ -3,28 +3,8 @@ import { Controller } from 'stimulus';
 export default class extends Controller {
   static targets = ['show', 'input']
 
-  initialize() {
-    this.render(this.value)
-  }
-
   connect() {
-    this.inputTarget.addEventListener('commit', (e) => {
-      this.update()
-    })
-
-    this.inputTarget.addEventListener('keypress', (e) => {
-      const key = e.which || e.keyCode
-
-      if (key == 13) {
-        const event = new Event('commit')
-        this.inputTarget.dispatchEvent(event)
-      }
-
-      if (key == 27) {
-        const event = new Event('rollback')
-        this.inputTarget.dispatchEvent(event)
-      }
-    })
+    this.render(this.value)
   }
 
   edit(event) {

@@ -1,19 +1,11 @@
 import { Controller } from "stimulus"
 
 export default class extends Controller {
-  static targets = ['showSection', 'editSection', 'input']
+  static targets = ['showSection', 'editSection']
 
   connect() {
     this.showSectionOriginalStyle = this.showSectionTarget.style
     this.hideEditSection()
-
-    this.inputTarget.addEventListener('commit', (e) => {
-      this.closeEdit()
-    })
-
-    this.inputTarget.addEventListener('rollback', (e) => {
-      this.closeEdit()
-    })
   }
 
   open(event) {

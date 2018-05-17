@@ -6,6 +6,13 @@ export default class extends Controller {
   connect() {
     this.disable()
     this.startDetection()
+
+    this.fieldTarget.addEventListener('keypress', (e) => {
+      const key = e.which || e.keyCode
+      if (key == 13) {
+        this.submitTarget.click()
+      }
+    })
   }
 
   disconnect() {
