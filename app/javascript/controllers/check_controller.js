@@ -1,10 +1,17 @@
 import { Controller } from 'stimulus';
 
 export default class extends Controller {
-  connect() {
-    this.checkbox = this.element.querySelector('input[type="checkbox"]')
-    this.label = this.element.querySelector('label')
+  initialize() {
+    const checkId = `todo-item-check-${this.data.get('index')}`
 
+    this.checkbox = this.element.querySelector('input[type="checkbox"]')
+    this.checkbox.id = checkId
+
+    this.label = this.element.querySelector('label')
+    this.label.setAttribute('for', checkId)
+  }
+
+  connect() {
     this.observeTimer = setInterval(() => {
       let textDecoration = 'none'
       if (this.checkbox.checked) {

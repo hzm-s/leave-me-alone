@@ -2,8 +2,11 @@
   <div class="col-lg-9 col-xs-12 mx-auto">
     <div class="tdl-Background">
       <%= render 'todo_list_header' %>
-      <div class="tdl-Body">
-        <%= render 'todo_list_list' %>
+      <% items = %w(Alpha Bravo Charlie Delta Eco) %>
+      <div data-controller="todo-list" data-todo-list-size="<%= items.size %>" class="tdl-Body">
+        <div data-target="todo-list.list">
+          <%= render partial: 'todo_list_list', locals: { items: items } %>
+        </div>
         <%= render 'todo_list_new' %>
       </div>
     </div>
@@ -29,3 +32,6 @@
     </div>
   </div>
 </div>
+<template id="tmpl-todo-item">
+  <%= render partial: 'todo_list_item', locals: { content: nil, index: nil } %>
+</template>
