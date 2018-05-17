@@ -1,15 +1,19 @@
 import { Controller } from 'stimulus'
 
 export default class extends Controller {
-  static targets = [ 'field' ]
+  static targets = [ 'field', 'submit' ]
 
   connect() {
     this.disable()
     this.startDetection()
   }
 
+  disconnect() {
+    this.stopDetection()
+  }
+
   startDetection() {
-    this.detectTimer = setInterval(() => { this.detect() }, 100)
+    this.detectTimer = setInterval(() => { this.detect() }, 500)
   }
 
   stopDetection() {
@@ -35,21 +39,17 @@ export default class extends Controller {
   }
 
   enable() {
-    this.submitElement.style.visibility = 'visible'
-    this.submitElement.disabled = false
+    this.submitTarget.style.visibility = 'visible'
+    this.submitTarget.disabled = false
   }
 
   disable() {
-    this.submitElement.style.visibility = 'hidden'
-    this.submitElement.disabled = true
+    this.submitTarget.style.visibility = 'hidden'
+    this.submitTarget.disabled = true
   }
 
   canSubmit() {
     if (this.fieldLength > 0) { return true }
     return false
-  }
-
-  get submitElement() {
-    return this.element.querySelectorAll('button[type="submit"], input[type="submit"]')[0]
   }
 }

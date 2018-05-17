@@ -1,0 +1,19 @@
+<div data-controller="inline-edit content" data-content-value="Todo" class="tdl-Header">
+  <div data-target="inline-edit.showSection" class="sw-Flex sw-AlignItemsCenter">
+    <span data-target="content.show" class="tdl-Title"></span>
+    <div class="tdl-Header_Actions">
+      <%= link_to '編集する', '#', data: { action: 'inline-edit#open content#edit' }, class: 'tdl-Item_Action' %>
+    </div>
+  </div>
+  <div data-target="inline-edit.editSection">
+    <div data-controller="safe-form" class="tdl-TitleForm">
+      <input data-target="content.input inline-edit.input safe-form.field" type="text" class="tdl-TitleForm_Input">
+      <button data-action="content#update inline-edit#close" data-target="safe-form.submit" class="sw-Button sw-Button-primary">
+        <i class="icon-Save"></i>
+      </button>
+      <a data-action="inline-edit#close" href="#" class="sw-Cancel sw-Cancel-btn">
+        <i class="icon-Cancel"></i>
+      </a>
+    </div>
+  </div>
+</div>

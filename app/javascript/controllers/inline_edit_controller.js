@@ -1,48 +1,54 @@
 import { Controller } from "stimulus"
 
 export default class extends Controller {
-  static targets = [ 'primary', 'form' ]
+  static targets = ['showSection', 'editSection', 'input']
 
   connect() {
-    this.hideForm()
+    this.showSectionOriginalStyle = this.showSectionTarget.style
+    this.hideEditSection()
+
+    this.inputTarget.addEventListener('commit', (e) => {
+      this.closeEdit()
+    })
+
+    this.inputTarget.addEventListener('rollback', (e) => {
+      this.closeEdit()
+    })
   }
 
   open(event) {
     event.preventDefault()
-    this.backup()
-    this.openForm()
+    this.openEdit()
   }
 
   close(event) {
     event.preventDefault()
-    this.closeForm()
-    this.restore()
+    this.closeEdit()
   }
 
-  hideForm() {
-    this.formTarget.style.display = 'none'
+  openEdit() {
+    this.hideContentSection()
+    this.exposeEditSection()
   }
 
-  backup() {
-    this.value = this.inputElement.value
+  closeEdit() {
+    this.hideEditSection()
+    this.exposeShowSection()
   }
 
-  restore() {
-    this.inputElement.value = this.value
+  exposeEditSection() {
+    this.editSectionTarget.style.display = 'block'
   }
 
-  openForm() {
-    this.primaryTarget.style.display = 'none'
-    this.formTarget.style.display = 'block'
-    this.inputElement.select()
+  exposeShowSection() {
+    this.showSectionTarget.style = this.showSectionOriginalStyle
   }
 
-  closeForm() {
-    this.formTarget.style.display = 'none'
-    this.primaryTarget.style.display = this.data.get('primary-display')
+  hideContentSection() {
+    this.showSectionTarget.style.display = 'none'
   }
 
-  get inputElement() {
-    return this.formTarget.querySelector('input')
+  hideEditSection() {
+    this.editSectionTarget.style.display = 'none'
   }
 }
