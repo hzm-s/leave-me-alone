@@ -1,0 +1,23 @@
+<div data-controller="inline-edit content" data-content-value="<%= content %>" class="tdl-Item">
+  <div data-target="inline-edit.showSection" class="sw-Flex sw-AlignItemsCenter">
+    <div data-controller="check" class="todo-Item" data-check-index="<%= index %>">
+      <input type="checkbox" class="todo-Item_Check">
+      <label data-target="content.show" class="todo-Item_Content"></label>
+    </div>
+    <div class="tdl-Item_Actions">
+      <%= link_to '編集する', '#', data: { action: 'inline-edit#open content#edit' }, class: 'tdl-Item_Action' %>
+      <%= link_to '削除する', '', class: 'tdl-Item_Action' %>
+    </div>
+  </div>
+  <div data-target="inline-edit.editSection">
+    <form data-controller="safe-form" class="todo-Form">
+      <input data-target="content.input safe-form.field" type="text" class="todo-Input">
+      <button data-action="content#update inline-edit#close" data-target="safe-form.submit" class="sw-Button sw-Button-primary">
+        <i class="icon-Save"></i>
+      </button>
+      <a data-action="inline-edit#close" href="#" class="sw-Cancel sw-Cancel-btn">
+        <i class="icon-Cancel"></i>
+      </a>
+    </form>
+  </div>
+</div>
