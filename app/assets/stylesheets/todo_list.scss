@@ -8,7 +8,6 @@ $tdl-content-space: 3.5rem;
 .tdl-Header {
   padding: 1.25rem 2rem 1.25rem $tdl-content-space;
   padding-right: 2rem;
-  border-bottom: 1px solid $paper-line-color-h;
 }
 
 @mixin tdl-title {
@@ -30,17 +29,13 @@ $tdl-content-space: 3.5rem;
   display: block;
 }
 
-.tdl-Item {
-  padding: .125rem 2rem .125rem $tdl-content-space;
+.tdl-Body_List {
   border-bottom: 1px solid $paper-line-color-h;
-
-  &:last-child {
-    border-bottom: 0;
-  }
 }
 
-.tdl-Item-empty {
-  padding: .5rem;
+.tdl-Item {
+  padding: .125rem 2rem .125rem $tdl-content-space;
+  border-top: 1px solid $paper-line-color-h;
 }
 
 .tdl-Item_Actions {
@@ -61,6 +56,10 @@ $tdl-content-space: 3.5rem;
   &:last-child {
     border-right: 0;
   }
+}
+
+.tdl-Add {
+  padding: .25rem 2rem .25rem $tdl-content-space;
 }
 
 .tdl-Tail {
