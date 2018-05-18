@@ -26,4 +26,10 @@ export default class extends Controller {
       clearInterval(this.observeTimer)
     }
   }
+
+  remove(e) {
+    e.preventDefault()
+    const event = new Event('itemremoved', { bubbles: true })
+    this.element.dispatchEvent(event)
+  }
 }

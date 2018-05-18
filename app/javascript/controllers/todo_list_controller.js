@@ -7,6 +7,10 @@ export default class extends Controller {
     this.element.addEventListener('todocreated', (e) => {
       this.addItem(e.detail)
     })
+
+    this.element.addEventListener('itemremoved', (e) => {
+      this.removeItem(e.target)
+    })
   }
 
   addItem(payload) {
@@ -24,6 +28,10 @@ export default class extends Controller {
     const check = template.content.querySelector('[data-todo-list-item-index]')
     check.dataset.todoListItemIndex = index
     return document.importNode(template.content, true)
+  }
+
+  removeItem(element) {
+    element.parentNode.removeChild(element)
   }
 
   get currentSize() {
