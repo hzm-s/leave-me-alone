@@ -4,7 +4,7 @@
       <%= render 'todo_list_header' %>
       <% items = %w(Alpha Bravo Charlie Delta Eco) %>
       <div data-controller="todo-list" data-todo-list-size="<%= items.size %>" class="tdl-Body">
-        <div data-target="todo-list.list">
+        <div data-target="todo-list.list" class="tdl-Body_List">
           <%= render partial: 'todo_list_list', locals: { items: items } %>
         </div>
         <%= render 'todo_list_new' %>

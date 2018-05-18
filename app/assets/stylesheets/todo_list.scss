@@ -30,6 +30,10 @@ $tdl-content-space: 3.5rem;
   display: block;
 }
 
+.tdl-Body_List {
+  border-bottom: 1px solid $paper-line-color-h;
+}
+
 .tdl-Item {
   padding: .125rem 2rem .125rem $tdl-content-space;
   border-bottom: 1px solid $paper-line-color-h;
