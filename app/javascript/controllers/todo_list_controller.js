@@ -21,8 +21,8 @@ export default class extends Controller {
     const template = document.querySelector('#tmpl-todo-item')
     const item = template.content.querySelector('[data-content-value]')
     item.dataset.contentValue = content
-    const check = template.content.querySelector('[data-check-index]')
-    check.dataset.checkIndex = index
+    const check = template.content.querySelector('[data-todo-list-item-index]')
+    check.dataset.todoListItemIndex = index
     return document.importNode(template.content, true)
   }
 

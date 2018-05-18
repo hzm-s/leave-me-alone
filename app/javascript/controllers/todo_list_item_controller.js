@@ -2,7 +2,7 @@ import { Controller } from 'stimulus';
 
 export default class extends Controller {
   initialize() {
-    const checkId = `todo-item-check-${this.data.get('index')}`
+    const checkId = `todo-list-item-check-${this.data.get('index')}`
 
     this.checkbox = this.element.querySelector('input[type="checkbox"]')
     this.checkbox.id = checkId
