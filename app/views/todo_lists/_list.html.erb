@@ -1,0 +1,9 @@
+<%= render partial: 'todo_lists/header', locals: { title: list.title } %>
+<div data-controller="todo-list" data-todo-list-size="<%= list.items.size %>" class="tdl-Body">
+  <div data-target="todo-list.list" class="tdl-Body_List">
+    <% list.items.each_with_index do |item, index| %>
+      <%= render partial: 'todo_lists/list_item', locals: { item: item, index: index } %>
+    <% end -%>
+  </div>
+  <%= render 'todo_lists/new_list_item' %>
+</div>

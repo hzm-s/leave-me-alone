@@ -1,8 +1,7 @@
 <div class="row">
   <div class="col-lg-9 col-xs-12 mx-auto">
     <div class="tdl-Background">
-      <%= render 'todo_lists/header' %>
-      <%= render partial: 'todo_lists/body', locals: { list: @list, add_command: @add_command } %>
+      <%= render partial: 'todo_lists/list', locals: { list: @list } %>
     </div>
     <div class="tdl-Tail">
       <span class="tdl-Timestamp">
@@ -26,3 +25,6 @@
     </div>
   </div>
 </div>
+<template id="tmpl-todo-item">
+  <%= render partial: 'todo_lists/list_item', locals: { item: nil, index: nil } %>
+</template>
