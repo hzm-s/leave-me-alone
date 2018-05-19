@@ -14,4 +14,8 @@ class TodoListsController < ApplicationController
       ]
     )
   end
+
+  def update
+    render plain: params[:form]
+  end
 end

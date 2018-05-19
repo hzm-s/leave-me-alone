@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resource :todo_list, only: [:show]
+  resource :todo_list, only: [:show, :update]
 
   resources :todos, only: [:create]
   patch 'todo_list/:todo_list_id/:todo_list_index' => 'todos#update', as: :todo

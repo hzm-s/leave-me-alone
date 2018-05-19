@@ -1,7 +1,7 @@
 <div data-controller="inline-edit content todo-list-item" data-content-value="<%= item&.content %>" data-todo-list-item-index="<%= index %>" class="tdl-Item">
   <div data-target="inline-edit.showSection" class="sw-Flex sw-AlignItemsCenter">
     <div class="todo-Item">
-      <input type="checkbox" class="todo-Item_Check">
+      <input name="form[items][<%= index %>][done]" type="checkbox" class="todo-Item_Check">
       <label data-target="content.show" class="todo-Item_Content"></label>
     </div>
     <div class="tdl-Item_Actions">
@@ -10,14 +10,14 @@
     </div>
   </div>
   <div data-target="inline-edit.editSection">
-    <form data-controller="safe-form" class="todo-Form">
-      <input data-target="content.input safe-form.field" type="text" class="todo-Input">
+    <div data-controller="safe-form" class="todo-Form">
+      <input data-target="content.input safe-form.field" name="form[items][<%= index %>][todo]" type="text" class="todo-Input">
       <button data-action="content#update inline-edit#close" data-target="safe-form.submit" class="sw-Button sw-Button-primary">
         <i class="icon-Save"></i>
       </button>
       <a data-action="inline-edit#close" href="#" class="sw-Cancel sw-Cancel-btn">
         <i class="icon-Cancel"></i>
       </a>
-    </form>
+    </div>
   </div>
 </div>
