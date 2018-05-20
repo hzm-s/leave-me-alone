@@ -68,12 +68,7 @@ $tdl-content-space: 3.5rem;
 }
 
 .tdl-Actions_Main {
-  @extend .ml-auto;
-}
-
-.tdl-Reset_Actions {
-  @include btn-pill;
-  margin-left: 1rem;
+  margin-left: 5rem;
 }
 
 .tdl-TitleForm {
