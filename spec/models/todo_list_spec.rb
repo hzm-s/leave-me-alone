@@ -10,6 +10,16 @@ describe TodoList do
   end
 
   it do
+    list = TodoList.new
+    expect(list.title).to eq('Todo')
+  end
+
+  it do
+    list = TodoList.new
+    expect(list.todos).to be_empty
+  end
+
+  it do
     new_list = TodoList.new(title: 'Todo r2') do |new_list|
       new_list.add(content: 'Alpha')
       new_list.add(content: 'Bravo', done: true)
