@@ -1,13 +1,15 @@
 <div class="row">
   <div class="col-lg-9 col-xs-12 mx-auto">
-    <div class="tdl-Background">
-      <%= render partial: 'todo_lists/list', locals: { list: @list } %>
-    </div>
-    <div class="tdl-Tail">
-      <span class="tdl-Timestamp">
-        05-11 18:30 に更新
-      </span>
-    </div>
+    <%= form_with url: todo_list_url, method: :patch, local: true, scope: :form do |f| %>
+      <div class="tdl-Background">
+        <%= render partial: 'todo_lists/list', locals: { list: @list } %>
+      </div>
+      <div class="tdl-Actions">
+        <div class="tdl-Actions_Main">
+          <%= f.button '保存する', class: 'btn btn-sm btn-secondary' %>
+        </div>
+      </div>
+    <% end -%>
   </div>
 </div>
 <template id="tmpl-todo-item">
