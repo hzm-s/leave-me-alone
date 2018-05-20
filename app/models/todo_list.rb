@@ -1,37 +1,16 @@
 class TodoList < ApplicationRecord
-  has_many :items, -> { order(:id) }, class_name: 'TodoListItem'
+  has_many :todos, dependent: :destroy
 
-  after_update { self.items.each(&:save!) }
-
-  def add(todo)
-    self.items.build(todo: todo)
+  after_initialize do
+    self.title ||= 'Todo'
   end
 
-  def rewrite(index, todo)
-    self.items[index].todo = todo
+  def update_with(new_todo_list)
+    self.title = new_todo_list.title
+    self.todos = new_todo_list.todos
   end
 
-  def mark_as_done(index)
-    self.items[index].mark_as_done
-  end
-
-  def mark_as_todo(index)
-    self.items[index].mark_as_todo
-  end
-
-  def remove(index)
-    items.each_with_index do |item, i|
-      item.destroy if i == index
-    end
-  end
-
-  def remove_all
-    items.each_with_index { |_, i| remove(i) }
-  end
-
-  def remove_done_items
-    items.each_with_index do |item, i|
-      remove(i) if item.done?
-    end
+  def add(content:, done: false)
+    self.todos.build(content: content, done: done)
   end
 end

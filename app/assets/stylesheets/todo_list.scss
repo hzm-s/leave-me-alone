@@ -62,20 +62,13 @@ $tdl-content-space: 3.5rem;
   padding: .25rem 2rem .25rem $tdl-content-space;
 }
 
-.tdl-Tail {
+.tdl-Actions {
   @extend .d-flex, .align-items-center;
-  margin-top: 1rem;
+  margin-top: .75rem;
 }
 
-.tdl-Timestamp {
-  @extend .ml-auto;
-  font-size: .675rem;
-  color: $gray-600;
-}
-
-.tdl-Reset_Actions {
-  @include btn-pill;
-  margin-left: 1rem;
+.tdl-Actions_Main {
+  margin-left: 5rem;
 }
 
 .tdl-TitleForm {
