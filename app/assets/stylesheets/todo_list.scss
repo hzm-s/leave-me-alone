@@ -64,11 +64,17 @@ $tdl-content-space: 3.5rem;
 
 .tdl-Actions {
   @extend .d-flex, .align-items-center;
-  margin-top: .75rem;
+  margin-top: 1rem;
 }
 
-.tdl-Actions_Main {
-  margin-left: 5rem;
+.tdl-Actions_Save {
+  @extend .mx-auto;
+}
+
+.tdl-LastSavedAt {
+  margin-left: .5rem;
+  font-size: .75rem;
+  color: $gray-700;
 }
 
 .tdl-TitleForm {

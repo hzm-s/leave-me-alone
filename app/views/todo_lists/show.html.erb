@@ -5,8 +5,11 @@
         <%= render partial: 'todo_lists/list', locals: { list: @list } %>
       </div>
       <div class="tdl-Actions">
-        <div class="tdl-Actions_Main">
+        <div class="tdl-Actions_Save">
           <%= f.button '保存する', class: 'btn btn-sm btn-secondary' %>
+          <span class="tdl-LastSavedAt">
+            3時間前に保存済み
+          </span>
         </div>
       </div>
     <% end -%>
