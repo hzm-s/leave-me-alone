@@ -8,7 +8,7 @@
         <div class="tdl-Actions_Save">
           <%= f.button '保存する', class: 'btn btn-sm btn-secondary' %>
           <span class="tdl-LastSavedAt">
-            3時間前に保存済み
+            <%= @list.updated_at %>に保存済み
           </span>
         </div>
       </div>
