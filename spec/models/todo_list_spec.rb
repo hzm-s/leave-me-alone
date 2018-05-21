@@ -43,4 +43,11 @@ describe TodoList do
     expect(list.todos[4].content).to eq('Echo')
     expect(list.todos[4]).to be_done
   end
+
+  it do
+    old_list = TodoList.new(title: 'Old', updated_at: Time.zone.parse('2018-01-23 10:00'))
+    new_list = TodoList.new(title: 'New', updated_at: Time.zone.parse('2018-01-23 10:23'))
+    list.update_with(new_list)
+    expect(list.updated_at).to eq(Time.zone.parse('2018-01-23 10:23'))
+  end
 end
