@@ -1,13 +1,14 @@
-$tdl-left-space: 2.5rem;
-$tdl-content-space: 3.5rem;
-
 .tdl-Background {
-  @include notepad($tdl-left-space);
+  @include notepad($paper-left-space);
 }
 
 .tdl-Header {
-  padding: 1.25rem 2rem 1.25rem $tdl-content-space;
+  padding: 1.25rem 2rem 1.25rem 4rem; // $paper-left-space + 1rem
   padding-right: 2rem;
+}
+
+.tdl-HeaderWrapper {
+  @extend .d-flex, .align-items-center, .flex-wrap;
 }
 
 @mixin tdl-title {
@@ -33,8 +34,13 @@ $tdl-content-space: 3.5rem;
   border-bottom: 1px solid $paper-line-color-h;
 }
 
+.tdl-Row {
+  display: flex;
+  align-items: center;
+}
+
 .tdl-Item {
-  padding: .125rem 2rem .125rem $tdl-content-space;
+  padding: .125rem 2rem .125rem 0;
   border-top: 1px solid $paper-line-color-h;
 }
 
@@ -59,7 +65,7 @@ $tdl-content-space: 3.5rem;
 }
 
 .tdl-Add {
-  padding: .25rem 2rem .25rem $tdl-content-space;
+  padding: .25rem 2rem .25rem 0;
 }
 
 .tdl-Actions {
