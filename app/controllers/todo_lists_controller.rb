@@ -1,4 +1,5 @@
 class TodoListsController < ApplicationController
+  layout 'todo_list'
 
   def show
     @list = TodoList.last || TodoList.create
