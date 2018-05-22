@@ -1,7 +1,9 @@
 <div data-controller="inline-edit content todo-list-item" data-content-value="<%= item&.content %>" data-todo-list-item-index="<%= index %>" class="tdl-Item test-todo-list-item">
   <div data-target="inline-edit.showSection" class="sw-Flex sw-AlignItemsCenter">
     <div class="todo-Item">
-      <input name="form[items][<%= index %>][done]" type="checkbox" class="todo-Item_Check"<%= item&.done? && 'checked' %>>
+      <div class="todo-Item_Check">
+        <input name="form[items][<%= index %>][done]" type="checkbox"<%= item&.done? && ' checked' %>>
+      </div>
       <label data-target="content.show" class="todo-Item_Content"></label>
     </div>
     <div class="tdl-Item_Actions">
