@@ -7,6 +7,10 @@
   padding-right: 2rem;
 }
 
+.tdl-HeaderWrapper {
+  @extend .d-flex, .align-items-center, .flex-wrap;
+}
+
 @mixin tdl-title {
   @include nf;
   font-size: 1.25rem;
@@ -28,6 +32,11 @@
 
 .tdl-Body_List {
   border-bottom: 1px solid $paper-line-color-h;
+}
+
+.tdl-Row {
+  display: flex;
+  align-items: center;
 }
 
 .tdl-Item {

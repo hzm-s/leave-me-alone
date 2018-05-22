@@ -1,5 +1,5 @@
 .todo-Item {
-  @extend .d-flex, .align-items-center;
+  @extend .d-flex, .align-items-center, .flex-wrap;
   padding-top: .375rem;
   padding-bottom: .375rem;
 }
@@ -7,6 +7,7 @@
 .todo-Item_Check {
   @extend .d-flex, .justify-content-center;
   width: $paper-left-space;
+  min-width: $paper-left-space;
   margin-right: 1rem;
 }
 

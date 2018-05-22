@@ -1,8 +1,10 @@
 <div data-controller="inline-edit content" data-content-value="<%= title %>" class="tdl-Header">
-  <div data-target="inline-edit.showSection" class="sw-Flex sw-AlignItemsCenter">
-    <span data-target="content.show" class="tdl-Title"></span>
-    <div class="tdl-Header_Actions">
-      <%= link_to '編集する', '#', data: { action: 'inline-edit#open content#edit' }, class: 'tdl-Item_Action', id: 'test-edit-header' %>
+  <div data-target="inline-edit.showSection" class="tdl-Row">
+    <div class="tdl-HeaderWrapper">
+      <span data-target="content.show" class="tdl-Title"></span>
+      <div class="tdl-Header_Actions">
+        <%= link_to '編集する', '#', data: { action: 'inline-edit#open content#edit' }, class: 'tdl-Item_Action', id: 'test-edit-header' %>
+      </div>
     </div>
   </div>
   <div data-target="inline-edit.editSection">
