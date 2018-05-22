@@ -61,6 +61,7 @@ group :test do
   gem "chromedriver-helper"
 end
 
+gem 'google_sign_in'
 gem 'webpacker', '~> 3.5'
 gem 'bootstrap', '~> 4.1.1'
 gem 'jquery-rails'

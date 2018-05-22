@@ -1,0 +1,30 @@
+.mk-CopyWrapper {
+  margin-bottom: 3rem;
+}
+
+.mk-Copy {
+  font-size: 5rem;
+  letter-spacing: -0.125rem;
+  line-height: 1.1;
+  font-weight: bold;
+}
+
+.mk-AppnameWrapper {
+  text-align: right;
+}
+
+.mk-Appname {
+  display: inline-block;
+  transform: rotate(-10deg);
+
+  font-family: 'Patrick Hand', cursive !important;
+  font-size: 1.25rem;
+
+  background-color: $gray-300;
+  color: $gray-900 !important;
+  padding: .25rem 1rem;
+  border-radius: 1.25rem;
+}
+
+.mk-SignInOptions {
+}
