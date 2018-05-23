@@ -6,7 +6,7 @@
       </div>
       <div class="tdl-Actions">
         <div class="tdl-Actions_Save">
-          <span data-controller="relative-time" data-relative-time-time="<%=l @list.updated_at, format: :long %>" data-relative-time-suffix="に保存済み" class="tdl-LastSavedAt"></span>
+          <span data-controller="relative-time" data-relative-time-time="<%=l @list.updated_at, format: :long_with_sec %>" data-relative-time-suffix="に保存済み" class="tdl-LastSavedAt"></span>
           <%= f.button data: { target: 'auto-submit.submit' }, style: 'display:none;' %>
         </div>
       </div>
