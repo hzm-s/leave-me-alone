@@ -1,9 +1,23 @@
+.sw-PublicBody {
+  background-color: #FFF;
+}
+
 .sw-Button {
   @extend .btn, .btn-sm;
 }
 
 .sw-Button-primary {
-  @extend .btn-secondary;
+  @extend .btn-success;
+  color: $white;
+}
+
+.sw-Button-secondary {
+  border: 1px solid $gray-500;
+  color: $gray-700;
+
+  &:hover {
+    background-color: $gray-200;
+  }
 }
 
 .sw-Cancel {
@@ -21,4 +35,11 @@
   padding-bottom: .25rem;
   font-size: .675rem;
   color: theme-color('danger');
+}
+
+.sw-WindowCenter {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
