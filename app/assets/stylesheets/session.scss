@@ -1,0 +1,28 @@
+.sess-Body {
+  background-color: $paper-bg;
+}
+
+.sess-Appname {
+  @include anf;
+  font-size: 3rem;
+  text-align: center;
+}
+
+.sess-Divider {
+  width: 70%;
+  margin-top: .25rem;
+}
+
+.sess-Actions {
+  margin-top: 2.5rem;
+}
+
+.sess-ActionDivider {
+  text-align: center;
+  margin: 1.25rem 0;
+  color: $gray-700;
+}
+
+.sess-Button {
+  @extend .btn, .btn-block;
+}

@@ -2,6 +2,10 @@
   font-family: $font-family-sans-serif;
 }
 
+@mixin anf {
+  font-family: 'Patrick Hand', cursive !important;
+}
+
 @mixin input-no-border {
   @extend .form-control;
 
