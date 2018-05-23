@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-lg-9 col-xs-12 mx-auto">
-    <%= form_with url: todo_list_url, method: :patch, local: true, scope: :form do |f| %>
+    <%= form_with url: todo_list_url, method: :patch, scope: :form, data: { controller: 'auto-submit' } do |f| %>
       <div class="tdl-Background">
         <%= render partial: 'todo_lists/list', locals: { list: @list } %>
       </div>
