@@ -1,0 +1,37 @@
+version: '3'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile_rails
+    volumes:
+      - .:/app:cached
+      - /app/tmp/cache
+      - /app/tmp/pids
+      - /app/tmp/sessions
+      - /app/tmp/sockets
+      - /app/node_modules
+    ports:
+      - "3000:3000"
+    environment:
+      LMA_DATABASE_HOST: postgres
+    depends_on:
+      - postgres
+    stdin_open: true
+    tty: true
+
+  postgres:
+    image: postgres:9.6-alpine
+    volumes:
+      - postgres-webapp-data:/var/lib/postgresql/data:cached
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: lma_development
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: ''
+
+volumes:
+  postgres-webapp-data:
+    driver: local

@@ -22,3 +22,22 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+
+## Requirement
+
+- docker
+- docker compose
+
+## Installation
+
+``` console
+$ git clone git@github.com:haazime/leave-me-alone.git
+
+# Setting up docker environment.
+$ docker-compose build
+$ docker-compose up
+
+# On another termianl.
+$ docker-compose exec -e RAILS_ENV=development web bundle exec rails db:migrate
+```
