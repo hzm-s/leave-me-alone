@@ -34,7 +34,7 @@ export default class extends Controller {
 
   remove(e) {
     e.preventDefault()
-    const event = new Event('itemremoved', { bubbles: true })
+    const event = new Event('todoremoved', { bubbles: true })
     this.element.dispatchEvent(event)
   }
 }
