@@ -18,7 +18,6 @@ export default class extends Controller {
   }
 
   detect() {
-    console.log('detect', this.willSubmit)
     if (this.willSubmit) {
       this.submit()
     }
