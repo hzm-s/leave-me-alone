@@ -2,10 +2,10 @@ import { Controller } from 'stimulus'
 
 export default class extends Controller {
   connect() {
-    this.element.addEventListener('formupdated', (e) => {
+    this.element.addEventListener('formchanged', (e) => {
       this.willSubmit = true
     })
-    this.submitTimer = setInterval(() => { this.detect() }, 100)
+    this.submitTimer = setInterval(() => { this.detect() }, 1000 * 1)
   }
 
   disconnect() {

@@ -38,7 +38,7 @@ export default class extends Controller {
   }
 
   emitChanged() {
-    const event = new Event('formupdated', { bubbles: true })
+    const event = new Event('formchanged', { bubbles: true })
     this.element.dispatchEvent(event)
   }
 
