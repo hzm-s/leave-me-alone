@@ -8,7 +8,7 @@ export default class extends Controller {
       this.addItem(e.detail)
     })
 
-    this.element.addEventListener('itemremoved', (e) => {
+    this.element.addEventListener('todoremoved', (e) => {
       this.removeItem(e.target)
     })
   }
@@ -19,6 +19,8 @@ export default class extends Controller {
 
     const el = this.buildItem(payload.content, newSize - 1)
     this.listTarget.appendChild(el)
+
+    this.emitChanged()
   }
 
   buildItem(content, index) {
@@ -32,6 +34,12 @@ export default class extends Controller {
 
   removeItem(element) {
     element.parentNode.removeChild(element)
+    this.emitChanged()
+  }
+
+  emitChanged() {
+    const event = new Event('formchanged', { bubbles: true })
+    this.element.dispatchEvent(event)
   }
 
   get currentSize() {

@@ -19,7 +19,7 @@ describe 'Todoリストの更新', type: :system, js: true do
     find('#test-new-todo-content').set('Charlie')
     find('#test-create-todo').click
     check 'todo-list-item-check-1'
-    click_on '保存する'
+    wait_auto_save
 
     visit todo_list_path
     expect(page).to have_content('Alpha')
@@ -33,11 +33,11 @@ describe 'Todoリストの更新', type: :system, js: true do
     find('#test-new-todo-content').set('Alpha')
     find('#test-create-todo').click
     check 'todo-list-item-check-0'
-    click_on '保存する'
+    wait_auto_save
 
     visit todo_list_path
     uncheck 'todo-list-item-check-0'
-    click_on '保存する'
+    wait_auto_save
 
     visit todo_list_path
     expect(page).to_not have_checked_field('Alpha')
@@ -45,10 +45,16 @@ describe 'Todoリストの更新', type: :system, js: true do
 
   it do
     visit todo_list_path
-    click_on '保存する'
+    wait_auto_save
 
     visit todo_list_path
     items = all('.test-todo-list-item')
     expect(items).to be_empty
   end
+
+  private
+
+    def wait_auto_save
+      sleep 1.5
+    end
 end
