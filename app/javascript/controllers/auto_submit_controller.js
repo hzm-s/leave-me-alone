@@ -5,6 +5,9 @@ export default class extends Controller {
     this.element.addEventListener('formchanged', (e) => {
       this.willSubmit = true
     })
+    this.element.addEventListener('change', (e) => {
+      this.willSubmit = true
+    })
     this.submitTimer = setInterval(() => { this.detect() }, 1000 * 1)
   }
 
