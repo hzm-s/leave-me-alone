@@ -1,6 +1,8 @@
 import { Controller } from 'stimulus'
 
 export default class extends Controller {
+  static targets = ['submit']
+
   connect() {
     this.element.addEventListener('formchanged', (e) => {
       this.willSubmit = true
@@ -24,7 +26,7 @@ export default class extends Controller {
   }
 
   submit() {
-    this.element.submit()
+    this.submitTarget.click()
     this.willSubmit = false
   }
 }
