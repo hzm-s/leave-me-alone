@@ -24,16 +24,16 @@ $danger:        $red !default;
 $light:         $gray-100 !default;
 $dark:          $gray-800 !default;
 
-$font-family-base:            'Rounded Mplus 1c' !default;
-$font-size-base:            .875rem !default; // Assumes the browser default, typically `16px`
+$font-family-base: 'Rounded Mplus 1c', 'SiteEmoji', -apple-system, BlinkMacSystemFont, "Segoe UI" !default;
+$font-size-base:   .875rem !default; // Assumes the browser default, typically `16px`
 
-$body-bg:                   #FDFEFB;
-$body-color:                $indigo;
-$link-color:                $gray-600 !default;
+$body-bg:          #FDFEFB;
+$body-color:       $indigo;
+$link-color:       $gray-600 !default;
 
 $custom-control-indicator-checked-bg:  lighten($indigo, 15%);
 
-$dropdown-border-radius:            .5rem !default;
-$dropdown-padding-y:                .4rem !default;
-$dropdown-item-padding-y:           .25rem !default;
-$nav-divider-margin-y:              .25rem !default;
+$dropdown-border-radius:  .5rem !default;
+$dropdown-padding-y:      .4rem !default;
+$dropdown-item-padding-y: .25rem !default;
+$nav-divider-margin-y:    .25rem !default;

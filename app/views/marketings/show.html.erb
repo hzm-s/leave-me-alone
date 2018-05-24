@@ -1,21 +1,51 @@
-<div class="container" style="margin-top: 5rem;">
-  <div class="col">
-    <div class="mk-AppnameWrapper">
-      <p class="mk-Appname">
-        Leave me alone!
-      </p>
-    </div>
-    <div class="mk-CopyWrapper">
-      <p class="mk-Copy">
-        さっさと終わらせて
-        <br>
-        帰りましょ。
-      </p>
-    </div>
-    <div class="mk-SignInOptions">
-      <%#= google_sign_in(url: session_url) do %>
-        <%#= button_tag 'Googleアカウントでログイン', class: 'btn btn-secondary' %>
-      <%# end -%>
-    </div>
+<%= content_for(:body_class) { 'mk-Body' } %>
+<div class="mk-Nav">
+  <h1 class="mk-Appname">
+    Leave me alone!
+  </h1>
+  <div class="ml-auto">
+    <%= link_to 'ログイン', new_session_url, class: 'mk-Link' %>
+  </div>
+</div>
+<div class="mk-Main">
+  <p class="mk-Copy">
+    さっさと<br>終わらせて<br>帰りましょう。
+  </p>
+  <div data-controller="random">
+    <span data-target="random.subject" class="mk-Copy_Image">
+      👨🏻‍💻
+    </span>
+    <span data-target="random.subject" class="mk-Copy_Image">
+      👩🏻‍💻
+    </span>
+    <span data-target="random.subject" class="mk-Copy_Image">
+      👨🏼‍💻
+    </span>
+    <span data-target="random.subject" class="mk-Copy_Image">
+      👩🏼‍💻
+    </span>
+    <span data-target="random.subject" class="mk-Copy_Image">
+      👨🏽‍💻
+    </span>
+    <span data-target="random.subject" class="mk-Copy_Image">
+      👩🏽‍💻
+    </span>
+    <span data-target="random.subject" class="mk-Copy_Image">
+      👨🏾‍💻
+    </span>
+    <span data-target="random.subject" class="mk-Copy_Image">
+      👩🏾‍💻
+    </span>
+    <span data-target="random.subject" class="mk-Copy_Image">
+      👨🏿‍💻
+    </span>
+    <span data-target="random.subject" class="mk-Copy_Image">
+      👩🏿‍💻
+    </span>
+  </div>
+</div>
+<div class="mk-Footer">
+  <div class="mk-Joins">
+    <%= button_tag 'Googleでユーザー登録', class: 'mk-Button sw-Button-primary' %>
   </div>
 </div>
