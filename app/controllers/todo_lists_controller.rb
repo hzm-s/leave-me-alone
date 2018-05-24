@@ -12,11 +12,9 @@ class TodoListsController < ApplicationController
       end
     end
 
-    list = TodoList.last
-    list.update_with(new_todo_list)
-    list.save!
-
-    redirect_to todo_list_url
+    @list = TodoList.last
+    @list.update_with(new_todo_list)
+    @list.save!
   end
 
   private
