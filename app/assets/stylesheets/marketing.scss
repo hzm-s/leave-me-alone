@@ -1,21 +1,33 @@
-.mk-CopyWrapper {
-  margin-bottom: 3rem;
+.mk-Body {
+  background-color: #FFF;
+  margin: 0;
+  padding: 0;
 }
 
-.mk-Copy {
-  font-size: 5rem;
-  letter-spacing: -0.125rem;
-  line-height: 1.1;
+.mk-Nav {
+  @extend .d-flex, .align-items-center;
+  margin: 0;
+  padding: 0 5vh;
+  height: 12vh;
+}
+
+.mk-Main {
+  @extend .d-flex, .align-items-center, .justify-content-center;
+  height: 63vh;
+}
+
+.mk-Footer {
+  @extend .d-flex;
+  height: 20vh;
+}
+
+.mk-Link {
+  font-size: 1rem;
   font-weight: bold;
 }
 
-.mk-AppnameWrapper {
-  text-align: right;
-}
-
 .mk-Appname {
-  display: inline-block;
-  transform: rotate(-10deg);
+  margin: 0;
 
   font-family: 'Patrick Hand', cursive !important;
   font-size: 1.25rem;
@@ -26,5 +38,21 @@
   border-radius: 1.25rem;
 }
 
-.mk-SignInOptions {
+.mk-Copy {
+  font-size: 11vh;
+  letter-spacing: -0.125rem;
+  line-height: 1.2;
+  font-weight: bold;
+}
+
+.mk-Copy_Image {
+  font-size: 35vh;
+}
+
+.mk-Joins {
+  @extend .mx-auto;
+}
+
+.mk-Button {
+  @extend .btn, .btn-lg;
 }
