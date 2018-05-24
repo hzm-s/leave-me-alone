@@ -43,10 +43,16 @@
   letter-spacing: -0.125rem;
   line-height: 1.2;
   font-weight: bold;
+  margin: 0;
 }
 
 .mk-Copy_Image {
   font-size: 35vh;
+  display: none;
+}
+
+.mk-Copy_Image-current {
+  display: block;
 }
 
 .mk-Joins {
