@@ -1,6 +1,8 @@
 import { Controller } from 'stimulus';
 
 export default class extends Controller {
+  static targets = ['highlighter']
+
   initialize() {
     const index = parseInt(this.data.get('index'))
     const checkId = `todo-list-item-check-${index}`
@@ -14,6 +16,8 @@ export default class extends Controller {
 
     this.input = this.element.querySelector('input[type="text"]')
     this.input.name = `form[todos][${index}][content]`
+
+    this.isHighlight = false
   }
 
   connect() {
@@ -24,12 +28,32 @@ export default class extends Controller {
       }
       this.label.style.textDecoration = textDecoration
     }, 200)
+
+    this.updateHighlighter()
   }
 
   disconnect() {
     if (this.observeTimer) {
       clearInterval(this.observeTimer)
     }
+  }
+
+  highlight(e) {
+    e.preventDefault()
+
+    const event = new Event('todohightlighted', { bubbles: true })
+    this.element.dispatchEvent(event)
+
+    this.isHighlight = !this.isHighlight
+    this.updateHighlighter()
+  }
+
+  updateHighlighter() {
+    let text = 'ハイライト'
+    if (this.isHighlight) {
+      text = text + '解除'
+    }
+    this.highlighterTarget.innerHTML = text
   }
 
   remove(e) {

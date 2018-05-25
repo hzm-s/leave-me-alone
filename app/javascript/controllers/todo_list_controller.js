@@ -1,7 +1,11 @@
 import { Controller } from 'stimulus'
 
 export default class extends Controller {
-  static targets = ['list']
+  static targets = ['list', 'item']
+
+  initialize() {
+    this.highlightItemClass = this.data.get('highlightItemClass')
+  }
 
   connect() {
     this.element.addEventListener('todocreated', (e) => {
@@ -10,6 +14,10 @@ export default class extends Controller {
 
     this.element.addEventListener('todoremoved', (e) => {
       this.removeItem(e.target)
+    })
+
+    this.element.addEventListener('todohightlighted', (e) => {
+      this.highlightItem(e.target)
     })
   }
 
@@ -35,6 +43,16 @@ export default class extends Controller {
   removeItem(element) {
     element.parentNode.removeChild(element)
     this.emitChanged()
+  }
+
+  highlightItem(element) {
+    this.itemTargets.forEach((el) => {
+      if (el == element) {
+        el.classList.toggle(this.highlightItemClass)
+      } else {
+        el.classList.toggle(this.highlightItemClass, false)
+      }
+    })
   }
 
   emitChanged() {
