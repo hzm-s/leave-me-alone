@@ -47,8 +47,12 @@
 }
 
 .mk-Copy_Image {
-  font-size: 35vh;
   display: none;
+  font-size: 8rem;
+  line-height: 8rem;
+  padding: 3rem;
+  background-color: lighten($paper-bg, 7%);
+  border-radius: 50%;
 }
 
 .mk-Copy_Image-current {
