@@ -1,12 +1,12 @@
 <div data-controller="inline-edit content todo-list-item" data-content-value="<%= item&.content %>" data-todo-list-item-index="<%= index %>" data-target="todo-list.item" class="tdl-Item test-todo-list-item">
   <div data-target="inline-edit.showSection" class="tdl-Row">
     <div class="todo-Item_Check">
-      <input name="form[items][<%= index %>][done]" type="checkbox"<%= item&.done? && ' checked' %>>
+      <input type="checkbox"<%= item&.done? && ' checked' %>>
     </div>
     <div class="todo-Item">
       <label data-target="content.show" class="todo-Item_Content"></label>
       <div class="tdl-Item_Actions">
-        <%= link_to 'ハイライト', '#', data: { action: 'todo-list-item#highlight', target: 'todo-list-item.highlighter' }, class: 'tdl-Item_Action' %>
+        <%= link_to 'ハイライト', '#', data: { action: 'todo-list-item#highlight' }, class: 'tdl-Item_Action' %>
         <%= link_to '編集する', '#', data: { action: 'inline-edit#open content#edit' }, class: 'tdl-Item_Action' %>
         <%= link_to '削除する', '#', data: { action: 'todo-list-item#remove' }, class: 'tdl-Item_Action' %>
       </div>
@@ -14,7 +14,7 @@
   </div>
   <div data-target="inline-edit.editSection">
     <div data-controller="safe-form" class="todo-Form">
-      <input data-target="content.input safe-form.field" name="form[items][<%= index %>][todo]" type="text" class="todo-Input" autocomplete="off">
+      <input data-target="content.input safe-form.field" type="text" class="todo-Input" autocomplete="off">
       <button data-action="content#update inline-edit#close" data-target="safe-form.submit" class="sw-Button sw-Button-primary">
         <i class="icon-Save"></i>
       </button>
