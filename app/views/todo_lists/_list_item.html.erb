@@ -6,7 +6,7 @@
     <div class="todo-Item">
       <label data-target="content.show" class="todo-Item_Content"></label>
       <div class="tdl-Item_Actions">
-        <%= link_to 'ハイライト', '#', data: { action: 'todo-list-item#highlight', target: 'todo-list-item.highlightTrigger' }, class: 'tdl-Item_Action' %>
+        <%= link_to 'ハイライト', '#', data: { action: 'todo-list-item#highlight', target: 'todo-list-item.highlighter' }, class: 'tdl-Item_Action' %>
         <%= link_to '編集する', '#', data: { action: 'inline-edit#open content#edit' }, class: 'tdl-Item_Action' %>
         <%= link_to '削除する', '#', data: { action: 'todo-list-item#remove' }, class: 'tdl-Item_Action' %>
       </div>
