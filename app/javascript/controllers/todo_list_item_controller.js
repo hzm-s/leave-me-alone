@@ -14,6 +14,8 @@ export default class extends Controller {
 
     this.input = this.element.querySelector('input[type="text"]')
     this.input.name = `form[todos][${index}][content]`
+
+    this.isHighlight = false
   }
 
   connect() {
@@ -30,6 +32,12 @@ export default class extends Controller {
     if (this.observeTimer) {
       clearInterval(this.observeTimer)
     }
+  }
+
+  highlight(e) {
+    e.preventDefault()
+    const event = new Event('todohightlighted', { bubbles: true })
+    this.element.dispatchEvent(event)
   }
 
   remove(e) {

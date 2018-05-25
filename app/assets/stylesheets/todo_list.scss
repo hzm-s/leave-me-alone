@@ -44,6 +44,10 @@
   border-top: 1px solid $paper-line-color-h;
 }
 
+.tdl-Item-highlight {
+  background-color: darken($paper-bg, 20%);
+}
+
 .tdl-Item_Actions {
   display: none;
   margin-left: .25rem;
