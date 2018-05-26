@@ -37,7 +37,7 @@ export default class extends Controller {
   }
 
   setSubmitInterval() {
-    const interval = parseInt(this.data.get('submitInterval'))
+    const interval = parseInt(this.data.get('interval'))
     if (interval) {
       this.interval = interval
     } else {
