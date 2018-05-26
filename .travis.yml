@@ -3,9 +3,6 @@ rvm: 2.4.1
 services: postgresql
 bundler_args: "--without development --deployment -j4"
 cache: bundler
-env:
-  - RAILS_ENV=test
-  - RACK_ENV=test
 before_script:
   - bundle exec rake db:create
   - bundle exec rake db:migrate
