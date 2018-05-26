@@ -3,8 +3,13 @@ import moment from 'moment'
 import Push from 'push.js'
 
 export default class extends Controller {
+  static targets = ['subject']
+
   connect() {
-    this.setReminder()
+    //this.setReminder()
+    this.subjectTarget.addEventListener('formchanged', (e) => {
+      this.setReminder()
+    })
   }
 
   disconnect() {
