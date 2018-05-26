@@ -33,6 +33,13 @@ describe 'Reminder', type: :system, js: true do
     end
   end
 
+  context 'when todo edited' do
+    it do
+      edit_todo(0, 'Alice')
+      expect_reminder_scheduled
+    end
+  end
+
   context 'when done' do
     it do
       done(0)
