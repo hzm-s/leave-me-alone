@@ -40,7 +40,7 @@ module UISupport
 
     def wait_for_todo_list_save
       yield
-      wait_sec = (TodoListHelper.auto_save_interval + 200) / 1000.0
+      wait_sec = (TodoListHelper.auto_save_interval + 300) / 1000.0
       sleep wait_sec
       visit todo_list_path
     end
