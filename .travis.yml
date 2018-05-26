@@ -8,6 +8,8 @@ cache:
   directories:
     - node_modules
 before_install:
+  - echo 'Asia/Tokyo' | sudo tee /etc/timezone
+  - sudo dpkg-reconfigure --frontend noninteractive tzdata
   # Install latest Chrome
   - sudo apt-get update
   - sudo apt-get install -y libappindicator1 fonts-liberation
