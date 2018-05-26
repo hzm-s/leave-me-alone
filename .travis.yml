@@ -2,7 +2,11 @@ language: ruby
 rvm: 2.4.1
 services: postgresql
 bundler_args: "--without development --deployment -j4"
-cache: bundler
+cache:
+  bundler: true
+  yarn: true
+  directories:
+    - node_modules
 before_install:
   # Install latest Chrome
   - sudo apt-get update
@@ -10,6 +14,12 @@ before_install:
   - export CHROME_BIN=/usr/bin/google-chrome
   - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
   - sudo dpkg -i google-chrome*.deb
+install:
+  - bundle install
+  - nvm install node
+  - node -v
+  - npm i -g yarn
+  - yarn
 before_script:
   - bundle exec rake db:create
   - bundle exec rake db:migrate
