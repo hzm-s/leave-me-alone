@@ -6,7 +6,7 @@ describe 'Update todo list', type: :system, js: true do
     visit todo_list_path
   end
 
-  describe 'initial' do
+  describe 'Initial' do
     it do
       expect(page).to have_content('Todo')
       expect(todos).to be_empty
@@ -66,6 +66,14 @@ describe 'Update todo list', type: :system, js: true do
       revert_done(0)
       wait_for_todo_list_saved
       expect(page).to_not have_checked_field('Alpha')
+    end
+  end
+
+  describe 'Timestamp' do
+    it do
+      add_todo('Alpha')
+      wait_for_todo_list_saved
+      expect(page).to have_content('数秒前に保存済み')
     end
   end
 end
