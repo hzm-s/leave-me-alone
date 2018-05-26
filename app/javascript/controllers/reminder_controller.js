@@ -6,6 +6,8 @@ export default class extends Controller {
   static targets = ['subject']
 
   initialize() {
+    Push.Permission.request()
+
     this.remindInterval = 1000 * 60 * 30
     this.setReminder()
 
