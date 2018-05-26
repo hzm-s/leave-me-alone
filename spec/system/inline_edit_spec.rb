@@ -12,20 +12,14 @@ describe 'Inline Edit', type: :system, js: true do
 
   describe 'Title' do
     it do
-      find('#test-header').hover
-      click_on '編集する'
-      fill_in 'form[title]', with: 'Yarukoto'
-      click_button
+      edit_todo_list_title('Yarukoto')
       expect(page).to have_content('Yarukoto')
     end
   end
 
   describe 'Todo' do
     it do
-      first('.test-list-item').hover
-      click_on '編集する'
-      fill_in 'form[todos][0][content]', with: 'Item789'
-      click_button
+      edit_todo(0, 'Item789')
       expect(page).to have_content('Item789')
     end
   end
