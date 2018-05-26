@@ -11,6 +11,9 @@ export default class extends Controller {
     this.subjectTarget.addEventListener('formchanged', (e) => {
       this.setReminder()
     })
+    this.subjectTarget.addEventListener('change', (e) => {
+      this.setReminder()
+    })
   }
 
   disconnect() {

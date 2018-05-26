@@ -33,6 +33,13 @@ describe 'Reminder', type: :system, js: true do
     end
   end
 
+  context 'when done' do
+    it do
+      done(0)
+      expect_reminder_scheduled
+    end
+  end
+
   private
 
     def expect_reminder_scheduled
