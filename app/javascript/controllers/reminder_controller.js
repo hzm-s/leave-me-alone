@@ -5,7 +5,7 @@ import Push from 'push.js'
 export default class extends Controller {
   static targets = ['subject']
 
-  connect() {
+  initialize() {
     this.setReminder()
 
     this.subjectTarget.addEventListener('formchanged', (e) => {
@@ -22,6 +22,7 @@ export default class extends Controller {
 
   setReminder() {
     const after = 1000 * 60 * 30
+    this.clearReminder()
     this.remindTimer = setInterval(() => {
       this.remind()
       this.clearReminder()
