@@ -6,7 +6,7 @@ describe 'Todoリストの更新', type: :system, js: true do
   it do
     visit todo_list_path
     expect(page).to have_content('Todo')
-    items = all('.test-todo-list-item')
+    items = all('.test-list-item')
     expect(items).to be_empty
   end
 
@@ -48,7 +48,7 @@ describe 'Todoリストの更新', type: :system, js: true do
     wait_auto_save
 
     visit todo_list_path
-    items = all('.test-todo-list-item')
+    items = all('.test-list-item')
     expect(items).to be_empty
   end
 

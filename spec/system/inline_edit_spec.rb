@@ -15,4 +15,9 @@ describe 'Inline Edit', type: :system, js: true do
       expect(page).to have_content('Yarukoto')
     end
   end
+
+  describe 'Todo' do
+    it do
+    end
+  end
 end
