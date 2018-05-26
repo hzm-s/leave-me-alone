@@ -1,5 +1,6 @@
 module UISupport
   module System
+    include TodoListHelper
 
     def edit_todo_list_title(title)
       find('#test-header').hover
@@ -37,9 +38,9 @@ module UISupport
       uncheck "todo-list-item-check-#{index}"
     end
 
-    def wait_auto_save(interval_ms: 200)
+    def wait_for_todo_list_save
       yield
-      wait_sec = (interval_ms + 200) / 1000.0
+      wait_sec = (TodoListHelper.auto_save_interval + 200) / 1000.0
       sleep wait_sec
       visit todo_list_path
     end

@@ -13,7 +13,7 @@ describe 'Update todo list', type: :system, js: true do
 
   describe 'Update todo list title' do
     it do
-      wait_auto_save do
+      wait_for_todo_list_save do
         edit_todo_list_title('Yarukoto')
       end
       expect(page).to have_content('Yarukoto')
@@ -22,7 +22,7 @@ describe 'Update todo list', type: :system, js: true do
 
   describe 'Add todo' do
     it do
-      wait_auto_save do
+      wait_for_todo_list_save do
         add_todo('Charlie')
       end
       expect(page).to have_content('Charlie')
@@ -31,7 +31,7 @@ describe 'Update todo list', type: :system, js: true do
 
   describe 'Edit todo' do
     it do
-      wait_auto_save do
+      wait_for_todo_list_save do
         edit_todo(0, 'Delta')
       end
       expect(page).to have_content('Delta')
@@ -40,7 +40,7 @@ describe 'Update todo list', type: :system, js: true do
 
   describe 'Remove todo' do
     it do
-      wait_auto_save do
+      wait_for_todo_list_save do
         remove_todo(0)
       end
       expect(page).to_not have_content('Alpha')
@@ -50,7 +50,7 @@ describe 'Update todo list', type: :system, js: true do
 
   describe 'Done' do
     it do
-      wait_auto_save do
+      wait_for_todo_list_save do
         done(0)
       end
       expect(page).to have_checked_field('Alpha')
@@ -59,7 +59,7 @@ describe 'Update todo list', type: :system, js: true do
 
   describe 'Revert done' do
     it do
-      wait_auto_save do
+      wait_for_todo_list_save do
         revert_done(1)
       end
       expect(page).to_not have_checked_field('Bravo')
@@ -68,7 +68,7 @@ describe 'Update todo list', type: :system, js: true do
 
   describe 'Timestamp' do
     it do
-      wait_auto_save do
+      wait_for_todo_list_save do
         add_todo('Delta')
       end
       expect(page).to have_content('数秒前に保存済み')
