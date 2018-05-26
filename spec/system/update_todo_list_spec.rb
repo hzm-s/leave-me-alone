@@ -1,60 +1,79 @@
 require 'rails_helper'
 
-describe 'Todoリストの更新', type: :system, js: true do
-  before { TodoList.create }
-
-  it do
+describe 'Update todo list', type: :system, js: true do
+  before do
+    TodoList.create
     visit todo_list_path
-    expect(page).to have_content('Todo')
-    items = all('.test-todo-list-item')
-    expect(items).to be_empty
   end
 
-  it do
-    visit todo_list_path
-    find('#test-new-todo-content').set('Alpha')
-    find('#test-create-todo').click
-    find('#test-new-todo-content').set('Bravo')
-    find('#test-create-todo').click
-    find('#test-new-todo-content').set('Charlie')
-    find('#test-create-todo').click
-    check 'todo-list-item-check-1'
-    wait_auto_save
-
-    visit todo_list_path
-    expect(page).to have_content('Alpha')
-    expect(page).to have_content('Bravo')
-    expect(page).to have_content('Charlie')
-    expect(page).to have_checked_field('Bravo')
-  end
-
-  it do
-    visit todo_list_path
-    find('#test-new-todo-content').set('Alpha')
-    find('#test-create-todo').click
-    check 'todo-list-item-check-0'
-    wait_auto_save
-
-    visit todo_list_path
-    uncheck 'todo-list-item-check-0'
-    wait_auto_save
-
-    visit todo_list_path
-    expect(page).to_not have_checked_field('Alpha')
-  end
-
-  it do
-    visit todo_list_path
-    wait_auto_save
-
-    visit todo_list_path
-    items = all('.test-todo-list-item')
-    expect(items).to be_empty
-  end
-
-  private
-
-    def wait_auto_save
-      sleep 1.5
+  describe 'Initial' do
+    it do
+      expect(page).to have_content('Todo')
+      expect(todos).to be_empty
     end
+  end
+
+  describe 'Update todo list title' do
+    it do
+      edit_todo_list_title('Yarukoto')
+      wait_for_todo_list_saved
+      expect(page).to have_content('Yarukoto')
+    end
+  end
+
+  describe 'Add todo' do
+    it do
+      add_todo('Alpha')
+      wait_for_todo_list_saved
+      expect(page).to have_content('Alpha')
+    end
+  end
+
+  describe 'Edit todo' do
+    it do
+      add_todo('Alpha')
+      edit_todo(0, 'Bravo')
+      wait_for_todo_list_saved
+      expect(page).to have_content('Bravo')
+    end
+  end
+
+  describe 'Remove todo' do
+    it do
+      add_todo('Alpha')
+      add_todo('Bravo')
+      remove_todo(0)
+      wait_for_todo_list_saved
+      expect(page).to_not have_content('Alpha')
+      expect(page).to have_content('Bravo')
+    end
+  end
+
+  describe 'Done' do
+    it do
+      add_todo('Alpha')
+      done(0)
+      wait_for_todo_list_saved
+      expect(page).to have_checked_field('Alpha')
+    end
+  end
+
+  describe 'Revert done' do
+    it do
+      add_todo('Alpha')
+      done(0)
+      wait_for_todo_list_saved
+      revert_done(0)
+      wait_for_todo_list_saved
+      expect(page).to_not have_checked_field('Alpha')
+    end
+  end
+
+  describe 'Timestamp' do
+    it do
+      add_todo('Alpha')
+      wait_for_todo_list_saved
+      expect(page).to have_content('数秒前に保存済み')
+    end
+  end
 end
