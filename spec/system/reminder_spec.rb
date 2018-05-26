@@ -40,6 +40,13 @@ describe 'Reminder', type: :system, js: true do
     end
   end
 
+  context 'when revert done' do
+    it do
+      revert_done(1)
+      expect_reminder_scheduled
+    end
+  end
+
   private
 
     def expect_reminder_scheduled
