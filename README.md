@@ -1,10 +1,10 @@
-# Leave me alone! ✅
+# Leave me alone! 👏 
 
 [![Build Status](https://travis-ci.org/haazime/leave-me-alone.svg?branch=master)](https://travis-ci.org/haazime/leave-me-alone)
 
 Let's todo driven work.
 
-This application helps you getting work to done.
+This application helps you to getting work done.
 
 ## Requirement
 
