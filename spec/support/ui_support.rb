@@ -37,8 +37,10 @@ module UISupport
       uncheck "todo-list-item-check-#{index}"
     end
 
-    def wait_for_todo_list_saved
-      sleep 1.2
+    def wait_auto_save(interval_ms: 200)
+      yield
+      wait_sec = (interval_ms + 200) / 1000.0
+      sleep wait_sec
       visit todo_list_path
     end
   end

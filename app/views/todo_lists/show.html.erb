@@ -1,6 +1,6 @@
 <div class="row" data-controller="reminder" data-reminder-at="" id="test-remind-at">
   <div class="col-lg-9 col-xs-12 mx-auto">
-    <%= form_with url: todo_list_url, method: :patch, scope: :form, data: { controller: 'auto-submit', target: 'reminder.subject' } do |f| %>
+    <%= form_with url: todo_list_url, method: :patch, scope: :form, data: { controller: 'auto-submit', auto_submit_interval: todo_list_auto_submit_interval, target: 'reminder.subject' } do |f| %>
       <div class="tdl-Background">
         <%= render partial: 'todo_lists/list', locals: { list: @list } %>
       </div>
