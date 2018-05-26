@@ -3,6 +3,13 @@ rvm: 2.4.1
 services: postgresql
 bundler_args: "--without development --deployment -j4"
 cache: bundler
+before_install:
+  # Install latest Chrome
+  - sudo apt-get update
+  - sudo apt-get install -y libappindicator1 fonts-liberation
+  - export CHROME_BIN=/usr/bin/google-chrome
+  - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+  - sudo dpkg -i google-chrome*.deb
 before_script:
   - bundle exec rake db:create
   - bundle exec rake db:migrate
