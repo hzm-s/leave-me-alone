@@ -6,6 +6,7 @@ export default class extends Controller {
   static targets = ['subject']
 
   initialize() {
+    this.remindInterval = 1000 * 60 * 30
     this.setReminder()
 
     this.subjectTarget.addEventListener('formchanged', (e) => {
@@ -21,13 +22,12 @@ export default class extends Controller {
   }
 
   setReminder() {
-    const after = 1000 * 60 * 30
     this.clearReminder()
     this.remindTimer = setInterval(() => {
       this.remind()
       this.clearReminder()
-    }, after)
-    this.data.set('at', moment().add(after, 'ms').format())
+    }, this.remindInterval)
+    this.data.set('at', moment().add(this.remindInterval, 'ms').format())
   }
 
   clearReminder() {
