@@ -4,7 +4,7 @@ export default class extends Controller {
   static targets = ['submit']
 
   initialize() {
-    this.interval = 1000 * 1
+    this.setSubmitInterval()
 
     this.element.addEventListener('formchanged', (e) => {
       this.setSubmitter()
@@ -34,5 +34,14 @@ export default class extends Controller {
 
   submit() {
     this.submitTarget.click()
+  }
+
+  setSubmitInterval() {
+    const interval = parseInt(this.data.get('submitInterval'))
+    if (interval) {
+      this.interval = interval
+    } else {
+      this.interval = 1000 * 2
+    }
   }
 }
