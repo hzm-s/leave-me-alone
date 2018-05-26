@@ -28,6 +28,19 @@ module UISupport
     def todos
       all('.test-list-item')
     end
+
+    def done(index)
+      check "todo-list-item-check-#{index}"
+    end
+
+    def revert_done(index)
+      uncheck "todo-list-item-check-#{index}"
+    end
+
+    def wait_for_todo_list_saved
+      sleep 1.2
+      visit todo_list_path
+    end
   end
 end
 
