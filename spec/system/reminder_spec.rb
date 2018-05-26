@@ -1,9 +1,18 @@
 require 'rails_helper'
 
 describe 'Reminder', type: :system, js: true do
-  before { TodoList.create! }
+  before do
+    TodoList.new(title: 'Todo') do |list|
+      list.add(content: 'Alpha')
+      list.add(content: 'Bravo', done: true)
+      list.save!
+    end
 
-  xcontext 'when show list' do
+    visit todo_list_path
+    clear_remind_at
+  end
+
+  context 'when show list' do
     it do
       visit todo_list_path
       expect_reminder_scheduled
@@ -12,8 +21,14 @@ describe 'Reminder', type: :system, js: true do
 
   context 'when todo added' do
     it do
-      visit todo_list_path
-      add_todo('Alpha')
+      add_todo('Charlie')
+      expect_reminder_scheduled
+    end
+  end
+
+  context 'when todo removed' do
+    it do
+      remove_todo(0)
       expect_reminder_scheduled
     end
   end
@@ -31,5 +46,12 @@ describe 'Reminder', type: :system, js: true do
 
     def about_min(base_min)
       (base_min - 1.minutes)..(base_min + 1.minutes)
+    end
+
+    def clear_remind_at
+      js = <<~JS
+        document.getElementById('test-remind-at').dataset.reminderAt = '';
+      JS
+      execute_script(js)
     end
 end

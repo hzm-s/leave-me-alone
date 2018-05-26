@@ -6,7 +6,8 @@ export default class extends Controller {
   static targets = ['subject']
 
   connect() {
-    //this.setReminder()
+    this.setReminder()
+
     this.subjectTarget.addEventListener('formchanged', (e) => {
       this.setReminder()
     })
