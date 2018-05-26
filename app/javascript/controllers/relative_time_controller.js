@@ -1,5 +1,5 @@
-import { Controller } from 'stimulus';
-import moment from 'moment';
+import { Controller } from 'stimulus'
+import moment from 'moment'
 
 export default class extends Controller {
   initialize() {
