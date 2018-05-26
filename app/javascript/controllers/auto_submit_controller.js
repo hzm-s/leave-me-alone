@@ -4,33 +4,44 @@ export default class extends Controller {
   static targets = ['submit']
 
   initialize() {
-    this.interval = 1000 * 1
-  }
+    this.setSubmitInterval()
 
-  connect() {
     this.element.addEventListener('formchanged', (e) => {
-      this.willSubmit = true
+      this.setSubmitter()
     })
     this.element.addEventListener('change', (e) => {
-      this.willSubmit = true
+      this.setSubmitter()
     })
-    this.submitTimer = setInterval(() => { this.detect() }, this.interval)
   }
 
   disconnect() {
+    this.clearSubmitter()
+  }
+
+  setSubmitter() {
+    this.clearSubmitter()
+    this.submitTimer = setInterval(() => {
+      this.submit()
+      this.clearSubmitter()
+    }, this.interval)
+  }
+
+  clearSubmitter() {
     if (this.submitTimer) {
       clearInterval(this.submitTimer)
     }
   }
 
-  detect() {
-    if (this.willSubmit) {
-      this.submit()
-    }
-  }
-
   submit() {
     this.submitTarget.click()
-    this.willSubmit = false
+  }
+
+  setSubmitInterval() {
+    const interval = parseInt(this.data.get('interval'))
+    if (interval) {
+      this.interval = interval
+    } else {
+      this.interval = 1000 * 2
+    }
   }
 }

@@ -1,4 +1,6 @@
 module ApplicationHelper
+  include TodoListHelper
+
   WEB_FONT_URLS = [
     'https://fonts.googleapis.com/css?family=Patrick+Hand'.freeze,
     'https://fonts.googleapis.com/earlyaccess/roundedmplus1c.css'.freeze
