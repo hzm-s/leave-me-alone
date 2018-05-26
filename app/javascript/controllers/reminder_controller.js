@@ -37,6 +37,7 @@ export default class extends Controller {
   }
 
   remind() {
+    const controller = this
     Push.create('Leave me alone!', {
       link: '/todo_list',
       body: 'Todoリストを確認しましょう。',
@@ -44,6 +45,7 @@ export default class extends Controller {
       onClick: function() {
         window.focus()
         this.close()
+        controller.setReminder()
       }
     })
   }
