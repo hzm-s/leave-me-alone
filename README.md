@@ -1,28 +1,10 @@
-# README
+# Leave me alone! ✅
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[![Build Status](https://travis-ci.org/haazime/leave-me-alone.svg?branch=master)](https://travis-ci.org/haazime/leave-me-alone)
 
-Things you may want to cover:
+Let's todo driven work.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
+This application helps you getting work to done.
 
 ## Requirement
 
