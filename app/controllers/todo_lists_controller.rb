@@ -1,6 +1,8 @@
 class TodoListsController < ApplicationController
   layout 'todo_list'
 
+  before_action :require_user
+
   def show
     @list = TodoList.find_by_user_id(current_user.id)
   end

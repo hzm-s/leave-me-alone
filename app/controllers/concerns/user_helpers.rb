@@ -19,6 +19,11 @@ module UserHelpers
       current_user.present?
     end
 
+    def require_user
+      return if signed_in?
+      redirect_to new_session_url, alert: 'ログインしてください'
+    end
+
     def require_guest
       if signed_in?
         msg = 'ログインしています'
