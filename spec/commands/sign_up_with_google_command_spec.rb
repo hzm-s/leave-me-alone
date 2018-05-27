@@ -27,12 +27,12 @@ describe SignUpWithGoogleCommand do
 
   context 'when invalid' do
     it do
-      invalid_google_identity = generate_google_identity(user_id: '')
+      invalid_google_identity = generate_google_identity.tap { |id| id.user_id = nil }
       expect { described_class.run(invalid_google_identity) }
-        .to change { User.count }.by(1)
-        .and change { UserProfile.count }.by(1)
-        .and change { GoogleIdentity.count }.by(1)
-        .and change { TodoList.count }.by(1)
+        .to change { User.count }.by(0)
+        .and change { UserProfile.count }.by(0)
+        .and change { GoogleIdentity.count }.by(0)
+        .and change { TodoList.count }.by(0)
     end
   end
 end

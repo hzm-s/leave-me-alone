@@ -2,12 +2,13 @@ class SignUpWithGoogleCommand < ApplicationCommand
 
   def run(google_identity)
     user = new_user(google_identity)
-
     transaction do
       user.save!
       InitializeCommand.run!(user)
     end
-
+  rescue
+    failure
+  else
     success(user: user)
   end
 
