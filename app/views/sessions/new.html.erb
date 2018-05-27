@@ -6,7 +6,9 @@
     </h1>
     <hr class="sess-Divider">
     <div class="sess-Actions">
-      <%= button_tag 'Googleでログイン', class: 'sess-Button sw-Button-primary' %>
+      <%= google_sign_in(url: google_session_url) do %>
+        <%= button_tag 'Googleでログイン', class: 'sess-Button sw-Button-primary' %>
+      <% end -%>
       <p class="sess-ActionDivider">
         ユーザー登録がまだの場合は
       <p>

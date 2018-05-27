@@ -9,7 +9,7 @@ class GoogleSessionsController < ApplicationController
       sign_in(user.id)
       redirect_to todo_list_url, notice: 'ログインしました'
     else
-      redirect_to new_session_url, notice: 'ユーザー登録してください'
+      redirect_to new_session_url(flash: :not_signed_up)
     end
   end
 

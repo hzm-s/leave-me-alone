@@ -1,7 +1,8 @@
 class SessionsController < ApplicationController
 
-  def create
-    id = GoogleSignIn::Identity.new(params[:google_id_token])
-    p id.user_id
+  def new
+    if params[:flash]
+      flash.now[:notice] = 'ユーザー登録してください'
+    end
   end
 end
