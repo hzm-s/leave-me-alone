@@ -6,11 +6,10 @@ describe 'Sign in with google' do
       google_identity = mock_google_sign_in_identity
       user = sign_up_with_google(google_identity)
 
-      post google_session_path, params: { google_id_token: google_identity.token }
-      follow_redirect!
+      post google_session_path, params: { google_id_token: google_identity.token }, xhr: true
+      follow_turbolinks_visit!
 
       aggregate_failures do
-        expect(response.body).to include('ログインしました')
         expect(response.body).to include(user.name)
         expect(response.body).to include(user.avatar_url)
         expect(response.body).to include('ログアウト')
@@ -21,22 +20,15 @@ describe 'Sign in with google' do
   context 'when NOT signed up' do
     it do
       google_identity = mock_google_sign_in_identity
-
-      post google_session_path, params: { google_id_token: google_identity.token }
-      follow_redirect!
-
+      post google_session_path, params: { google_id_token: google_identity.token }, xhr: true
       expect(response.body).to include('ユーザー登録してください')
-      expect(response.body).to include('Googleでユーザー登録')
     end
   end
 
   context 'when google id token = nil' do
     it do
-      post google_session_path, params: { google_id_token: nil }
-      follow_redirect!
-
+      post google_session_path, params: { google_id_token: nil }, xhr: true
       expect(response.body).to include('もう一度ログインしてください')
-      expect(response.body).to include('Googleでログイン')
     end
   end
 
@@ -45,13 +37,11 @@ describe 'Sign in with google' do
 
     before do
       sign_up_with_google(google_identity)
-      post google_session_path, params: { google_id_token: google_identity.token }
+      post google_session_path, params: { google_id_token: google_identity.token }, xhr: true
     end
 
     it do
-      post google_session_path, params: { google_id_token: google_identity.token }
-      follow_redirect!
-
+      post google_session_path, params: { google_id_token: google_identity.token }, xhr: true
       expect(response.body).to include('ログインしています')
     end
   end
