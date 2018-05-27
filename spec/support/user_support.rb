@@ -28,23 +28,23 @@ module UserSupport
   end
 
   module Common
-    def generate_google_identity(attrs = {}, &block)
-      DummyGoogleIdentity.new(attrs, &block)
+    def generate_google_identity(attrs = {})
+      DummyGoogleIdentity.new(attrs)
     end
 
     def mock_google_sign_in_identity(google_identity_attrs = {})
-      generate_google_identity(google_identity_attrs) do |google_identity|
-        allow(GoogleSignIn::Identity).to receive(:new) do |token|
-          if token == google_identity.token
-            google_identity
-          else
-            nil
-          end
+      google_identity = generate_google_identity(google_identity_attrs)
+      allow(GoogleSignIn::Identity).to receive(:new) do |token|
+        if token == google_identity.token
+          google_identity
+        else
+          nil
         end
       end
+      google_identity
     end
 
-    def sign_up_with_google(google_identity = DummyGoogleIdentity.generate)
+    def sign_up_with_google(google_identity = DummyGoogleIdentity.new)
       SignUpWithGoogleCommand.run(google_identity).user
     end
   end
