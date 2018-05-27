@@ -1,0 +1,39 @@
+#flash {
+  position: fixed;
+  top: 50vh;
+  left: 50%;
+  z-index: 999999;
+  transform: translate(-50%, -50%);
+  margin: 0;
+}
+
+.fl-Block {
+  @extend .d-flex, .align-items-center;
+  padding: .25rem 1rem .25rem 1.25rem;
+  border-radius: 1.25rem;
+  color: $white;
+}
+
+.fl-Block-success {
+  background-color: theme-color('success');
+  box-shadow: 0 0 5px theme-color('success');
+}
+
+.fl-Block-danger {
+  background-color: theme-color('danger');
+  box-shadow: 0 0 5px theme-color('danger');
+}
+
+.fl-Message {
+  margin-right: .75rem;
+}
+
+.fl-Close {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: $gray-200;
+  &:hover {
+    text-decoration: none;
+    color: $gray-300;
+  }
+}

@@ -9,6 +9,7 @@ describe 'Sign in with google' do
     follow_redirect!
 
     aggregate_failures do
+      expect(response.body).to include('ログインしました')
       expect(response.body).to include(user.name)
       expect(response.body).to include(user.avatar_url)
       expect(response.body).to include('ログアウト')
