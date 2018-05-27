@@ -42,8 +42,6 @@ describe 'Sign in with google' do
 
     it do
       post google_session_path, params: { google_id_token: google_identity.token }, xhr: true
-      follow_redirect!
-
       expect(response.body).to include('ログインしています')
     end
   end

@@ -21,7 +21,14 @@ module UserHelpers
 
     def require_guest
       if signed_in?
-        redirect_to todo_list_url(flash: :already_signed_in)
+        msg = 'ログインしています'
+        respond_to do |f|
+          f.html { redirect_to root_url, notice: msg }
+          f.js do
+            flash.now[:notice] = msg
+            render 'flash'
+          end
+        end
       end
     end
 
