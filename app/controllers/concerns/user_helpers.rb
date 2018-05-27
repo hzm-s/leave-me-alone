@@ -29,8 +29,6 @@ module UserHelpers
       end
     end
 
-  private
-
     def fetch_user(user_id)
       User.find_by(id: user_id)
     end

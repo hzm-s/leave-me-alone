@@ -44,9 +44,15 @@ module UserSupport
       google_identity
     end
 
-    def sign_up_with_google(google_identity = DummyGoogleIdentity.new)
+    def sign_up_with_google_identity(google_identity = DummyGoogleIdentity.new)
       SignUpWithGoogleCommand.run(google_identity).user
     end
+
+    def sign_up_with_google(attrs = {})
+      google_identity = DummyGoogleIdentity.new(attrs)
+      sign_up_with_google_identity(google_identity)
+    end
+    alias_method :sign_up, :sign_up_with_google
   end
 end
 

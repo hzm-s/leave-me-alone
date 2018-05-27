@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_one :google_identity
   has_one :profile, class_name: 'UserProfile'
+  has_one :todo_list
 
   before_create do
     self.signed_up_at = Time.current

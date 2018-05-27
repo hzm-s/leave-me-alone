@@ -1,12 +1,16 @@
 require 'rails_helper'
 
 describe 'Inline Edit', type: :system, js: true do
+  let!(:user) { sign_up }
+
   before do
-    TodoList.new(title: 'Todo') do |list|
+    todo_list = user.todo_list
+    todo_list.tap do |list|
       list.add(content: 'Item123')
       list.save!
     end
 
+    sign_in(user)
     visit todo_list_path
   end
 
