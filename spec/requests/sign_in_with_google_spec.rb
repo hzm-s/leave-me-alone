@@ -7,10 +7,9 @@ describe 'Sign in with google' do
       user = sign_up_with_google(google_identity)
 
       post google_session_path, params: { google_id_token: google_identity.token }, xhr: true
-      follow_redirect!
+      follow_turbolinks_visit!
 
       aggregate_failures do
-        expect(response.body).to include('ログインしました')
         expect(response.body).to include(user.name)
         expect(response.body).to include(user.avatar_url)
         expect(response.body).to include('ログアウト')
@@ -29,10 +28,7 @@ describe 'Sign in with google' do
   context 'when google id token = nil' do
     it do
       post google_session_path, params: { google_id_token: nil }, xhr: true
-      follow_redirect!
-
       expect(response.body).to include('もう一度ログインしてください')
-      expect(response.body).to include('Googleでログイン')
     end
   end
 
