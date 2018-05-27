@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-xdescribe 'Sign up with google' do
+describe 'Sign up with google' do
   it do
     google_identity = mock_google_sign_in_identity
 
