@@ -19,18 +19,21 @@ module UserHelpers
       current_user.present?
     end
 
+    def signed_out?
+      !signed_in?
+    end
+
     def require_user
       return if signed_in?
       redirect_to new_session_url, alert: 'ログインしてください'
     end
 
     def require_guest
-      if signed_in?
-        msg = 'ログインしています'
-        respond_to do |f|
-          f.html { redirect_to home_url, notice: msg }
-          f.js { flash_via_js notice: msg }
-        end
+      return if signed_out?
+      msg = 'ログインしています'
+      respond_to do |f|
+        f.html { redirect_to home_url, notice: msg }
+        f.js { flash_via_js notice: msg }
       end
     end
 
