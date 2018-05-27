@@ -9,7 +9,9 @@ class GoogleSessionsController < ApplicationController
       sign_in(user.id)
       redirect_to todo_list_url(flash: :signed_in)
     else
-      redirect_to new_session_url(flash: :not_signed_up)
+      #redirect_to new_session_url(flash: :not_signed_up)
+      flash.now[:notice] = 'ユーザー登録してください'
+      render 'flash'
     end
   end
 

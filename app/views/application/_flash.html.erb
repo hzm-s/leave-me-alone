@@ -1,13 +1,15 @@
-<% flash.each do |name, msg| %>
-  <% if msg.is_a?(String) -%>
-    <% alert_type = name == 'notice' ? 'success' : 'danger' %>
-    <div id="flash" class="fl-Block fl-Block-<%= alert_type %> alert fade show alert-dismissible" role="alert">
-      <div class="fl-Message">
-        <%= msg %>
+<div id="js-flash">
+  <% flash.each do |name, msg| %>
+    <% if msg.is_a?(String) -%>
+      <% alert_type = name == 'notice' ? 'success' : 'danger' %>
+      <div id="flash" class="fl-Block fl-Block-<%= alert_type %> alert fade show alert-dismissible" role="alert">
+        <div class="fl-Message">
+          <%= msg %>
+        </div>
+        <a href="#" class="fl-Close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </a>
       </div>
-      <a href="#" class="fl-Close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </a>
-    </div>
-  <% end -%>
-<% end %>
+    <% end -%>
+  <% end %>
+</div>
