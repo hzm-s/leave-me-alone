@@ -6,5 +6,7 @@ Rails.application.routes.draw do
   resource :google_sign_up, only: [:create]
   resource :google_session, only: [:create]
 
+  get 'home', to: 'todo_lists#show', as: :home
+
   root to: 'todo_lists#show'
 end

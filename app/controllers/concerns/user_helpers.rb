@@ -23,7 +23,7 @@ module UserHelpers
       if signed_in?
         msg = 'ログインしています'
         respond_to do |f|
-          f.html { redirect_to root_url, notice: msg }
+          f.html { redirect_to home_url, notice: msg }
           f.js { flash_via_js notice: msg }
         end
       end

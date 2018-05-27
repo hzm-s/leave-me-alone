@@ -4,6 +4,6 @@ class GoogleSignUpsController < ApplicationController
     google_identity = GoogleSignIn::Identity.new(params[:google_id_token])
     result = SignUpWithGoogleCommand.run(google_identity)
     sign_in(result.user.id)
-    redirect_to todo_list_url
+    redirect_to home_url
   end
 end
