@@ -1,13 +1,17 @@
 require 'rails_helper'
 
 describe 'Reminder', type: :system, js: true do
+  let!(:user) { sign_up }
+
   before do
-    TodoList.new(title: 'Todo') do |list|
+    todo_list = user.todo_list
+    todo_list.tap do |list|
       list.add(content: 'Alpha')
       list.add(content: 'Bravo', done: true)
       list.save!
     end
 
+    sign_in(user)
     visit todo_list_path
     clear_remind_at
   end

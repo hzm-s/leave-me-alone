@@ -46,6 +46,8 @@
 </div>
 <div class="mk-Footer">
   <div class="mk-Joins">
-    <%= button_tag 'Googleでユーザー登録', class: 'mk-Button sw-Button-primary' %>
+    <%= google_sign_in(url: google_sign_up_url) do %>
+      <%= button_tag 'Googleでユーザー登録', class: 'mk-Button sw-Button-primary' %>
+    <% end -%>
   </div>
 </div>

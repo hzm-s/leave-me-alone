@@ -1,8 +1,10 @@
 require 'rails_helper'
 
 describe 'Mange todo list item', type: :system, js: true do
+  let!(:user) { sign_up }
+
   before do
-    TodoList.create!
+    sign_in(user)
     visit todo_list_path
   end
 

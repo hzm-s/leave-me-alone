@@ -1,13 +1,6 @@
 require 'rails_helper'
 
-describe 'Session' do
-  context 'when NOT signed in' do
-    it do
-      get new_session_path
-      expect(response.body).to include('Googleでログイン')
-    end
-  end
-
+describe 'GoogleSignUps' do
   context 'when signed in' do
     let(:google_identity) { mock_google_sign_in_identity }
 
@@ -17,9 +10,8 @@ describe 'Session' do
     end
 
     it do
-      get new_session_path
-      follow_redirect!
-      expect(response.body).to include(google_identity.name)
+      post google_sign_up_path, params: { google_id_token: google_identity.token }, xhr: true
+      expect(response.body).to include('ログインしています')
     end
   end
 end
