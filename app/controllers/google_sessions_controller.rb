@@ -9,8 +9,7 @@ class GoogleSessionsController < ApplicationController
       sign_in(user.id)
       redirect_to todo_list_url
     else
-      flash.now[:notice] = 'ユーザー登録してください'
-      render 'flash'
+      flash_via_js notice: 'ユーザー登録してください'
     end
   end
 
@@ -18,8 +17,7 @@ class GoogleSessionsController < ApplicationController
 
     def require_google_id_token
       if params[:google_id_token].blank?
-        flash.now[:notice] = 'もう一度ログインしてください'
-        render 'flash'
+        flash_via_js notice: 'もう一度ログインしてください'
       end
     end
 end

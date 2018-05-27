@@ -24,10 +24,7 @@ module UserHelpers
         msg = 'ログインしています'
         respond_to do |f|
           f.html { redirect_to root_url, notice: msg }
-          f.js do
-            flash.now[:notice] = msg
-            render 'flash'
-          end
+          f.js { flash_via_js notice: msg }
         end
       end
     end
