@@ -19,6 +19,12 @@ module UserHelpers
       current_user.present?
     end
 
+    def require_guest
+      if signed_in?
+        redirect_to todo_list_url, notice: 'ログインしています'
+      end
+    end
+
   private
 
     def fetch_user(user_id)
