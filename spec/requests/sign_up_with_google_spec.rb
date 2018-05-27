@@ -2,11 +2,12 @@ require 'rails_helper'
 
 xdescribe 'Sign up with google' do
   it do
-    post '/sign_up/google'
+    google_identity = mock_google_sign_in_identity
 
-    follow_redirect!
+    post google_sign_up_path, params: { google_id_token: google_identity.token }, xhr: true
+    follow_turbolinks_visit!
 
-    expect(response.body).to include('グーグルユーザー')
-    expect(response.body).to include('http://avatar.url')
+    expect(response.body).to include(google_identity.name)
+    expect(response.body).to include(google_identity.avatar_url)
   end
 end

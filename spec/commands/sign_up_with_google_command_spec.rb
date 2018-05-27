@@ -1,26 +1,20 @@
 require 'rails_helper'
 
 describe SignUpWithGoogleCommand do
-  let(:valid) do
-    {
-      google_user_id: '1234567890',
-      name: 'User Name',
-      avatar_url: 'http://avatar.url'
-    }
-  end
+  let(:google_identity) { generate_google_identity }
 
   it do
-    described_class.run(valid)
+    described_class.run(google_identity)
 
-    user = User.find_by_google_user_id(valid[:google_user_id])
+    user = User.find_by_google_user_id(google_identity.user_id)
     aggregate_failures do
-      expect(user.name).to eq(valid[:name])
-      expect(user.avatar_url).to eq(valid[:avatar_url])
+      expect(user.name).to eq(google_identity.name)
+      expect(user.avatar_url).to eq(google_identity.avatar_url)
     end
   end
 
   it do
-    expect { described_class.run(valid) }
+    expect { described_class.run(google_identity) }
       .to change { User.count }.by(1)
       .and change { UserProfile.count }.by(1)
       .and change { GoogleIdentity.count }.by(1)
