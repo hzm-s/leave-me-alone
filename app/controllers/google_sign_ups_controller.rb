@@ -9,7 +9,7 @@ class GoogleSignUpsController < ApplicationController
     result = SignUpWithGoogleCommand.run(google_identity)
     if result.succeeded?
       sign_in(result.user.id)
-      redirect_to home_url
+      redirect_to todo_list_url
     else
       flash_via_js notice: 'もう一度お試しください'
     end

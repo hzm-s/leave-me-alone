@@ -32,7 +32,7 @@ module UserHelpers
       return if signed_out?
       msg = 'ログインしています'
       respond_to do |f|
-        f.html { redirect_to home_url, notice: msg }
+        f.html { redirect_to todo_list_url, notice: msg }
         f.js { flash_via_js notice: msg }
       end
     end
