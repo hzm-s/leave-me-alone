@@ -1,8 +1,3 @@
 class SessionsController < ApplicationController
-
-  def new
-    if params[:flash]
-      flash.now[:notice] = 'ユーザー登録してください'
-    end
-  end
+  before_action :set_flash_message, only: [:new]
 end

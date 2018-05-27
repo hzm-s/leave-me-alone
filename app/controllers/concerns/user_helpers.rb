@@ -21,7 +21,7 @@ module UserHelpers
 
     def require_guest
       if signed_in?
-        redirect_to todo_list_url, notice: 'ログインしています'
+        redirect_to todo_list_url(flash: :already_signed_in)
       end
     end
 

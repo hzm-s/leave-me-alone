@@ -7,7 +7,7 @@ class GoogleSessionsController < ApplicationController
 
     if user = User.find_by_google_user_id(google_identity.user_id)
       sign_in(user.id)
-      redirect_to todo_list_url, notice: 'ログインしました'
+      redirect_to todo_list_url(flash: :signed_in)
     else
       redirect_to new_session_url(flash: :not_signed_up)
     end
@@ -17,7 +17,7 @@ class GoogleSessionsController < ApplicationController
 
     def require_google_id_token
       if params[:google_id_token].blank?
-        redirect_to new_session_url, notice: 'もう一度ログインしてください'
+        redirect_to new_session_url(flash: :retry)
       end
     end
 end
