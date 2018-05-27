@@ -30,6 +30,16 @@ describe 'Sign in with google' do
     end
   end
 
+  context 'when google id token = nil' do
+    it do
+      post google_session_path, params: { google_id_token: nil }
+      follow_redirect!
+
+      expect(response.body).to include('もう一度ログインしてください')
+      expect(response.body).to include('Googleでログイン')
+    end
+  end
+
   context 'when signed in' do
     let(:google_identity) { mock_google_sign_in_identity }
 
