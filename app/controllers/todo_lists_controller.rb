@@ -1,8 +1,6 @@
 class TodoListsController < ApplicationController
   layout 'todo_list'
 
-  before_action :set_flash_message, only: [:show]
-
   def show
     @list = TodoList.last || TodoList.create
   end
