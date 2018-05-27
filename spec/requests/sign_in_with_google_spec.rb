@@ -1,19 +1,17 @@
 require 'rails_helper'
 
-DummyGoogleIdentity = Struct.new(:user_id, :name, :avatar_url)
-
 describe 'Sign in with google' do
   it do
-    google_identity =
-      DummyGoogleIdentity.new(1234567890, 'ユーザーABC', 'http://avatar.url')
-    allow(GoogleSignIn::Identity).to receive(:new) { google_identity }
+    google_identity = mock_google_sign_in_identity
+    user = sign_up_with_google(google_identity)
 
-    user = SignUpWithGoogleCommand.run_with_google_identity(google_identity).user
-
-    post sign_in_google, params: { google_id_token: 'GOOGLE_ID_TOKEN' }
+    post google_session_path, params: { google_id_token: google_identity.token }
     follow_redirect!
 
-    expect(response).to include(user.name)
-    expect(response).to include(user.profile_avatar_url)
+    aggregate_failures do
+      expect(response.body).to include(user.name)
+      expect(response.body).to include(user.avatar_url)
+      expect(response.body).to include('ログアウト')
+    end
   end
 end

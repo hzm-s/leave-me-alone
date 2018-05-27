@@ -10,10 +10,12 @@ class SignUpWithGoogleCommand < ApplicationCommand
   end
 
   def run
-    User.new(name: name) do |user|
-      user.build_profile(avatar_url: avatar_url)
-      user.build_google_identity(sub: google_user_id)
-      user.save
-    end
+    user =
+      User.new(name: name) do |user|
+        user.build_profile(avatar_url: avatar_url)
+        user.build_google_identity(sub: google_user_id)
+        user.save
+      end
+    success(user: user)
   end
 end

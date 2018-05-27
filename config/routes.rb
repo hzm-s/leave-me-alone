@@ -1,11 +1,10 @@
 Rails.application.routes.draw do
   resource :todo_list, only: [:show, :update]
   resource :marketing, only: [:show]
-  resource :session, only: [:new, :create]
+  resource :session, only: [:new]
 
-  scope 'sign_up', as: :sign_up, module: :sign_up do
-    resource :google, only: [:create]
-  end
+  resource :google_sign_up, only: [:create]
+  resource :google_session, only: [:create]
 
   root to: 'todo_lists#show'
 end

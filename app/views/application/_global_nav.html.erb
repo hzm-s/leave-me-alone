@@ -5,22 +5,9 @@
   <div class="collapse navbar-collapse justify-content-center" id="js-GlobalNav">
     <a class="navbar-brand nav-Global_Appname" href="#">Leave me alone!</a>
     <ul class="navbar-nav">
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="" id="js-GlobalNav_Menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <%= image_tag('avatar.png', class: 'nav-Global_Avatar') %>
-        </a>
-        <div class="dropdown-menu" aria-labelledby="js-GlobalNav_Menu">
-          <a class="dropdown-item" href="#">
-            <i class="icon-Setting mr-1"></i>
-            リマインダー設定
-          </a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">
-            <i class="icon-Sign-out mr-1"></i>
-            ログアウト
-          </a>
-        </div>
-      </li>
+      <% if signed_in? %>
+        <%= render 'user_menu' %>
+      <% end -%>
     </ul>
   </div>
 </nav>
