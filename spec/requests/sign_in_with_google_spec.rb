@@ -28,7 +28,7 @@ describe 'Sign in with google' do
   context 'when google id token = nil' do
     it do
       post google_session_path, params: { google_id_token: nil }, xhr: true
-      expect(response.body).to include('もう一度ログインしてください')
+      expect(response.body).to include('もう一度お試しください')
     end
   end
 end
