@@ -1,0 +1,2 @@
+class GoogleIdentity < ApplicationRecord
+end
