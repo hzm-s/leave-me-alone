@@ -11,6 +11,7 @@
     <%= yield :head %>
   </head>
   <body<%= content_for?(:body_class) ? %{ class="#{yield(:body_class)}"}.html_safe : '' %>>
+    <%= render 'flash' %>
     <%= content_for?(:page) ? yield(:page) : yield %>
   </body>
 </html>

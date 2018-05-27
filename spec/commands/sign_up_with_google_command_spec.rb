@@ -12,7 +12,7 @@ describe SignUpWithGoogleCommand do
   it do
     described_class.run(valid)
 
-    user = User.find_by_google_user_id!(valid[:google_user_id])
+    user = User.find_by_google_user_id(valid[:google_user_id])
     aggregate_failures do
       expect(user.name).to eq(valid[:name])
       expect(user.avatar_url).to eq(valid[:avatar_url])

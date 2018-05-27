@@ -13,8 +13,8 @@ class User < ApplicationRecord
 
   class << self
 
-    def find_by_google_user_id!(google_user_id)
-      joins(:google_identity).find_by!(google_identities: { sub: google_user_id })
+    def find_by_google_user_id(google_user_id)
+      joins(:google_identity).find_by(google_identities: { sub: google_user_id })
     end
   end
 end
