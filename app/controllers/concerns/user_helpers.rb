@@ -23,6 +23,10 @@ module UserHelpers
       !signed_in?
     end
 
+    def sign_out
+      cookies.delete(:user_id)
+    end
+
     def require_user
       return if signed_in?
       redirect_to new_session_url, alert: 'ログインしてください'
