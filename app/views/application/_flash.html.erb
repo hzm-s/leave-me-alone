@@ -2,8 +2,9 @@
   <% flash.each do |name, msg| %>
     <% if msg.is_a?(String) -%>
       <% alert_type = name == 'notice' ? 'success' : 'danger' %>
-      <div id="flash" class="fl-Block fl-Block-<%= alert_type %> alert fade show alert-dismissible" role="alert">
-        <div class="fl-Message">
+      <% timeout = name == 'notice' ? 2500 : 60000 %>
+      <div id="flash" data-controller="flash" data-flash-timeout="<%= timeout %>" class="fl-Block fl-Block-<%= alert_type %> alert fade show alert-dismissible" role="alert">
+        <div class="fl-Message" data-dismiss="alert">
           <%= msg %>
         </div>
         <a href="#" class="fl-Close" data-dismiss="alert" aria-label="Close">
