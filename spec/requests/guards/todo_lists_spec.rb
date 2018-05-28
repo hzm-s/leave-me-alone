@@ -10,4 +10,14 @@ describe 'TodoLists' do
       end
     end
   end
+
+  describe '#update' do
+    context 'when not signed in' do
+      it do
+        patch todo_list_path, xhr: true
+        follow_turbolinks_visit!
+        expect(response.body).to include('ログインしてください')
+      end
+    end
+  end
 end
