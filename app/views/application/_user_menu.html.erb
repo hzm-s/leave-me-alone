@@ -3,14 +3,16 @@
     <%= image_tag(current_user.avatar_url, alt: current_user.name, class: 'nav-Global_Avatar') %>
   </a>
   <div class="dropdown-menu" aria-labelledby="js-GlobalNav_Menu">
+    <!--
     <a class="dropdown-item" href="#">
       <i class="icon-Setting mr-1"></i>
       リマインダー設定
     </a>
     <div class="dropdown-divider"></div>
-    <a class="dropdown-item" href="#">
+    -->
+    <%= link_to session_url, method: :delete, class: 'dropdown-item' do %>
       <i class="icon-Sign-out mr-1"></i>
       ログアウト
-    </a>
+    <% end -%>
   </div>
 </li>
