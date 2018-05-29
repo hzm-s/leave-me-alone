@@ -30,16 +30,24 @@ module UISupport
       all('.test-list-item')
     end
 
+    def todo_checkbox_id(index)
+      "todo-list-item-check-#{index}"
+    end
+
+    def todo_checkbox(index)
+      find("##{todo_checkbox_id(index)}")
+    end
+
     def done(index)
-      check "todo-list-item-check-#{index}"
+      check todo_checkbox_id(index)
     end
 
     def revert_done(index)
-      uncheck "todo-list-item-check-#{index}"
+      uncheck todo_checkbox_id(index)
     end
 
     def todo_checked(index)
-      find("#todo-list-item-check-#{index}")[:checked]
+      todo_checkbox(index)[:checked]
     end
 
     def wait_for_todo_list_save
