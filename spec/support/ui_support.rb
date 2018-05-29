@@ -10,8 +10,7 @@ module UISupport
     end
 
     def edit_todo(index, content)
-      all('.test-list-item')[index].hover
-      click_on '編集する'
+      all('.test-list-item')[index].find('label').double_click
       fill_in "form[todos][#{index}][content]", with: content
       click_button
     end
