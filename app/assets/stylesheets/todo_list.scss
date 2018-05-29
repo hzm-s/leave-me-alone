@@ -36,11 +36,12 @@
 
 .tdl-Row {
   display: flex;
+  width: 100%;
   align-items: center;
 }
 
 .tdl-Item {
-  padding: .125rem 2rem .125rem 0;
+  padding: .125rem .5rem .125rem 0;
   border-top: 1px solid $paper-line-color-h;
 }
 
@@ -55,21 +56,22 @@
 
 .tdl-Item:hover .tdl-Item_Actions {
   @extend .d-flex, .align-items-center;
+  flex-grow: 1;
   display: block;
 }
 
 .tdl-Item_Action {
-  border-right: 1px solid $paper-line-color-h;
   padding: 0 .25rem;
   font-size: $font-size-sm;
+}
 
-  &:last-child {
-    border-right: 0;
-  }
+.tdl-Item_Remove {
+  @extend .ml-auto;
+  font-size: $font-size-sm;
 }
 
 .tdl-Add {
-  padding: .25rem 2rem .25rem 0;
+  padding: .25rem .5rem .25rem 0;
 }
 
 .tdl-Actions {
