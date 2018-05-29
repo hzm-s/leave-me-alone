@@ -60,14 +60,20 @@
   display: block;
 }
 
-.tdl-Item_Action {
-  padding: 0 .25rem;
-  font-size: $font-size-sm;
+.tdl-Item_Highlight {
+  @extend .fa, .fa-lightbulb-o;
+  font-size: 1.25rem;
+  margin-left: .25rem;
+  color: $gray-600;
+  cursor: pointer;
 }
 
 .tdl-Item_Remove {
   @extend .ml-auto;
   font-size: $font-size-sm;
+  &:hover {
+    color: theme-color('danger');
+  }
 }
 
 .tdl-Add {
