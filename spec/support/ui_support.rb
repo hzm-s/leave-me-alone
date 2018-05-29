@@ -38,6 +38,10 @@ module UISupport
       uncheck "todo-list-item-check-#{index}"
     end
 
+    def todo_checked(index)
+      find("#todo-list-item-check-#{index}")[:checked]
+    end
+
     def wait_for_todo_list_save
       yield
       wait_sec = (TodoListHelper.auto_save_interval + 300) / 1000.0
