@@ -57,7 +57,7 @@ describe 'Update todo list', type: :system, js: true do
       wait_for_todo_list_save do
         done(0)
       end
-      expect(page).to have_checked_field('Alpha')
+      expect(todo_checked(0)).to be_truthy
     end
   end
 
@@ -66,7 +66,7 @@ describe 'Update todo list', type: :system, js: true do
       wait_for_todo_list_save do
         revert_done(1)
       end
-      expect(page).to_not have_checked_field('Bravo')
+      expect(todo_checked(1)).to be_falsey
     end
   end
 

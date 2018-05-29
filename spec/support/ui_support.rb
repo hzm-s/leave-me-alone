@@ -3,15 +3,13 @@ module UISupport
     include TodoListHelper
 
     def edit_todo_list_title(title)
-      find('#test-header').hover
-      click_on '編集する'
+      find('#test-header').first('span').double_click
       fill_in 'form[title]', with: title
       click_button
     end
 
     def edit_todo(index, content)
-      all('.test-list-item')[index].hover
-      click_on '編集する'
+      all('.test-list-item')[index].find('label').double_click
       fill_in "form[todos][#{index}][content]", with: content
       click_button
     end
@@ -30,12 +28,24 @@ module UISupport
       all('.test-list-item')
     end
 
+    def todo_checkbox_id(index)
+      "todo-list-item-check-#{index}"
+    end
+
+    def todo_checkbox(index)
+      find("##{todo_checkbox_id(index)}")
+    end
+
     def done(index)
-      check "todo-list-item-check-#{index}"
+      check todo_checkbox_id(index)
     end
 
     def revert_done(index)
-      uncheck "todo-list-item-check-#{index}"
+      uncheck todo_checkbox_id(index)
+    end
+
+    def todo_checked(index)
+      todo_checkbox(index)[:checked]
     end
 
     def wait_for_todo_list_save

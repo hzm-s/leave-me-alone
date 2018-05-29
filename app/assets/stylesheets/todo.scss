@@ -1,5 +1,6 @@
 .todo-Item {
   @extend .d-flex, .align-items-center, .flex-wrap;
+  flex-grow: 1;
   padding-top: .375rem;
   padding-bottom: .375rem;
 }

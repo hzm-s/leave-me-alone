@@ -10,7 +10,6 @@ export default class extends Controller {
     this.checkbox.name = `form[todos][${index}][done]`
 
     this.label = this.element.querySelector('label')
-    this.label.setAttribute('for', checkId)
 
     this.input = this.element.querySelector('input[type="text"]')
     this.input.name = `form[todos][${index}][content]`
