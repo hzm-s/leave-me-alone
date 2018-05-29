@@ -2,10 +2,7 @@ class TodoListsController < ApplicationController
   layout 'todo_list'
 
   before_action :require_user
-
-  def show
-    @list = TodoList.find_by_user_id(current_user.id)
-  end
+  before_action :set_todo_list
 
   def update
     new_todo_list = TodoList.new(title: form_params[:title]) do |list|
@@ -14,12 +11,15 @@ class TodoListsController < ApplicationController
       end
     end
 
-    @list = TodoList.last
     @list.update_with(new_todo_list)
     @list.save!
   end
 
   private
+
+    def set_todo_list
+      @list = TodoList.find_by_user_id(current_user.id)
+    end
 
     def form_params
       params.require(:form).permit(:title, { todos: [:content, :done] })
