@@ -3,8 +3,7 @@ module UISupport
     include TodoListHelper
 
     def edit_todo_list_title(title)
-      find('#test-header').hover
-      click_on '編集する'
+      find('#test-header').first('span').double_click
       fill_in 'form[title]', with: title
       click_button
     end

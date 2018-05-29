@@ -1,9 +1,8 @@
 <div data-controller="inline-edit content" data-content-value="<%= title %>" id="test-header" class="tdl-Header">
   <div data-target="inline-edit.showSection" class="tdl-Row">
     <div class="tdl-HeaderWrapper">
-      <span data-target="content.show" class="tdl-Title"></span>
+      <span data-action="dblclick->inline-edit#open dblclick->content#edit" data-target="content.show" class="tdl-Title"></span>
       <div class="tdl-Header_Actions">
-        <%= link_to '編集する', '#', data: { action: 'inline-edit#open content#edit' }, class: 'tdl-Item_Action', id: 'test-edit-header' %>
       </div>
     </div>
   </div>
