@@ -15,14 +15,10 @@
   @extend .fa, .fa-sign-out;
 }
 
-.icon-Reset {
-  @extend .fa, .fa-refresh;
-}
-
 .icon-ResetAll {
   @extend .fa, .fa-fast-backward;
 }
 
-.icon-ResetTodo {
+.icon-ResetDone {
   @extend .fa, .fa-backward;
 }

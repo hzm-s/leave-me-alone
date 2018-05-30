@@ -3,12 +3,12 @@
 }
 
 .tdl-Header {
-  padding: 1.25rem 2rem 1.25rem 4rem; // $paper-left-space + 1rem
-  padding-right: 2rem;
+  padding: 1.25rem .5rem 1.25rem 4rem; // $paper-left-space + 1rem
 }
 
 .tdl-HeaderWrapper {
   @extend .d-flex, .align-items-center, .flex-wrap;
+  width: 100%;
 }
 
 @mixin tdl-title {
@@ -27,7 +27,13 @@
 }
 
 .tdl-Header:hover .tdl-Header_Actions {
+  @extend .d-flex, .align-items-center;
+  flex-grow: 1;
   display: block;
+}
+
+.tdl-Action_Reset {
+  @extend .ml-auto;
 }
 
 .tdl-Body_List {
