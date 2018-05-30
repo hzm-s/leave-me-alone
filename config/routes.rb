@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
   resource :todo_list, only: [:show, :update]
-  resource :marketing, only: [:show]
-  resource :session, only: [:new, :destroy]
 
   resource :google_sign_up, only: [:create]
+  resource :session, only: [:new, :destroy]
   resource :google_session, only: [:create]
 
-  root to: 'todo_lists#show'
+  resource :marketing, only: [:show]
+
+  root to: 'marketings#index'
 end
