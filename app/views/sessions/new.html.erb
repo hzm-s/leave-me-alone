@@ -1,9 +1,11 @@
 <%= content_for(:body_class) { 'sess-Body' } %>
 <div class="sess-Container">
   <div class="sess-SignIn">
-    <h1 class="sess-Appname">
-      Leave me alone!
-    </h1>
+    <%= link_to root_url, class: 'sess-RootLink' do %>
+      <h1 class="sess-Appname">
+        Leave me alone!
+      </h1>
+    <% end -%>
     <hr class="sess-Divider">
     <div class="sess-Actions">
       <%= google_sign_in(url: google_session_url) do %>
