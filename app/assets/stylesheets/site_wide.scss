@@ -2,6 +2,10 @@
   background-color: #FFF;
 }
 
+.sw-Link-sm {
+  font-size: $font-size-sm;
+}
+
 .sw-Button {
   @extend .btn, .btn-sm;
 }

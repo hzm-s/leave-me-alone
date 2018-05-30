@@ -55,6 +55,16 @@ export default class extends Controller {
     })
   }
 
+  removeDoneItems(e) {
+    e.preventDefault()
+    this.itemTargets.forEach((el) => {
+      const done = el.querySelector('input[type=checkbox]').checked
+      if (done) {
+        this.removeItem(el)
+      }
+    })
+  }
+
   emitChanged() {
     const event = new Event('formchanged', { bubbles: true })
     this.element.dispatchEvent(event)
