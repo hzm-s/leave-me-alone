@@ -18,10 +18,7 @@ describe 'Reset todo list', system: true, js: true do
   end
 
   it do
-    find('#test-header').hover
-    find('#js-TodoList_Menu').click
-    click_on '完了したTodoをすべて削除'
-
+    remove_dones
     aggregate_failures do
       expect(page).to_not have_content('Alpha')
       expect(page).to_not have_content('Bravo')

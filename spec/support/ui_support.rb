@@ -48,6 +48,12 @@ module UISupport
       todo_checkbox(index)[:checked]
     end
 
+    def remove_dones
+      find('#test-header').hover
+      find('#js-TodoList_Menu').click
+      click_on '完了したTodoをすべて削除'
+    end
+
     def wait_for_todo_list_save
       yield
       wait_sec = (TodoListHelper.auto_save_interval + 300) / 1000.0

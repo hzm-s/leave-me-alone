@@ -70,6 +70,16 @@ describe 'Update todo list', type: :system, js: true do
     end
   end
 
+  describe 'Remove dones' do
+    it do
+      wait_for_todo_list_save do
+        remove_dones
+      end
+      expect(page).to have_content('Alpha')
+      expect(page).to_not have_content('Bravo')
+    end
+  end
+
   describe 'Timestamp' do
     it do
       wait_for_todo_list_save do
