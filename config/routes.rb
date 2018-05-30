@@ -7,5 +7,5 @@ Rails.application.routes.draw do
 
   resource :marketing, only: [:show]
 
-  root to: 'homes#index'
+  root to: 'marketings#index'
 end
