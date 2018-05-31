@@ -48,10 +48,19 @@ module UISupport
       todo_checkbox(index)[:checked]
     end
 
-    def remove_dones
+    def open_todo_list_menu
       find('#test-header').hover
       find('#js-TodoList_Menu').click
+    end
+
+    def remove_dones
+      open_todo_list_menu
       click_on '完了したTodoをすべて削除'
+    end
+
+    def remove_all
+      open_todo_list_menu
+      click_on '未完了も含めてTodoをすべて削除'
     end
 
     def wait_for_todo_list_save

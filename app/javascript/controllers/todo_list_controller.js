@@ -65,6 +65,13 @@ export default class extends Controller {
     })
   }
 
+  removeAllItems(e) {
+    e.preventDefault()
+    this.itemTargets.forEach((el) => {
+      this.removeItem(el)
+    })
+  }
+
   emitChanged() {
     const event = new Event('formchanged', { bubbles: true })
     this.element.dispatchEvent(event)
