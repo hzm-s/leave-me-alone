@@ -34,4 +34,12 @@ describe 'Instant mode', type: :system, js: true do
       expect(page).to_not have_content('Golf')
     end
   end
+
+  describe 'Done' do
+    it do
+      add_todo('Echo')
+      done(0)
+      expect(todo_checked(0)).to be_truthy
+    end
+  end
 end
