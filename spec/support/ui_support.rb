@@ -8,19 +8,24 @@ module UISupport
       click_button
     end
 
-    def edit_todo(index, content)
-      all('.test-list-item')[index].find('label').double_click
-      fill_in "form[todos][#{index}][content]", with: content
-      click_button
-    end
-
     def add_todo(content)
       find('#test-new-todo-content').set(content)
       find('#test-create-todo').click
     end
 
+    def find_todo(index)
+      find("[data-todo-list-item-index='#{index}']")
+    end
+
+    def edit_todo(index, content)
+      find_todo(index).find('label').double_click
+      fill_in "form[todos][#{index}][content]", with: content
+      click_button
+    end
+
     def remove_todo(index)
-      all('.test-list-item')[index].hover
+      #all('.test-list-item')[index].hover
+      find_todo(index).hover
       click_on '削除する'
     end
 
