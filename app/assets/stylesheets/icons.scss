@@ -19,6 +19,10 @@
   @extend .fa, .fa-fast-backward;
 }
 
+.icon-Highlight {
+  @extend .fa, .fa-lightbulb-o;
+}
+
 .icon-ResetDone {
   @extend .fa, .fa-backward;
 }
