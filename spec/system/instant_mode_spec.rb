@@ -42,4 +42,13 @@ describe 'Instant mode', type: :system, js: true do
       expect(todo_checked(0)).to be_truthy
     end
   end
+
+  describe 'Revert done' do
+    it do
+      add_todo('Hotel')
+      done(0)
+      revert_done(0)
+      expect(todo_checked(0)).to be_falsey
+    end
+  end
 end
