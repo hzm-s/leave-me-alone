@@ -26,4 +26,12 @@ describe 'Instant mode', type: :system, js: true do
       expect(page).to have_content('Foxtrot')
     end
   end
+
+  describe 'Remove a todo' do
+    it do
+      add_todo('Golf')
+      remove_todo(0)
+      expect(page).to_not have_content('Golf')
+    end
+  end
 end
