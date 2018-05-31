@@ -24,7 +24,6 @@ module UISupport
     end
 
     def remove_todo(index)
-      #all('.test-list-item')[index].hover
       find_todo(index).hover
       click_on '削除する'
     end

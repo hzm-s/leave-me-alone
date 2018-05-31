@@ -20,7 +20,7 @@ export default class extends Controller {
   }
 
   startDetection() {
-    this.detectTimer = setInterval(() => { this.detect() }, 500)
+    this.detectTimer = setInterval(() => { this.detect() }, 100)
   }
 
   stopDetection() {

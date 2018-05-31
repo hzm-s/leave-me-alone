@@ -19,7 +19,7 @@ describe 'Instant mode', type: :system, js: true do
     end
   end
 
-  xdescribe 'Edit a todo' do
+  describe 'Edit a todo' do
     it do
       add_todo('Fox')
       edit_todo(0, 'Foxtrot')
