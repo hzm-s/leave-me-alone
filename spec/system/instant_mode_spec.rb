@@ -51,4 +51,12 @@ describe 'Instant mode', type: :system, js: true do
       expect(todo_checked(0)).to be_falsey
     end
   end
+
+  describe 'Do NOT auto save' do
+    it do
+      add_todo('Delta')
+      visit instant_todo_list_path
+      expect(page).to_not have_content('Delta')
+    end
+  end
 end
