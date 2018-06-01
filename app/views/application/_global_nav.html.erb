@@ -3,10 +3,12 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse justify-content-center" id="js-GlobalNav">
-    <a class="navbar-brand nav-Global_Appname" href="#">Leave me alone!</a>
+    <a class="navbar-brand nav-Global_Appname" href="/">Leave me alone!</a>
     <ul class="navbar-nav">
       <% if signed_in? %>
         <%= render 'user_menu' %>
+      <% else -%>
+        <i class="icon-Guest"></i>
       <% end -%>
     </ul>
   </div>
