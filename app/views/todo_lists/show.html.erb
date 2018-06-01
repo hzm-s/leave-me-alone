@@ -1,15 +1,14 @@
 <div class="row" data-controller="reminder" data-reminder-at="" id="test-remind-at">
   <div class="col-lg-9 col-xs-12 mx-auto">
-    <%= form_with url: todo_list_url, method: :patch, scope: :form, data: { controller: 'auto-submit', auto_submit_interval: TodoListHelper.auto_save_interval, target: 'reminder.subject' } do |f| %>
+    <%= form_with(todo_list_form_options(@instant_mode)) do |f| %>
       <div class="tdl-Background">
         <%= render partial: 'todo_lists/list', locals: { list: @list } %>
       </div>
-      <div class="tdl-Actions">
-        <div class="tdl-Actions_Save">
-          <%= render partial: 'save_status', locals: { list: @list } %>
-          <%= f.button data: { target: 'auto-submit.submit' }, style: 'display:none;' %>
-        </div>
-      </div>
+      <% if @instant_mode -%>
+        <%= render partial: 'todo_lists/instant_mode_footer', locals: { list: @list, f: f } %>
+      <% else -%>
+        <%= render partial: 'todo_lists/save', locals: { list: @list, f: f } %>
+      <% end -%>
     <% end -%>
   </div>
 </div>

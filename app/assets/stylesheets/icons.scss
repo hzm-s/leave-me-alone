@@ -15,6 +15,10 @@
   @extend .fa, .fa-sign-out;
 }
 
+.icon-Sign-in {
+  @extend .fa, .fa-sign-in;
+}
+
 .icon-ResetAll {
   @extend .fa, .fa-fast-backward;
 }
@@ -25,4 +29,19 @@
 
 .icon-ResetDone {
   @extend .fa, .fa-backward;
+}
+
+.icon-GotoSignup {
+  @extend .fa, .fa-chevron-circle-right;
+}
+
+.icon-Guest {
+  @extend .fa, .fa-user-circle-o;
+  color: $gray-500;
+  font-size: 2.25rem;
+  margin: .5rem .35rem;
+}
+
+.icon-GotoInstant {
+  @extend .fa, .fa-bolt;
 }
