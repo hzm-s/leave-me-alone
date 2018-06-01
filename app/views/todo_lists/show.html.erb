@@ -4,12 +4,7 @@
       <div class="tdl-Background">
         <%= render partial: 'todo_lists/list', locals: { list: @list } %>
       </div>
-      <div class="tdl-Actions">
-        <div class="tdl-Actions_Save">
-          <%= render partial: 'todo_lists/save_status', locals: { list: @list } %>
-          <%= f.button data: { target: 'auto-submit.submit' }, style: 'display:none;' %>
-        </div>
-      </div>
+      <%= render partial: 'todo_lists/save', locals: { list: @list, f: f } %>
     <% end -%>
   </div>
 </div>
