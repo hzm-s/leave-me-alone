@@ -4,7 +4,9 @@
       <div class="tdl-Background">
         <%= render partial: 'todo_lists/list', locals: { list: @list } %>
       </div>
-      <% unless @instant_mode -%>
+      <% if @instant_mode -%>
+        <%= render partial: 'todo_lists/instant_mode_footer', locals: { list: @list, f: f } %>
+      <% else -%>
         <%= render partial: 'todo_lists/save', locals: { list: @list, f: f } %>
       <% end -%>
     <% end -%>
