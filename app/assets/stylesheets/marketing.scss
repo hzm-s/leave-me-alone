@@ -60,9 +60,14 @@
 }
 
 .mk-Joins {
-  @extend .mx-auto;
+  @extend .d-flex, .align-items-center, .mx-auto;
 }
 
 .mk-Button {
   @extend .btn, .btn-lg;
+}
+
+.mk-GotoInstant {
+  font-size: $font-size-lg;
+  margin-left: 2rem;
 }
