@@ -10,4 +10,9 @@ describe 'InstantTodoList' do
 
     expect(guest_id_a).to_not eq(guest_id_b)
   end
+
+  it do
+    get instant_todo_list_path
+    expect(response.body).to include('ユーザー登録')
+  end
 end

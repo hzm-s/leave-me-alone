@@ -1,7 +1,8 @@
 class InstantTodoListsController < ApplicationController
   layout 'todo_list'
 
-  before_action :require_guest, only: [:show]
+  before_action :require_guest
+  before_action :require_registered_guest, only: [:update]
   before_action :register_guest, only: [:show]
   before_action :set_todo_list
 
@@ -28,8 +29,14 @@ class InstantTodoListsController < ApplicationController
       cookies.signed[:guest_id] = @current_guest.id
     end
 
+    def require_registered_guest
+      unless current_guest
+        redirect_to instant_todo_list_url
+      end
+    end
+
     def current_guest
-      @current_guest ||= Guest.find(cookies.signed[:guest_id])
+      @current_guest ||= Guest.find_by(id: cookies.signed[:guest_id])
     end
 
     def set_todo_list
