@@ -8,8 +8,7 @@ describe 'Find a todo list' do
 
       list = TodoList.find_by_user_id(user_a.id)
 
-      users_todo_list = UsersTodoList.find_by(todo_list_id: list.id)
-      expect(users_todo_list.user_id).to eq(user_a.id)
+      expect(list.id).to eq(user_a.todo_list_id)
     end
   end
 
@@ -20,8 +19,7 @@ describe 'Find a todo list' do
 
       list = TodoList.find_by_guest_id(guest_a.id)
 
-      guests_todo_list = GuestsTodoList.find_by(todo_list_id: list.id)
-      expect(guests_todo_list.guest_id).to eq(guest_a.id)
+      expect(list.id).to eq(guest_a.todo_list_id)
     end
   end
 end

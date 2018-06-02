@@ -2,11 +2,9 @@ class AddInstantTodoListCommand < ApplicationCommand
 
   def run(guest)
     todo_list = TodoList.new
+    guest.own_todo_list(todo_list)
 
-    transaction do
-      todo_list.save!
-      GuestsTodoList.create!(guest: guest, todo_list: todo_list)
-    end
+    guest.save!
 
     success(todo_list: todo_list)
   end

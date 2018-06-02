@@ -21,7 +21,7 @@ describe AddTodoListCommand do
   end
 
   it do
-    allow(UsersTodoList).to receive(:create!).and_raise
+    allow_any_instance_of(User).to receive(:save!).and_raise
     expect { described_class.run!(user) }.to raise_error(RuntimeError)
   end
 end
