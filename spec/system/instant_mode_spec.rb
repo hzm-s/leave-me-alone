@@ -5,82 +5,24 @@ describe 'Instant mode', type: :system, js: true do
     visit instant_todo_list_path
   end
 
-  describe 'Show list' do
-    it do
-      expect_reminder_scheduled
-    end
-  end
-
-  describe 'Edit title' do
-    it do
+  it do
+    wait_for_todo_list_save(reload: false) do
       edit_todo_list_title('Yarukoto')
-      aggregate_failures do
-        expect(page).to have_content('Yarukoto')
-        expect_reminder_scheduled
-      end
-    end
-  end
-
-  describe 'Add a todo' do
-    it do
       add_todo('Alpha')
-      aggregate_failures do
-        expect(page).to have_content('Alpha')
-        expect_reminder_scheduled
-      end
+      add_todo('Bravo')
+      done(1)
     end
-  end
 
-  describe 'Edit a todo' do
-    it do
-      add_todo('Fox')
-      edit_todo(0, 'Foxtrot')
-      aggregate_failures do
-        expect(page).to have_content('Foxtrot')
-        expect_reminder_scheduled
-      end
-    end
-  end
+    guest = Guest.last
+    todo_list = TodoList.find_by_guest_id(guest.id)
 
-  describe 'Remove a todo' do
-    it do
-      add_todo('Golf')
-      remove_todo(0)
-      aggregate_failures do
-        expect(page).to_not have_content('Golf')
-        expect_reminder_scheduled
-      end
-    end
-  end
-
-  describe 'Done' do
-    it do
-      add_todo('Echo')
-      done(0)
-      aggregate_failures do
-        expect(todo_checked(0)).to be_truthy
-        expect_reminder_scheduled
-      end
-    end
-  end
-
-  describe 'Revert done' do
-    it do
-      add_todo('Hotel')
-      done(0)
-      revert_done(0)
-      aggregate_failures do
-        expect(todo_checked(0)).to be_falsey
-        expect_reminder_scheduled
-      end
-    end
-  end
-
-  describe 'Do NOT auto save' do
-    it do
-      add_todo('Delta')
-      visit instant_todo_list_path
-      expect(page).to_not have_content('Delta')
+    aggregate_failures do
+      expect_reminder_scheduled
+      expect(todo_list.title).to eq('Yarukoto')
+      expect(todo_list.todos[0].content).to eq('Alpha')
+      expect(todo_list.todos[0]).to_not be_done
+      expect(todo_list.todos[1].content).to eq('Bravo')
+      expect(todo_list.todos[1]).to be_done
     end
   end
 end
