@@ -20,3 +20,8 @@
 body {
   padding-bottom: 3rem;
 }
+
+.turbolinks-progress-bar {
+  background: rgb(7,59,115);
+  background: linear-gradient(90deg, rgba(7,59,115,1) 0%, rgba(97,185,110,1) 100%, rgba(0,212,255,1) 100%);
+}
