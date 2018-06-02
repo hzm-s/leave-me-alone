@@ -1,0 +1,2 @@
+class UsersTodoList < ApplicationRecord
+end
