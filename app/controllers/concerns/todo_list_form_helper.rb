@@ -14,7 +14,7 @@ module TodoListFormHelper
       p[:todos].keys.map { |k| p[:todos][k] }
     end
 
-    def form_params
+    def todo_list_params
       params.require(:form).permit(:title, { todos: [:content, :done] })
     end
 end

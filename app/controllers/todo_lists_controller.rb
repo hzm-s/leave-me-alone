@@ -7,7 +7,7 @@ class TodoListsController < ApplicationController
   before_action :set_todo_list
 
   def update
-    new_todo_list = build_new_todo_list(form_params)
+    new_todo_list = build_new_todo_list(todo_list_params)
     @list.update_with(new_todo_list)
     @list.save!
   end
