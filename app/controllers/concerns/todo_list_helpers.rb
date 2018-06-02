@@ -1,4 +1,4 @@
-module TodoListFormHelper
+module TodoListHelpers
   private
 
     def build_new_todo_list(p)

@@ -1,4 +1,4 @@
-module TodoListHelper
+module TodoListFormHelper
   mattr_accessor :auto_save_interval
 
   def todo_list_form_options(instant_mode = false)
@@ -20,7 +20,7 @@ module TodoListHelper
         data: {
           target: 'reminder.subject',
           controller: 'auto-submit',
-          auto_submit_interval: TodoListHelper.auto_save_interval
+          auto_submit_interval: TodoListFormHelper.auto_save_interval
         }
       }
     end

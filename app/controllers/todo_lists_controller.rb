@@ -1,5 +1,5 @@
 class TodoListsController < ApplicationController
-  include TodoListFormHelper
+  include TodoListHelpers
 
   layout 'todo_list'
 
