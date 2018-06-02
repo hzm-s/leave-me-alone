@@ -8,6 +8,9 @@ describe User do
     user.own_todo_list(todo_list)
     user.save!
 
-    expect(user.todo_list_id).to eq(todo_list.id)
+    aggregate_failures do
+      expect(user.todo_list_id).to_not be_nil
+      expect(user.todo_list_id).to eq(todo_list.id)
+    end
   end
 end
