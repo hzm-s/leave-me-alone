@@ -1,13 +1,13 @@
 class GoogleSignUpsController < ApplicationController
   include GoogleSignInHelpers
+  include GuestHelpers
 
   before_action :require_guest
   before_action :require_google_id_token
   before_action :ensure_not_signed_up
 
   def create
-    guest = Guest.find_by(id: cookies.signed[:guest_id])
-    result = SignUpWithGoogleCommand.run(google_identity, guest: guest)
+    result = SignUpWithGoogleCommand.run(google_identity, guest: current_guest)
 
     if result.succeeded?
       sign_in(result.user.id)

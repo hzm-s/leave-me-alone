@@ -1,5 +1,6 @@
 class InstantTodoListsController < ApplicationController
   include TodoListHelpers
+  include GuestHelpers
 
   layout 'todo_list'
 
@@ -20,21 +21,6 @@ class InstantTodoListsController < ApplicationController
   end
 
   private
-
-    def register_guest
-      @current_guest = RegisterGuestCommand.run!.guest
-      cookies.signed[:guest_id] = @current_guest.id
-    end
-
-    def require_registered_guest
-      unless current_guest
-        redirect_to instant_todo_list_url
-      end
-    end
-
-    def current_guest
-      @current_guest ||= Guest.find_by(id: cookies.signed[:guest_id])
-    end
 
     def set_todo_list
       @list = TodoList.find_by_guest_id(current_guest.id)
