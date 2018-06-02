@@ -1,5 +1,4 @@
 class TodoList < ApplicationRecord
-  has_one :users_todo_list
   has_many :todos, dependent: :destroy
 
   after_initialize do
@@ -7,8 +6,10 @@ class TodoList < ApplicationRecord
     self.updated_at ||= Time.current
   end
 
-  def self.find_by_user_id(user_id)
-    joins(:users_todo_list).find_by(users_todo_lists: { user_id: user_id })
+  class << self
+    def find_by_user_id(user_id)
+      UsersTodoList.find_todo_list_by_user_id(user_id)
+    end
   end
 
   def update_with(new_todo_list)

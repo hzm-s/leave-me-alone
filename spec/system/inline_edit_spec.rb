@@ -4,7 +4,7 @@ describe 'Inline Edit', type: :system, js: true do
   let!(:user) { sign_up }
 
   before do
-    todo_list = user.todo_list
+    todo_list = TodoList.find_by_user_id(user.id)
     todo_list.tap do |list|
       list.add(content: 'Item123')
       list.save!
