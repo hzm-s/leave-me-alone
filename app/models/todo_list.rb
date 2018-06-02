@@ -10,6 +10,10 @@ class TodoList < ApplicationRecord
     def find_by_user_id(user_id)
       UsersTodoList.find_todo_list_by_user_id(user_id)
     end
+
+    def find_by_guest_id(guest_id)
+      GuestsTodoList.find_todo_list_by_guest_id(guest_id)
+    end
   end
 
   def update_with(new_todo_list)
