@@ -1,5 +1,5 @@
 class TodoList < ApplicationRecord
-  has_many :todos, dependent: :destroy
+  has_many :todos, -> { order(:id) }, dependent: :destroy
 
   after_initialize do
     self.title ||= 'Todo'
