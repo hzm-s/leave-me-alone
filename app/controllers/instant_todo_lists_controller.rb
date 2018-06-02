@@ -2,8 +2,8 @@ class InstantTodoListsController < ApplicationController
   layout 'todo_list'
 
   before_action :require_guest
-  before_action :require_registered_guest, only: [:update]
   before_action :register_guest, only: [:show]
+  before_action :require_registered_guest, only: [:update]
   before_action :set_todo_list
 
   def show
