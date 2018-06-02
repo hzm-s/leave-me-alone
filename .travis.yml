@@ -1,6 +1,6 @@
 env:
   global:
-    - CC_TEST_REPORTER_ID=787a2f89b15c637323c7340d65ec17e898ac44480706b4b4122ea040c2a88f1d
+    - CC_TEST_REPORTER_ID=bdd3390cddcf7cca9bcc1541c5e4509ae57622557b1a2b0214bab1d054e7474f
 language: ruby
 rvm: 2.4.1
 services: postgresql
