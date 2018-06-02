@@ -2,6 +2,11 @@ class User < ApplicationRecord
   has_one :google_identity
   has_one :profile, class_name: 'UserProfile'
 
+  has_one :users_todo_list
+  has_one :todo_list, through: :users_todo_list
+
+  delegate :todo_list_id, to: :users_todo_list, allow_nil: true
+
   before_create do
     self.signed_up_at = Time.current
   end
@@ -22,5 +27,9 @@ class User < ApplicationRecord
     def find_by_google_user_id(google_user_id)
       joins(:google_identity).find_by(google_identities: { sub: google_user_id })
     end
+  end
+
+  def own_todo_list(todo_list)
+    self.todo_list = todo_list
   end
 end
