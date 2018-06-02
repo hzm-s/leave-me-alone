@@ -21,19 +21,10 @@ describe SignUpWithGoogleCommand do
     end
 
     it do
-      r = described_class.run(google_identity)
-
-      todo_list = TodoList.find_by_user_id(r.user.id)
-      expect(todo_list).to_not be_nil
-    end
-
-    it do
       expect { described_class.run(google_identity) }
         .to change { User.count }.by(1)
         .and change { UserProfile.count }.by(1)
         .and change { GoogleIdentity.count }.by(1)
-        .and change { TodoList.count }.by(1)
-        .and change { UsersTodoList.count }.by(1)
     end
   end
 
@@ -44,8 +35,6 @@ describe SignUpWithGoogleCommand do
         .to change { User.count }.by(0)
         .and change { UserProfile.count }.by(0)
         .and change { GoogleIdentity.count }.by(0)
-        .and change { TodoList.count }.by(0)
-        .and change { UsersTodoList.count }.by(0)
     end
   end
 end

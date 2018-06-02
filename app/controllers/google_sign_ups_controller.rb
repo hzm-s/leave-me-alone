@@ -6,7 +6,9 @@ class GoogleSignUpsController < ApplicationController
   before_action :ensure_not_signed_up
 
   def create
-    result = SignUpWithGoogleCommand.run(google_identity)
+    guest = Guest.find_by(id: cookies.signed[:guest_id])
+    result = SignUpWithGoogleCommand.run(google_identity, guest: guest)
+
     if result.succeeded?
       sign_in(result.user.id)
       redirect_to todo_list_url
