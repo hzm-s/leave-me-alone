@@ -21,4 +21,14 @@ describe TransferTodoListCommand do
       .and change { UsersTodoList.count }.by(1)
       .and change { GuestsTodoList.count }.by(-1)
   end
+
+  it do
+    allow(user).to receive(:save!).and_raise
+    expect { described_class.run(user, guest) }.to raise_error(RuntimeError)
+  end
+
+  it do
+    allow(guest).to receive(:save!).and_raise
+    expect { described_class.run(user, guest) }.to raise_error(RuntimeError)
+  end
 end

@@ -7,6 +7,7 @@ class TransferTodoListCommand < ApplicationCommand
     transaction do
       user.save!
       GuestsTodoList.find_by(guest_id: guest.id).destroy!
+      guest.save!
     end
 
     success(todo_list: todo_list)
