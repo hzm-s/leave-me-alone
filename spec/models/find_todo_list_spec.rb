@@ -13,15 +13,15 @@ describe 'Find a todo list' do
     end
   end
 
-  xdescribe '#find_by_guest_id' do
+  describe '#find_by_guest_id' do
     it do
-      guest_a = Guest.create!
-      guest_b = Guest.create!
+      guest_a = register_guest
+      guest_b = register_guest
 
       list = TodoList.find_by_guest_id(guest_a.id)
 
       guests_todo_list = GuestsTodoList.find_by(todo_list_id: list.id)
-      expect(guests_todo_list.user_id).to eq(guest_a.id)
+      expect(guests_todo_list.guest_id).to eq(guest_a.id)
     end
   end
 end
