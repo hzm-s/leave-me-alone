@@ -36,6 +36,12 @@
   @extend .ml-auto;
 }
 
+.tdl-ResetButton {
+  @extend .btn, .btn-sm;
+  border: 1px solid $gray-500;
+  color: $gray-600;
+}
+
 .tdl-ResetAll_Link {
   color: theme-color('danger');
   &:hover {
