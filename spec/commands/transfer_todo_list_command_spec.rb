@@ -19,7 +19,7 @@ describe TransferTodoListCommand do
     expect { described_class.run(user, guest) }
       .to change { TodoList.count }.by(0)
       .and change { UsersTodoList.count }.by(1)
-      .and change { GuestsTodoList.count }.by(-1)
+      .and change { GuestsTodoList.count }.by(0)
   end
 
   it do

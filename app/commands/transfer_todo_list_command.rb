@@ -6,7 +6,6 @@ class TransferTodoListCommand < ApplicationCommand
 
     transaction do
       user.save!
-      guest.release_todo_list
       guest.save!
     end
 
