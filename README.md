@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/haazime/leave-me-alone.svg?branch=master)](https://travis-ci.org/haazime/leave-me-alone)
 [![Maintainability](https://api.codeclimate.com/v1/badges/5cd2a944f159734024b7/maintainability)](https://codeclimate.com/github/haazime/leave-me-alone/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/5cd2a944f159734024b7/test_coverage)](https://codeclimate.com/github/haazime/leave-me-alone/test_coverage)
 
 Let's todo driven work.
 
