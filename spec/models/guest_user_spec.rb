@@ -26,4 +26,15 @@ describe Guest do
       expect(guest.reload.todo_list_id).to be_nil
     end
   end
+
+  describe '#destroy' do
+    it do
+      guest = register_guest
+
+      expect { guest.destroy }
+        .to change { Guest.count }.by(-1)
+        .and change { GuestsTodoList.count }.by(-1)
+        .and change { TodoList.count }.by(-1)
+    end
+  end
 end

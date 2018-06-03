@@ -1,5 +1,5 @@
 class Guest < ApplicationRecord
-  has_one :guests_todo_list
+  has_one :guests_todo_list, dependent: :destroy
   has_one :todo_list, through: :guests_todo_list
 
   delegate :todo_list_id, to: :guests_todo_list, allow_nil: true

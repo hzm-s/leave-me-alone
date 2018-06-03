@@ -1,6 +1,6 @@
 class GuestsTodoList < ApplicationRecord
   belongs_to :guest
-  belongs_to :todo_list
+  belongs_to :todo_list, dependent: :destroy
 
   class << self
     def find_todo_list_by_guest_id(guest_id)
