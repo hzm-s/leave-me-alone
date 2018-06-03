@@ -8,6 +8,12 @@ class Guest < ApplicationRecord
     self.registered_at ||= Time.current
   end
 
+  class << self
+    def sweep(now: Time.current)
+      where('registered_at < ?', now - 24.hours).each(&:destroy!)
+    end
+  end
+
   def own_todo_list(todo_list)
     self.todo_list = todo_list
   end

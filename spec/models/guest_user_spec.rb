@@ -37,4 +37,18 @@ describe Guest do
         .and change { TodoList.count }.by(-1)
     end
   end
+
+  describe '.sweep' do
+    it do
+      guest_a = Guest.create!(registered_at: Time.zone.parse('2018-01-23 09:59:59'))
+      guest_b = Guest.create!(registered_at: Time.zone.parse('2018-01-23 10:00:00'))
+      guest_c = Guest.create!(registered_at: Time.zone.parse('2018-01-23 10:00:01'))
+
+      Guest.sweep(now: Time.zone.parse('2018-01-24 10:00:00'))
+
+      expect(Guest.find_by(id: guest_a.id)).to be_nil
+      expect(Guest.find_by(id: guest_b.id)).to_not be_nil
+      expect(Guest.find_by(id: guest_c.id)).to_not be_nil
+    end
+  end
 end
