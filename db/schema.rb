@@ -67,7 +67,6 @@ ActiveRecord::Schema.define(version: 2018_06_02_055803) do
 
   add_foreign_key "google_identities", "users"
   add_foreign_key "guests_todo_lists", "guests"
-  add_foreign_key "guests_todo_lists", "todo_lists"
   add_foreign_key "todos", "todo_lists"
   add_foreign_key "user_profiles", "users"
   add_foreign_key "users_todo_lists", "todo_lists"

@@ -34,7 +34,7 @@ describe Guest do
       expect { guest.destroy }
         .to change { Guest.count }.by(-1)
         .and change { GuestsTodoList.count }.by(-1)
-        .and change { TodoList.count }.by(-1)
+        .and change { TodoList.count }.by(0)
     end
   end
 
