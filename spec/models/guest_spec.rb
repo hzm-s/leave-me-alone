@@ -16,17 +16,6 @@ describe Guest do
     end
   end
 
-  describe '#release_todo_list' do
-    it do
-      guest = register_guest
-
-      guest.release_todo_list
-      guest.save!
-
-      expect(guest.reload.todo_list_id).to be_nil
-    end
-  end
-
   describe '#destroy' do
     it do
       guest = register_guest

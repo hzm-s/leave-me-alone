@@ -17,8 +17,4 @@ class Guest < ApplicationRecord
   def own_todo_list(todo_list)
     self.todo_list = todo_list
   end
-
-  def release_todo_list
-    self.todo_list = nil
-  end
 end
