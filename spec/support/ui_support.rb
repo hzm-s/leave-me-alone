@@ -59,12 +59,13 @@ module UISupport
 
     def remove_dones
       open_todo_list_menu
-      click_on '完了したTodoをすべて削除'
+      click_on '完了したTodoを削除'
     end
 
     def remove_all
       open_todo_list_menu
-      click_on '未完了も含めてTodoをすべて削除'
+      click_on 'Todoをすべて削除'
+      page.driver.browser.switch_to.alert.accept
     end
 
     def wait_for_todo_list_save(reload: true)
