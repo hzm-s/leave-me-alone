@@ -19,16 +19,16 @@
   @extend .fa, .fa-sign-in;
 }
 
+.icon-ResetDone {
+  @extend .fa, .fa-magic;
+}
+
 .icon-ResetAll {
-  @extend .fa, .fa-fast-backward;
+  @extend .fa, .fa-exclamation-triangle;
 }
 
 .icon-Highlight {
   @extend .fa, .fa-lightbulb-o;
-}
-
-.icon-ResetDone {
-  @extend .fa, .fa-backward;
 }
 
 .icon-GotoSignup {
