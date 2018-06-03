@@ -45,3 +45,10 @@
 .icon-GotoInstant {
   @extend .fa, .fa-bolt;
 }
+
+.icon-Saving {
+  @extend .fa, .fa-cloud-upload;
+  color: theme-color('success');
+  font-size: $font-size-base;
+  animation: kf-Flashing 1s ease 0s infinite;
+}
