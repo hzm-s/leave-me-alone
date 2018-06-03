@@ -1,8 +1,8 @@
 class User < ApplicationRecord
-  has_one :google_identity
-  has_one :profile, class_name: 'UserProfile'
+  has_one :google_identity, dependent: :destroy
+  has_one :profile, class_name: 'UserProfile', dependent: :destroy
 
-  has_one :users_todo_list
+  has_one :users_todo_list, dependent: :destroy
   has_one :todo_list, through: :users_todo_list
 
   delegate :todo_list_id, to: :users_todo_list, allow_nil: true
