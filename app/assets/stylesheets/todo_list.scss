@@ -36,6 +36,13 @@
   @extend .ml-auto;
 }
 
+.tdl-ResetAll_Link {
+  color: theme-color('danger');
+  &:hover {
+    color: theme-color('danger');
+  }
+}
+
 .tdl-Body_List {
   border-bottom: 1px solid $paper-line-color-h;
 }

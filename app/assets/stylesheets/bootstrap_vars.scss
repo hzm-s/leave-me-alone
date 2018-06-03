@@ -33,10 +33,13 @@ $link-color:       $gray-600 !default;
 
 $custom-control-indicator-checked-bg:  lighten($indigo, 15%);
 
-$dropdown-border-radius:  .5rem !default;
-$dropdown-padding-y:      .4rem !default;
-$dropdown-item-padding-y: .25rem !default;
-$nav-divider-margin-y:    .25rem !default;
+$dropdown-border-radius:      .5rem !default;
+$dropdown-padding-y:          .4rem !default;
+$dropdown-item-padding-y:     .25rem !default;
+$dropdown-link-hover-bg:      $gray-200 !default;
+$dropdown-link-active-color:  $gray-900 !default;
+$dropdown-link-active-bg:     $gray-300 !default;
+$nav-divider-margin-y:        .25rem !default;
 
 $alert-padding-x:     2.5rem !default;
 $alert-border-radius: 0 !default;
