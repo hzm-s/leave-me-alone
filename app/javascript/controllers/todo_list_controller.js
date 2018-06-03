@@ -67,9 +67,12 @@ export default class extends Controller {
 
   removeAllItems(e) {
     e.preventDefault()
-    this.itemTargets.forEach((el) => {
-      this.removeItem(el)
-    })
+    const isAccepted = window.confirm('本当に削除しますか？')
+    if (isAccepted) {
+      this.itemTargets.forEach((el) => {
+        this.removeItem(el)
+      })
+    }
   }
 
   emitChanged() {
