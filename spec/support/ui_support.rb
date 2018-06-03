@@ -1,6 +1,6 @@
 module UISupport
   module System
-    include TodoListHelper
+    include TodoListFormHelper
 
     def edit_todo_list_title(title)
       find('#test-header').first('span').double_click
@@ -67,11 +67,16 @@ module UISupport
       click_on '未完了も含めてTodoをすべて削除'
     end
 
-    def wait_for_todo_list_save
-      yield
-      wait_sec = (TodoListHelper.auto_save_interval + 300) / 1000.0
-      sleep wait_sec
+    def wait_for_todo_list_save(reload: true)
+      wait_for_todo_list_save_withouot_reload { yield }
+      return unless reload
       visit todo_list_path
+    end
+
+    def wait_for_todo_list_save_withouot_reload
+      yield
+      wait_sec = (TodoListFormHelper.auto_save_interval + 300) / 1000.0
+      sleep wait_sec
     end
   end
 end

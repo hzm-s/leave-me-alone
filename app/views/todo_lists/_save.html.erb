@@ -1,6 +1,10 @@
 <div class="tdl-Actions">
   <div class="tdl-Actions_Save">
-    <%= render partial: 'todo_lists/save_status', locals: { list: list } %>
     <%= f.button data: { target: 'auto-submit.submit' }, style: 'display:none;' %>
+    <% if instant_mode -%>
+      <%= link_to 'ユーザー登録してリストを保存する', root_url, class: 'btn btn-sm sw-Button-primary' %>
+    <% else -%>
+      <%= render partial: 'todo_lists/save_status', locals: { list: list } %>
+    <% end -%>
   </div>
 </div>

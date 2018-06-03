@@ -5,14 +5,18 @@ describe SignUpWithGoogleCommand do
 
   context 'when valid' do
     it do
-      described_class.run(google_identity)
+      r = described_class.run(google_identity)
+      expect(r).to be_succeeded
+    end
+
+    it do
+      r = described_class.run(google_identity)
 
       user = User.find_by_google_user_id(google_identity.user_id)
-      todo_list = TodoList.find_by_user_id(user.id)
       aggregate_failures do
+        expect(r.user).to eq(user)
         expect(user.name).to eq(google_identity.name)
         expect(user.avatar_url).to eq(google_identity.avatar_url)
-        expect(todo_list).to_not be_nil
       end
     end
 
@@ -21,7 +25,6 @@ describe SignUpWithGoogleCommand do
         .to change { User.count }.by(1)
         .and change { UserProfile.count }.by(1)
         .and change { GoogleIdentity.count }.by(1)
-        .and change { TodoList.count }.by(1)
     end
   end
 
@@ -32,7 +35,6 @@ describe SignUpWithGoogleCommand do
         .to change { User.count }.by(0)
         .and change { UserProfile.count }.by(0)
         .and change { GoogleIdentity.count }.by(0)
-        .and change { TodoList.count }.by(0)
     end
   end
 end

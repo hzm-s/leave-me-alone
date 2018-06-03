@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_27_204801) do
+ActiveRecord::Schema.define(version: 2018_06_02_055803) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,11 +23,20 @@ ActiveRecord::Schema.define(version: 2018_05_27_204801) do
     t.index ["user_id"], name: "index_google_identities_on_user_id"
   end
 
+  create_table "guests", force: :cascade do |t|
+    t.datetime "registered_at", null: false
+  end
+
+  create_table "guests_todo_lists", force: :cascade do |t|
+    t.bigint "guest_id", null: false
+    t.bigint "todo_list_id", null: false
+    t.index ["guest_id"], name: "index_guests_todo_lists_on_guest_id"
+    t.index ["todo_list_id"], name: "index_guests_todo_lists_on_todo_list_id"
+  end
+
   create_table "todo_lists", force: :cascade do |t|
-    t.bigint "user_id", null: false
     t.string "title", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_todo_lists_on_user_id"
   end
 
   create_table "todos", force: :cascade do |t|
@@ -49,8 +58,17 @@ ActiveRecord::Schema.define(version: 2018_05_27_204801) do
     t.datetime "signed_up_at", null: false
   end
 
+  create_table "users_todo_lists", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "todo_list_id", null: false
+    t.index ["todo_list_id"], name: "index_users_todo_lists_on_todo_list_id"
+    t.index ["user_id"], name: "index_users_todo_lists_on_user_id"
+  end
+
   add_foreign_key "google_identities", "users"
-  add_foreign_key "todo_lists", "users"
+  add_foreign_key "guests_todo_lists", "guests"
   add_foreign_key "todos", "todo_lists"
   add_foreign_key "user_profiles", "users"
+  add_foreign_key "users_todo_lists", "todo_lists"
+  add_foreign_key "users_todo_lists", "users"
 end

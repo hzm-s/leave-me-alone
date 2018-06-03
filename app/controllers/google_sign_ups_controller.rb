@@ -1,12 +1,14 @@
 class GoogleSignUpsController < ApplicationController
   include GoogleSignInHelpers
+  include GuestHelpers
 
   before_action :require_guest
   before_action :require_google_id_token
   before_action :ensure_not_signed_up
 
   def create
-    result = SignUpWithGoogleCommand.run(google_identity)
+    result = SignUpWithGoogleCommand.run(google_identity, guest: current_guest)
+
     if result.succeeded?
       sign_in(result.user.id)
       redirect_to todo_list_url
