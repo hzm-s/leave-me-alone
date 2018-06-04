@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resource :todo_list, only: [:show, :update]
   resource :instant_todo_list, only: [:show, :update]
-  resource :setting, only: [:show, :update]
+  resource :setting, only: [:show]
 
   resource :google_sign_up, only: [:create]
   resource :session, only: [:new, :destroy]
