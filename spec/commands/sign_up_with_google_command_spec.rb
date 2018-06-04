@@ -11,7 +11,7 @@ describe SignUpWithGoogleCommand do
 
     it do
       r = described_class.run(google_identity)
-      user = User.find_by_google_user_id(google_identity.user_id)
+      user = User.last
       expect(r.user).to eq(user)
     end
 
