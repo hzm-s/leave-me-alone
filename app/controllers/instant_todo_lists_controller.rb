@@ -2,7 +2,7 @@ class InstantTodoListsController < ApplicationController
   include TodoListHelpers
   include GuestHelpers
 
-  layout 'todo_list'
+  layout 'app'
 
   before_action :require_guest
   before_action :register_guest, only: [:show]

@@ -1,7 +1,7 @@
 class TodoListsController < ApplicationController
   include TodoListHelpers
 
-  layout 'todo_list'
+  layout 'app'
 
   before_action :require_user
   before_action :set_todo_list
