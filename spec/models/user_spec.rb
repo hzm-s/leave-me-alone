@@ -1,6 +1,20 @@
 require 'rails_helper'
 
 describe User do
+  describe '.new_with_google_identity' do
+    it do
+      google_identity = generate_google_identity
+
+      user = User.new_with_google_identity(google_identity)
+
+      aggregate_failures do
+        expect(user.google_user_id).to eq(google_identity.user_id)
+        expect(user.name).to eq(google_identity.name)
+        expect(user.avatar_url).to eq(google_identity.avatar_url)
+      end
+    end
+  end
+
   describe '#own_todo_list' do
     let(:user) { User.create!(name: 'User') }
 

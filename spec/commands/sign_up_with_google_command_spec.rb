@@ -11,13 +11,8 @@ describe SignUpWithGoogleCommand do
 
     it do
       r = described_class.run(google_identity)
-
-      user = User.find_by_google_user_id(google_identity.user_id)
-      aggregate_failures do
-        expect(r.user).to eq(user)
-        expect(user.name).to eq(google_identity.name)
-        expect(user.avatar_url).to eq(google_identity.avatar_url)
-      end
+      user = User.last
+      expect(r.user).to eq(user)
     end
 
     it do
