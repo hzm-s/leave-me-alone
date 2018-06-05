@@ -7,16 +7,12 @@
         </h2>
       </div>
       <div class="set-Container_Body">
-        <form>
+        <%= form_with model: @form, scope: :form, url: setting_url, method: :patch, local: true do |f| %>
           <div class="frm-Row mb-3">
             <label class="mb-0">
               最後にリストを更新してから
             </label>
-            <select class="ml-1 mr-1">
-              <% 5.step(60, 5) do |n| %>
-                <option><%= n %></option>
-              <% end -%>
-            </select>
+            <%= f.collection_select :interval_in_minutes, RemindInterval.all, :minutes, :minutes, {}, class: 'ml-1 mr-1' %>
             <label class="mb-0">
               分後にリマインドする
             </label>
@@ -24,7 +20,7 @@
           <button class="btn sw-Button-primary">
             保存する
           </button>
-        </form>
+        <% end -%>
       </div>
     </div>
     <div class="set-Nav">
