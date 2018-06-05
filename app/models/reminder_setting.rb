@@ -1,0 +1,2 @@
+class ReminderSetting < ApplicationRecord
+end

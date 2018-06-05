@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_02_055803) do
+ActiveRecord::Schema.define(version: 2018_06_05_131329) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,12 @@ ActiveRecord::Schema.define(version: 2018_06_02_055803) do
     t.bigint "todo_list_id", null: false
     t.index ["guest_id"], name: "index_guests_todo_lists_on_guest_id"
     t.index ["todo_list_id"], name: "index_guests_todo_lists_on_todo_list_id"
+  end
+
+  create_table "reminder_settings", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.integer "interval_in_minutes", null: false
+    t.index ["user_id"], name: "index_reminder_settings_on_user_id"
   end
 
   create_table "todo_lists", force: :cascade do |t|
@@ -67,6 +73,7 @@ ActiveRecord::Schema.define(version: 2018_06_02_055803) do
 
   add_foreign_key "google_identities", "users"
   add_foreign_key "guests_todo_lists", "guests"
+  add_foreign_key "reminder_settings", "users"
   add_foreign_key "todos", "todo_lists"
   add_foreign_key "user_profiles", "users"
   add_foreign_key "users_todo_lists", "todo_lists"

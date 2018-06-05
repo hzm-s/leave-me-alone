@@ -7,7 +7,9 @@ class SettingsController < ApplicationController
 
   def update
     form = SettingForm.new(form_params)
-    if result = UpdateReminderSettingCommand.run(form)
+    @setting = ReminderSetting.find_by_user_id(user_id: current_user.id)
+
+    if @setting.update(interval_in_minutes: form.interval_in_minutes)
       redirect_to setting_url, notice: '設定を保存しました'
     end
   end
