@@ -1,9 +1,19 @@
 class RemindInterval < Struct.new(:minutes)
-  VALUES = 5.step(60, 5).map { |m| self.new(m) }
-
   class << self
     def all
-      VALUES
+      5.step(60, 5).map { |m| new(m) }
     end
+
+    def default
+      new(30)
+    end
+
+    def from_integer(i)
+      new(i)
+    end
+  end
+
+  def to_i
+    minutes
   end
 end

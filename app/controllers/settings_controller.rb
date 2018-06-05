@@ -2,14 +2,17 @@ class SettingsController < ApplicationController
   layout 'app'
 
   def show
-    form = SettingForm.new
+    setting = current_user.reminder_setting || ReminderSetting.default
+    @form = SettingForm.new(interval_in_minutes: setting.interval.minutes)
   end
 
   def update
     form = SettingForm.new(form_params)
-    @setting = ReminderSetting.find_by_user_id(user_id: current_user.id)
 
-    if @setting.update(interval_in_minutes: form.interval_in_minutes)
+    setting = ReminderSetting.new(interval: form.remind_interval)
+    current_user.reminder_setting = setting
+
+    if current_user.save
       redirect_to setting_url, notice: '設定を保存しました'
     end
   end

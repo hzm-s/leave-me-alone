@@ -16,6 +16,12 @@ describe SignUpWithGoogleCommand do
     end
 
     it do
+      r = described_class.run(google_identity)
+      setting = ReminderSetting.last
+      expect(setting.interval).to eq(RemindInterval.new(30))
+    end
+
+    it do
       expect { described_class.run(google_identity) }
         .to change { User.count }.by(1)
         .and change { UserProfile.count }.by(1)

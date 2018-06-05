@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 2018_06_05_131329) do
 
   create_table "reminder_settings", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.integer "interval_in_minutes", null: false
+    t.integer "interval", null: false
     t.index ["user_id"], name: "index_reminder_settings_on_user_id"
   end
 
