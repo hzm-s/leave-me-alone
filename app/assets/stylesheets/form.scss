@@ -16,3 +16,7 @@ input,
 textarea {
   @include nf;
 }
+
+.frm-Row {
+  @extend .d-flex, .align-items-center;
+}

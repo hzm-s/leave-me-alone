@@ -8,18 +8,18 @@
       </div>
       <div class="set-Container_Body">
         <form>
-          <div class="form-group">
-            <label>
-              リマインドする間隔
+          <div class="frm-Row mb-3">
+            <label class="mb-0">
+              最後にリストを更新してから
             </label>
-            <select class="form-control">
+            <select class="ml-1 mr-1">
               <% 5.step(60, 5) do |n| %>
-                <option><%= n %>分</option>
+                <option><%= n %></option>
               <% end -%>
             </select>
-            <small class="form-text text-muted">
-              最後にリストを変更してからこの時間が経過すると通知されます
-            </small>
+            <label class="mb-0">
+              分後にリマインドする
+            </label>
           </div>
           <button class="btn sw-Button-primary">
             保存する
