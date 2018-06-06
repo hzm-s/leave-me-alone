@@ -10,7 +10,6 @@ class InstantTodoListsController < ApplicationController
   before_action :set_todo_list
 
   def show
-    @instant_mode = true
     render 'todo_lists/show'
   end
 
