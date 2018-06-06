@@ -2,7 +2,7 @@ class InstantTodoListsController < ApplicationController
   include TodoListHelpers
   include GuestHelpers
 
-  layout 'todo_list'
+  layout 'app'
 
   before_action :require_guest
   before_action :register_guest, only: [:show]
@@ -10,7 +10,6 @@ class InstantTodoListsController < ApplicationController
   before_action :set_todo_list
 
   def show
-    @instant_mode = true
     render 'todo_lists/show'
   end
 
@@ -23,6 +22,7 @@ class InstantTodoListsController < ApplicationController
   private
 
     def set_todo_list
-      @list = TodoList.find_by_guest_id(current_guest.id)
+      list = TodoList.find_by_guest_id(current_guest.id)
+      @list = TodoListPresenter.new(list, instant_mode: true)
     end
 end

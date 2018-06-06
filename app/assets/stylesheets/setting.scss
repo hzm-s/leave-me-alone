@@ -1,0 +1,23 @@
+.set-Nav {
+  text-align: center;
+}
+
+.set-Container {
+  margin: 1rem 0 .5rem;
+  border-radius: .6rem;
+  box-shadow: 0 0 6px rgba(70,70,70,0.3);
+}
+
+.set-Container_Header {
+  padding: 1rem 0 1rem 2rem;
+  border-bottom: 1px solid $gray-300;
+}
+
+.set-Container_Body {
+  padding: 1rem 2rem;
+}
+
+.set-Container_Title {
+  font-size: $font-size-lg;
+  margin-bottom: 0;
+}

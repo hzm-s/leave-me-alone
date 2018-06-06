@@ -52,3 +52,7 @@
   font-size: $font-size-base;
   animation: kf-Flashing 1s ease 0s infinite;
 }
+
+.icon-Back {
+  @extend .fa, .fa-share;
+}

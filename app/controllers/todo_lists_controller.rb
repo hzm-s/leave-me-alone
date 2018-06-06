@@ -1,7 +1,7 @@
 class TodoListsController < ApplicationController
   include TodoListHelpers
 
-  layout 'todo_list'
+  layout 'app'
 
   before_action :require_user
   before_action :set_todo_list
@@ -15,6 +15,7 @@ class TodoListsController < ApplicationController
   private
 
     def set_todo_list
-      @list = TodoList.find_by_user_id(current_user.id)
+      list = TodoList.find_by_user_id(current_user.id)
+      @list = TodoListPresenter.new(list, reminder_setting: current_user.reminder_setting)
     end
 end

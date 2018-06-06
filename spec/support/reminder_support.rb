@@ -1,6 +1,6 @@
 module ReminderSupport
-  def expect_reminder_scheduled
-    expect(about_min(30.minutes.from_now)).to include(remind_at)
+  def expect_reminder_scheduled(interval = 30.minutes)
+    expect(about_min(interval.from_now)).to include(remind_at)
   end
 
   def remind_at

@@ -5,6 +5,8 @@ class User < ApplicationRecord
   has_one :users_todo_list, dependent: :destroy
   has_one :todo_list, through: :users_todo_list
 
+  has_one :reminder_setting, dependent: :destroy
+
   delegate :todo_list_id, to: :users_todo_list, allow_nil: true
 
   before_create do
