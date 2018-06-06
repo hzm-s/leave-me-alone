@@ -1,4 +1,4 @@
-<div class="row" data-controller="reminder" data-reminder-at="" id="test-remind-at">
+<div class="row" data-controller="reminder" data-reminder-at="" data-reminder-interval="<%= @reminder_interval_in_minutes %>" id="test-remind-at">
   <div class="col-lg-9 col-xs-12 mx-auto">
     <%= form_with(todo_list_form_options(@instant_mode)) do |f| %>
       <div class="tdl-Background">

@@ -8,7 +8,7 @@ export default class extends Controller {
   initialize() {
     Push.Permission.request()
 
-    this.remindInterval = 1000 * 60 * 30
+    this.remindInterval = 1000 * 60 * parseInt(this.data.get('interval'))
     this.setReminder()
 
     this.subjectTarget.addEventListener('formchanged', (e) => {

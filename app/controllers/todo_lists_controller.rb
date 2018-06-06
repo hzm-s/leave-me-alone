@@ -6,6 +6,10 @@ class TodoListsController < ApplicationController
   before_action :require_user
   before_action :set_todo_list
 
+  def show
+    @reminder_interval_in_minutes = current_user.reminder_setting.interval.minutes
+  end
+
   def update
     new_todo_list = build_new_todo_list(todo_list_params)
     @list.update_with(new_todo_list)
