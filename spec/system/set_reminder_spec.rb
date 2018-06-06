@@ -11,7 +11,6 @@ describe 'Set reminder', type: :system, js: true do
     expect(page).to have_select('form[interval_in_minutes]', selected: '25')
 
     visit todo_list_path
-    puts page.html
     expect_reminder_scheduled(25.minutes)
   end
 end

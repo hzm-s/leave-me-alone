@@ -23,6 +23,7 @@ class InstantTodoListsController < ApplicationController
   private
 
     def set_todo_list
-      @list = TodoList.find_by_guest_id(current_guest.id)
+      list = TodoList.find_by_guest_id(current_guest.id)
+      @list = TodoListPresenter.new(list, instant_mode: true)
     end
 end
