@@ -49,6 +49,8 @@ export default class extends Controller {
   }
 
   setIndicator() {
+    if (!this.hasStatusTarget) { return }
+
     const template = document.querySelector('#tmpl-saving')
     const element = document.importNode(template.content, true)
     this.statusTarget.innerText = ''
