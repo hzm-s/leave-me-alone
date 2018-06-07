@@ -2,8 +2,8 @@ class SettingsController < ApplicationController
   layout 'app'
 
   def show
-    setting = current_user.reminder_setting || ReminderSetting.default
-    @form = SettingForm.new(interval_in_minutes: setting.interval.minutes)
+    setting = current_user.reminder_setting
+    @form = SettingForm.new(reminder_interval_i: setting.interval.minutes)
   end
 
   def update
@@ -20,6 +20,6 @@ class SettingsController < ApplicationController
   private
 
     def form_params
-      params.require(:form).permit(:interval_in_minutes)
+      params.require(:form).permit(:reminder_interval_i)
     end
 end
