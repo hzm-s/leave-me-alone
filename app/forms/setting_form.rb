@@ -4,6 +4,6 @@ class SettingForm
   attr_accessor :reminder_interval_i
 
   def remind_interval
-    RemindInterval.new(reminder_interval_i)
+    RemindInterval.from_minutes(reminder_interval_i)
   end
 end
