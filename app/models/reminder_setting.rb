@@ -8,4 +8,9 @@ class ReminderSetting < ApplicationRecord
       new(interval: RemindInterval.default)
     end
   end
+
+  def ==(other)
+    other.instance_of?(self.class) &&
+      self.interval == other.interval
+  end
 end
