@@ -12,7 +12,7 @@
             <label class="mb-0">
               最後にリストを更新してから
             </label>
-            <%= f.collection_select :interval_in_minutes, RemindInterval.all.map(&:minutes), :to_i, :to_i, {}, class: 'ml-1 mr-1' %>
+            <%= f.collection_select :reminder_interval_str, RemindInterval.all.map(&:minutes), :to_i, :to_i, {}, class: 'ml-1 mr-1' %>
             <label class="mb-0">
               分後にリマインドする
             </label>

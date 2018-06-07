@@ -1,9 +1,9 @@
 class SettingForm
   include ActiveModel::Model
 
-  attr_accessor :interval_in_minutes
+  attr_accessor :reminder_interval_str
 
   def remind_interval
-    RemindInterval.new(interval_in_minutes)
+    RemindInterval.from_minutes(reminder_interval_str.to_i)
   end
 end

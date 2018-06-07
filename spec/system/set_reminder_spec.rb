@@ -5,10 +5,10 @@ describe 'Set reminder', type: :system, js: true do
 
   it do
     visit setting_path
-    select '25', from: 'form[interval_in_minutes]'
+    select '25', from: 'form[reminder_interval_str]'
     click_on '保存する'
 
-    expect(page).to have_select('form[interval_in_minutes]', selected: '25')
+    expect(page).to have_select('form[reminder_interval_str]', selected: '25')
 
     visit todo_list_path
     expect_reminder_scheduled(25.minutes)
