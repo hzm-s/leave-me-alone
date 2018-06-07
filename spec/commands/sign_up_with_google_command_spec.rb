@@ -17,8 +17,7 @@ describe SignUpWithGoogleCommand do
 
     it do
       r = described_class.run(google_identity)
-      setting = ReminderSetting.last
-      expect(setting.interval).to eq(RemindInterval.new(30))
+      expect(r.user.reminder_setting).to eq(ReminderSetting.default)
     end
 
     it do
