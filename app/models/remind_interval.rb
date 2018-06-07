@@ -13,7 +13,7 @@ class RemindInterval < Struct.new(:minutes)
     end
 
     def from_integer(i)
-      raise ArgumentError unless all.map(&:minutes).include?(i)
+      raise ArgumentError unless all.map(&:minutes).include?(i.to_i)
       new(i)
     end
     alias_method :from_minutes, :from_integer
