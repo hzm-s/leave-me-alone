@@ -1,4 +1,8 @@
 class ReminderSetting < ApplicationRecord
+  include ValueObject
+
+  vo_attrs :interval
+
   belongs_to :user
 
   attribute :interval, :compatible_with_integer, class_name: RemindInterval
@@ -7,10 +11,5 @@ class ReminderSetting < ApplicationRecord
     def default
       new(interval: RemindInterval.default)
     end
-  end
-
-  def ==(other)
-    other.instance_of?(self.class) &&
-      self.interval == other.interval
   end
 end
