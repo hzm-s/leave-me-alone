@@ -12,11 +12,7 @@ export default class extends Controller {
   }
 
   update() {
-    let textDecoration = 'none'
-    if (this.isDone) {
-      textDecoration = 'line-through'
-    }
-    this.label.style.textDecoration = textDecoration
+    this.updateLabel()
   }
 
   highlight(e) {
@@ -46,6 +42,14 @@ export default class extends Controller {
   setInputElement() {
     this.input = this.element.querySelector('input[type="text"]')
     this.input.name = `form[todos][${this.index}][content]`
+  }
+
+  updateLabel() {
+    let textDecoration = 'none'
+    if (this.isDone) {
+      textDecoration = 'line-through'
+    }
+    this.label.style.textDecoration = textDecoration
   }
 
   get isDone() {
