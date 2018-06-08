@@ -8,10 +8,10 @@ export default class extends Controller {
   }
 
   connect() {
-    this.updateLabel()
+    this.update()
   }
 
-  updateLabel() {
+  update() {
     let textDecoration = 'none'
     if (this.isDone) {
       textDecoration = 'line-through'

@@ -1,7 +1,7 @@
 <div data-controller="inline-edit content todo-list-item" data-content-value="<%= item&.content %>" data-todo-list-item-index="<%= index %>" data-target="todo-list.item" class="tdl-Item test-list-item">
   <div data-target="inline-edit.showSection" class="tdl-Row">
     <div class="todo-Item_Check">
-      <input type="checkbox"<%= item&.done? && ' checked' %> data-action="todo-list-item#updateLabel">
+      <input data-action="todo-list-item#update" type="checkbox"<%= item&.done? && ' checked' %>>
     </div>
     <div class="todo-Item">
       <label data-action="dblclick->inline-edit#open dblclick->content#edit" data-target="content.show" class="todo-Item_Content"></label>
