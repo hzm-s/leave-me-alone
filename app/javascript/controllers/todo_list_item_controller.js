@@ -8,13 +8,7 @@ export default class extends Controller {
   }
 
   connect() {
-    this.observeTimer = setInterval(() => { this.updateLabel() }, 200)
-  }
-
-  disconnect() {
-    if (this.observeTimer) {
-      clearInterval(this.observeTimer)
-    }
+    this.updateLabel()
   }
 
   updateLabel() {
