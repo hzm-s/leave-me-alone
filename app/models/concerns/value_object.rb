@@ -4,7 +4,7 @@ module ValueObject
   class_methods do
     def vo_attrs(*attributes)
       class_eval %Q{
-        def ==(other)
+        def same_value_as?(other)
           other.instance_of?(self.class) &&
             #{attributes.map { |attr| "self.#{attr} == other.#{attr}" }.join(' &&') }
         end

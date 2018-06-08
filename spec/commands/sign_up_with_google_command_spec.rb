@@ -17,7 +17,7 @@ describe SignUpWithGoogleCommand do
 
     it do
       r = described_class.run(google_identity)
-      expect(r.user.reminder_setting).to eq(ReminderSetting.default)
+      expect(r.user.reminder_setting.same_value_as?(ReminderSetting.default)).to be_truthy
     end
 
     it do
