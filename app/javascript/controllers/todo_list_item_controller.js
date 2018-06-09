@@ -8,7 +8,25 @@ export default class extends Controller {
   }
 
   connect() {
+    this.update()
+  }
+
+  update() {
     this.updateLabel()
+    if (this.isDone && this.isHighlighted) {
+      this.emitHighlight()
+    }
+  }
+
+  highlight(e) {
+    e.preventDefault()
+    this.emitHighlight()
+  }
+
+  remove(e) {
+    e.preventDefault()
+    const event = new Event('todoremoved', { bubbles: true })
+    this.element.dispatchEvent(event)
   }
 
   updateLabel() {
@@ -19,16 +37,21 @@ export default class extends Controller {
     this.label.style.textDecoration = textDecoration
   }
 
-  highlight(e) {
-    e.preventDefault()
+  emitHighlight() {
     const event = new Event('todohightlighted', { bubbles: true })
     this.element.dispatchEvent(event)
   }
 
-  remove(e) {
-    e.preventDefault()
-    const event = new Event('todoremoved', { bubbles: true })
-    this.element.dispatchEvent(event)
+  get isDone() {
+    return this.checkbox.checked
+  }
+
+  get isHighlighted() {
+    return this.element.classList.contains('tdl-Item-highlight')
+  }
+
+  get index() {
+    return parseInt(this.data.get('index'))
   }
 
   setCheckboxElement() {
@@ -46,13 +69,5 @@ export default class extends Controller {
   setInputElement() {
     this.input = this.element.querySelector('input[type="text"]')
     this.input.name = `form[todos][${this.index}][content]`
-  }
-
-  get isDone() {
-    return this.checkbox.checked
-  }
-
-  get index() {
-    return parseInt(this.data.get('index'))
   }
 }
