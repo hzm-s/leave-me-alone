@@ -19,16 +19,7 @@
   margin: 0;
 }
 
-@mixin todo-input {
+.todo-Input {
   @include input-no-border;
   flex-grow: 1;
-}
-
-.todo-Form {
-  @extend .form-inline;
-  margin-left: 3.25rem; // $paper-left-space + 0.25rem
-}
-
-.todo-Input {
-  @include todo-input;
 }

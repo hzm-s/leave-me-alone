@@ -20,3 +20,7 @@ textarea {
 .frm-Row {
   @extend .d-flex, .align-items-center;
 }
+
+.frm-Inline {
+  @extend .form-inline;
+}
