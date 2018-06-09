@@ -1,5 +1,5 @@
-<div data-controller="inline-edit content todo-list-item" data-content-value="<%= item&.content %>" data-todo-list-item-index="<%= index %>" data-target="todo-list.item" class="tdl-Item test-list-item">
-  <div data-target="inline-edit.showSection" class="tdl-Row">
+<div data-controller="inline-edit content todo-list-item" data-content-value="<%= item&.content %>" data-todo-list-item-index="<%= index %>" data-target="todo-list.item" class="np-Item tdl-Item test-list-item">
+  <div data-target="inline-edit.showSection" class="tdl-ItemRow">
     <div class="todo-Item_Check">
       <input data-action="todo-list-item#update" type="checkbox"<%= item&.done? && ' checked' %>>
     </div>
@@ -11,8 +11,8 @@
       </div>
     </div>
   </div>
-  <div data-target="inline-edit.editSection">
-    <div data-controller="safe-form" class="todo-Form">
+  <div data-target="inline-edit.editSection" class="np-Item-padding-left">
+    <div data-controller="safe-form" class="frm-Inline">
       <input data-target="content.input safe-form.field" type="text" class="todo-Input" autocomplete="off">
       <button data-action="content#update inline-edit#close" data-target="safe-form.submit" class="sw-Button sw-Button-primary">
         <i class="icon-Save"></i>
