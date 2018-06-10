@@ -13,7 +13,7 @@ GIT
 
 GIT
   remote: https://github.com/haazime/validates_domain_object_of.git
-  revision: 6c39be2a349413fc4e7303b3a36a9ead27d7d100
+  revision: c9fd99fd4f356733bb8984263ee7c76b7e771dee
   specs:
     validates_domain_object_of (0.1.0)
 
