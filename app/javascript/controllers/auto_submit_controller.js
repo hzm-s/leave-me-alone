@@ -12,6 +12,9 @@ export default class extends Controller {
     this.element.addEventListener('change', (e) => {
       this.setSubmitter()
     })
+    this.element.addEventListener('ajax:complete', (e) => {
+      this.emitAutoSaved()
+    })
     this.element.addEventListener('submit', (e) => {
       this.setIndicator()
     })
@@ -37,6 +40,11 @@ export default class extends Controller {
 
   submit() {
     this.submitTarget.click()
+  }
+
+  emitAutoSaved() {
+    const event = new Event('autosaved', { bubbles: true })
+    this.element.dispatchEvent(event)
   }
 
   setSubmitInterval() {
