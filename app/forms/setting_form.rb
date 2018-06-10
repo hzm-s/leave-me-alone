@@ -1,9 +1,8 @@
 class SettingForm
   include ActiveModel::Model
 
-  attr_accessor :reminder_interval_str
+  attr_accessor :remind_interval
+  attr_accessor :domain_objects
 
-  def remind_interval
-    RemindInterval.from_minutes(reminder_interval_str.to_i)
-  end
+  validates :remind_interval, domain_object: { object_class: RemindInterval, method: :from_minutes }
 end
