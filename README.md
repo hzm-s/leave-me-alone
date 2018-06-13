@@ -8,6 +8,8 @@ Let's todo driven work.
 
 This application helps you to getting work done.
 
+## Run with docker for development
+
 ## Requirement
 
 - docker
